@@ -1,0 +1,6 @@
+framework module Pods_SwiftTrade {
+  umbrella header "Pods-SwiftTrade-umbrella.h"
+
+  export *
+  module * { export * }
+}
