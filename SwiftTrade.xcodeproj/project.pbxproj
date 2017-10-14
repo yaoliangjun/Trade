@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C0D23E33DBAD82B3ABD48046 /* Pods_SwiftTrade.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F68127308E5581B3445FC3 /* Pods_SwiftTrade.framework */; };
-		E91EDC0A1F8F40D600DA6716 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E91EDC091F8F40D600DA6716 /* Assets.xcassets */; };
 		E91EDC361F8F42F100DA6716 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EDC351F8F42F100DA6716 /* AppDelegate.swift */; };
 		E91EDC3A1F8F480000DA6716 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EDC391F8F480000DA6716 /* BaseViewController.swift */; };
 		E91EDC3C1F8F481E00DA6716 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EDC3B1F8F481E00DA6716 /* BaseNavigationController.swift */; };
@@ -23,14 +22,19 @@
 		E9C592041F90AC8900D3835A /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C592031F90AC8900D3835A /* UIButton+Extension.swift */; };
 		E9C592061F90B5ED00D3835A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C592051F90B5ED00D3835A /* UIImage+Extension.swift */; };
 		E9C592081F90BD8600D3835A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C592071F90BD8600D3835A /* RegisterViewController.swift */; };
+		F2BC641C1F91BB7B00E06B16 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC641B1F91BB7B00E06B16 /* MainTabBarController.swift */; };
+		F2BC641E1F91BBD600E06B16 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC641D1F91BBD600E06B16 /* HomeViewController.swift */; };
+		F2BC64201F91BBE500E06B16 /* TradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC641F1F91BBE500E06B16 /* TradeViewController.swift */; };
+		F2BC64221F91BBF900E06B16 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC64211F91BBF900E06B16 /* InformationViewController.swift */; };
+		F2BC64241F91BC0A00E06B16 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC64231F91BC0A00E06B16 /* AccountViewController.swift */; };
+		F2BC64271F91C01300E06B16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2BC64251F91C01300E06B16 /* Assets.xcassets */; };
+		F2BC64281F91C01300E06B16 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2BC64261F91C01300E06B16 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		959417C92F5980D2DF36DE06 /* Pods-SwiftTrade.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTrade.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTrade/Pods-SwiftTrade.debug.xcconfig"; sourceTree = "<group>"; };
 		98D5691EBCD3A916012555EC /* Pods-SwiftTrade.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTrade.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTrade/Pods-SwiftTrade.release.xcconfig"; sourceTree = "<group>"; };
 		E91EDBFF1F8F40D600DA6716 /* SwiftTrade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTrade.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E91EDC091F8F40D600DA6716 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
-		E91EDC0E1F8F40D600DA6716 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		E91EDC351F8F42F100DA6716 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E91EDC391F8F480000DA6716 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E91EDC3B1F8F481E00DA6716 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -45,6 +49,13 @@
 		E9C592031F90AC8900D3835A /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		E9C592051F90B5ED00D3835A /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		E9C592071F90BD8600D3835A /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F2BC641B1F91BB7B00E06B16 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		F2BC641D1F91BBD600E06B16 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F2BC641F1F91BBE500E06B16 /* TradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeViewController.swift; sourceTree = "<group>"; };
+		F2BC64211F91BBF900E06B16 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
+		F2BC64231F91BC0A00E06B16 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		F2BC64251F91C01300E06B16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = SwiftTrade/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		F2BC64261F91C01300E06B16 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SwiftTrade/Info.plist; sourceTree = SOURCE_ROOT; };
 		F6F68127308E5581B3445FC3 /* Pods_SwiftTrade.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTrade.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -134,6 +145,7 @@
 		E91EDC161F8F422A00DA6716 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F2BC64231F91BC0A00E06B16 /* AccountViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -208,6 +220,7 @@
 		E91EDC1F1F8F422A00DA6716 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F2BC641D1F91BBD600E06B16 /* HomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -239,6 +252,7 @@
 		E91EDC231F8F422A00DA6716 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F2BC64211F91BBF900E06B16 /* InformationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -303,6 +317,7 @@
 		E91EDC2B1F8F422A00DA6716 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F2BC641B1F91BB7B00E06B16 /* MainTabBarController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -334,6 +349,7 @@
 		E91EDC2F1F8F422A00DA6716 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F2BC641F1F91BBE500E06B16 /* TradeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -363,8 +379,8 @@
 		E91EDC331F8F429D00DA6716 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				E91EDC091F8F40D600DA6716 /* Assets.xcassets */,
-				E91EDC0E1F8F40D600DA6716 /* Info.plist */,
+				F2BC64251F91C01300E06B16 /* Assets.xcassets */,
+				F2BC64261F91C01300E06B16 /* Info.plist */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -453,7 +469,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E91EDC0A1F8F40D600DA6716 /* Assets.xcassets in Resources */,
+				F2BC64271F91C01300E06B16 /* Assets.xcassets in Resources */,
+				F2BC64281F91C01300E06B16 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,18 +537,23 @@
 			files = (
 				E9C592061F90B5ED00D3835A /* UIImage+Extension.swift in Sources */,
 				E9C592001F909E8900D3835A /* UILabel+Extension.swift in Sources */,
+				F2BC641C1F91BB7B00E06B16 /* MainTabBarController.swift in Sources */,
 				E91EDC421F8F59EE00DA6716 /* GlobalConstants.swift in Sources */,
 				E91EDC451F8F5FB600DA6716 /* UIView+Extension.swift in Sources */,
 				E91EDC401F8F48A900DA6716 /* LoginViewController.swift in Sources */,
+				F2BC64201F91BBE500E06B16 /* TradeViewController.swift in Sources */,
 				E91EDC491F90694700DA6716 /* UIColor+Extension.swift in Sources */,
 				E9C592041F90AC8900D3835A /* UIButton+Extension.swift in Sources */,
 				E91EDC471F90667A00DA6716 /* AppConstants.swift in Sources */,
 				E91EDC3C1F8F481E00DA6716 /* BaseNavigationController.swift in Sources */,
 				E9C592081F90BD8600D3835A /* RegisterViewController.swift in Sources */,
+				F2BC64241F91BC0A00E06B16 /* AccountViewController.swift in Sources */,
+				F2BC641E1F91BBD600E06B16 /* HomeViewController.swift in Sources */,
 				E91EDC361F8F42F100DA6716 /* AppDelegate.swift in Sources */,
 				E91EDC3E1F8F483600DA6716 /* BaseTabBarController.swift in Sources */,
 				E9C592021F90A28A00D3835A /* UITextField+Extension.swift in Sources */,
 				E91EDC3A1F8F480000DA6716 /* BaseViewController.swift in Sources */,
+				F2BC64221F91BBF900E06B16 /* InformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

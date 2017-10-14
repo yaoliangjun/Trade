@@ -30,6 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    // 显示主页面
+    func showMainPage() {
+        window?.rootViewController = MainTabBarController()
+    }
+    
     // 键盘管理
     func setupIQKeyboardManager() {
         IQKeyboardManager.sharedManager().enable = true

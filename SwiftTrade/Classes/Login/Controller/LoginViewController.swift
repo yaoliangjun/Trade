@@ -32,7 +32,7 @@ class LoginViewController: BaseViewController {
     
     // 登录
     func loginBtnClick() {
-        print(#function)
+        ((UIApplication.shared.delegate) as! AppDelegate).showMainPage()        
     }
     
     // 找回密码
