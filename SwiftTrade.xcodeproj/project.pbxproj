@@ -29,6 +29,8 @@
 		F2BC64241F91BC0A00E06B16 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC64231F91BC0A00E06B16 /* AccountViewController.swift */; };
 		F2BC64271F91C01300E06B16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2BC64251F91C01300E06B16 /* Assets.xcassets */; };
 		F2BC64281F91C01300E06B16 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2BC64261F91C01300E06B16 /* Info.plist */; };
+		F2BC644E1F931D9000E06B16 /* MBProgressHUD+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F2BC644C1F931D9000E06B16 /* MBProgressHUD+Extension.m */; };
+		F2BC644F1F931D9000E06B16 /* MBProgressHUDResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F2BC644D1F931D9000E06B16 /* MBProgressHUDResource.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,10 @@
 		F2BC64231F91BC0A00E06B16 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		F2BC64251F91C01300E06B16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = SwiftTrade/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		F2BC64261F91C01300E06B16 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SwiftTrade/Info.plist; sourceTree = SOURCE_ROOT; };
+		F2BC64451F93126100E06B16 /* SwiftTrade-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftTrade-Bridging-Header.h"; sourceTree = "<group>"; };
+		F2BC644B1F931D9000E06B16 /* MBProgressHUD+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Extension.h"; sourceTree = "<group>"; };
+		F2BC644C1F931D9000E06B16 /* MBProgressHUD+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Extension.m"; sourceTree = "<group>"; };
+		F2BC644D1F931D9000E06B16 /* MBProgressHUDResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUDResource.bundle; sourceTree = "<group>"; };
 		F6F68127308E5581B3445FC3 /* Pods_SwiftTrade.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTrade.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -371,6 +377,8 @@
 		E91EDC321F8F422A00DA6716 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F2BC642B1F93080300E06B16 /* Category */,
+				F2BC64291F93079200E06B16 /* BridgeHeader */,
 				E91EDC431F8F5F2600DA6716 /* Extension */,
 			);
 			path = Utils;
@@ -404,6 +412,24 @@
 				E9C592051F90B5ED00D3835A /* UIImage+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		F2BC64291F93079200E06B16 /* BridgeHeader */ = {
+			isa = PBXGroup;
+			children = (
+				F2BC64451F93126100E06B16 /* SwiftTrade-Bridging-Header.h */,
+			);
+			path = BridgeHeader;
+			sourceTree = "<group>";
+		};
+		F2BC642B1F93080300E06B16 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F2BC644B1F931D9000E06B16 /* MBProgressHUD+Extension.h */,
+				F2BC644C1F931D9000E06B16 /* MBProgressHUD+Extension.m */,
+				F2BC644D1F931D9000E06B16 /* MBProgressHUDResource.bundle */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -442,6 +468,7 @@
 					E91EDBFE1F8F40D600DA6716 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = XYE8BFY28C;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -469,6 +496,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2BC644F1F931D9000E06B16 /* MBProgressHUDResource.bundle in Resources */,
 				F2BC64271F91C01300E06B16 /* Assets.xcassets in Resources */,
 				F2BC64281F91C01300E06B16 /* Info.plist in Resources */,
 			);
@@ -484,11 +512,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftTrade/Pods-SwiftTrade-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -536,6 +570,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9C592061F90B5ED00D3835A /* UIImage+Extension.swift in Sources */,
+				F2BC644E1F931D9000E06B16 /* MBProgressHUD+Extension.m in Sources */,
 				E9C592001F909E8900D3835A /* UILabel+Extension.swift in Sources */,
 				F2BC641C1F91BB7B00E06B16 /* MainTabBarController.swift in Sources */,
 				E91EDC421F8F59EE00DA6716 /* GlobalConstants.swift in Sources */,
@@ -587,6 +622,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -637,6 +673,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -659,12 +696,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = XYE8BFY28C;
+				HEADER_SEARCH_PATHS = "${PODS_ROOT}/";
 				INFOPLIST_FILE = SwiftTrade/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.trade.weijiaosuo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftTrade/Classes/Utils/BridgeHeader/SwiftTrade-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -675,12 +716,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = XYE8BFY28C;
+				HEADER_SEARCH_PATHS = "${PODS_ROOT}/";
 				INFOPLIST_FILE = SwiftTrade/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.trade.weijiaosuo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftTrade/Classes/Utils/BridgeHeader/SwiftTrade-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

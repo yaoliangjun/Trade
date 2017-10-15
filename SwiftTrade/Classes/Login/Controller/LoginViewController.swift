@@ -29,10 +29,11 @@ class LoginViewController: BaseViewController {
     }
     
     // MARK: - Private Method
-    
     // 登录
     func loginBtnClick() {
-        ((UIApplication.shared.delegate) as! AppDelegate).showMainPage()        
+        MBProgressHUD.show(withStatus: "登录中...") { 
+            ((UIApplication.shared.delegate) as! AppDelegate).showMainPage()
+        }
     }
     
     // 找回密码
@@ -66,7 +67,6 @@ class LoginViewController: BaseViewController {
         let accountTextField = UITextField(frame: CGRect(x: 30, y: titleLabel.bottom + 30, width: GlobalConstants.screenWidth - 60, height: 50), text: "", textAlignment: .center, textColor: UIColor.white, placeholder: "请输入账号", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 16), leftView: accountLeftView)
         view.addSubview(accountTextField)
         
-        // 分割线
         let accountSeparateLine = UILabel(frame: CGRect(x: accountTextField.left, y: accountTextField.bottom, width: accountTextField.width, height: 0.5))
         accountSeparateLine.backgroundColor = UIColor.white
         view.addSubview(accountSeparateLine)
@@ -80,7 +80,6 @@ class LoginViewController: BaseViewController {
         let pwdTextField = UITextField(frame: CGRect(x: accountTextField.left, y: accountSeparateLine.bottom + 30, width: accountTextField.width, height: accountTextField.height), text: "", textAlignment: .center, textColor: UIColor.white, placeholder: "请输入密码", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 16), leftView: pwdLeftView)
         view.addSubview(pwdTextField)
         
-        // 分割线
         let pwdSeparateLine = UILabel(frame: CGRect(x: pwdTextField.left, y: pwdTextField.bottom, width: accountTextField.width, height: 0.5))
         pwdSeparateLine.backgroundColor = UIColor.white
         view.addSubview(pwdSeparateLine)
