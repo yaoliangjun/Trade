@@ -16,18 +16,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
         setupIQKeyboardManager()
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
-        
-        let navigationController = BaseNavigationController(rootViewController: LoginViewController())
-        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
+        showLoginPage()
+        
         return true
+    }
+    
+    // 显示登录页
+    func showLoginPage() {
+        let navigationController = BaseNavigationController(rootViewController: LoginViewController())
+        window?.rootViewController = navigationController
+    }
+    
+    // 显示主页面
+    func showMainPage() {
+        window?.rootViewController = MainTabBarController()
     }
     
     // 键盘管理
