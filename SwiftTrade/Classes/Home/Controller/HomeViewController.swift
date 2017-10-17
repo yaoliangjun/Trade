@@ -12,24 +12,56 @@ class HomeViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setupSubViews()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func setupSubViews() {
+        view.addSubview(tableView)
     }
     
+    // MARK: - Getter / Setter
+    lazy var tableHeaderView: UIView = {
+        let tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: GlobalConstants.screenHeight / 3.8))
+        tableHeaderView.backgroundColor = UIColor.orange
+        return tableHeaderView
+    }()
+    
+    lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: GlobalConstants.tableViewHeight))
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.rowHeight = 70
+        tableView.tableHeaderView = self.tableHeaderView
+        tableView.tableFooterView = UIView()
+        
+        return tableView
+    }()
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 10
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let homeCellReuseId = "homeCellReuseId"
+        var cell = tableView.dequeueReusableCell(withIdentifier: homeCellReuseId)
+        if cell == nil {
+            cell = UITableViewCell(style: .default, reuseIdentifier: homeCellReuseId)
+        }
+        
+        cell?.textLabel?.text = "Jerry Yao"
+        
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
