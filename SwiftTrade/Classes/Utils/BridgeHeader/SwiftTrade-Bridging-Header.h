@@ -3,4 +3,4 @@
 //
 
 #import "MBProgressHUD+Extension.h"
-//#import <MBProgressHUD/MBProgressHUD.h>
+#import <CommonCrypto/CommonDigest.h> // MD5加密

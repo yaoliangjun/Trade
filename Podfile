@@ -7,9 +7,10 @@ target 'SwiftTrade' do
 
   # Pods for SwiftTrade
 
-pod "SnapKit", "~> 3.0.0"
-pod "Alamofire", "~> 4.5"
-pod "IQKeyboardManagerSwift"
-pod "MBProgressHUD"
+pod 'SnapKit', '~> 3.0.0'
+pod 'Alamofire', '~> 4.5'
+pod 'IQKeyboardManagerSwift'
+pod 'MBProgressHUD'
+pod 'SwiftyJSON'
 
 end

@@ -10,6 +10,8 @@ import UIKit
 
 class LoginViewController: BaseViewController {
 
+    var accountTextField: UITextField? = nil
+    var pwdTextField: UITextField? = nil
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -31,9 +33,21 @@ class LoginViewController: BaseViewController {
     // MARK: - Private Method
     // 登录
     func loginBtnClick() {
-        MBProgressHUD.show(withStatus: "登录中...") { 
+        let account = accountTextField?.text
+        let password = pwdTextField?.text?.md5()
+        let params = ["phone": account ?? "", "password": password ?? ""]
+        
+        MBProgressHUD.showLoading(withStatus: "登录中...")
+        
+        HttpManager.sharedManager.post(url: ServerUrl.loginUrl, params: params, success: { (response) in
+            print("response: \(response)")
+            
             ((UIApplication.shared.delegate) as! AppDelegate).showMainPage()
-        }        
+            MBProgressHUD.dismiss()
+            
+        }) { (error) in
+            
+        }
     }
     
     // 找回密码
@@ -64,10 +78,10 @@ class LoginViewController: BaseViewController {
         let accountLeftView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 50))
         accountLeftView.addSubview(accountImageView)
         
-        let accountTextField = UITextField(frame: CGRect(x: 30, y: titleLabel.bottom + 30, width: GlobalConstants.screenWidth - 60, height: 50), text: "", textAlignment: .center, textColor: UIColor.white, placeholder: "请输入账号", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 16), leftView: accountLeftView)
-        view.addSubview(accountTextField)
+        accountTextField = UITextField(frame: CGRect(x: 30, y: titleLabel.bottom + 30, width: GlobalConstants.screenWidth - 60, height: 50), text: "", textAlignment: .center, textColor: UIColor.white, placeholder: "请输入账号", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 16), leftView: accountLeftView)
+        view.addSubview(accountTextField!)
         
-        let accountSeparateLine = UILabel(frame: CGRect(x: accountTextField.left, y: accountTextField.bottom, width: accountTextField.width, height: 0.5))
+        let accountSeparateLine = UILabel(frame: CGRect(x: (accountTextField?.left)!, y: (accountTextField?.bottom)!, width: (accountTextField?.width)!, height: 0.5))
         accountSeparateLine.backgroundColor = UIColor.white
         view.addSubview(accountSeparateLine)
         
@@ -77,15 +91,15 @@ class LoginViewController: BaseViewController {
         let pwdLeftView = UIView(frame: CGRect(x: 0, y: 15, width: 40, height: 50))
         pwdLeftView.addSubview(pwdImageView)
         
-        let pwdTextField = UITextField(frame: CGRect(x: accountTextField.left, y: accountSeparateLine.bottom + 30, width: accountTextField.width, height: accountTextField.height), text: "", textAlignment: .center, textColor: UIColor.white, placeholder: "请输入密码", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 16), leftView: pwdLeftView)
-        view.addSubview(pwdTextField)
+        pwdTextField = UITextField(frame: CGRect(x: (accountTextField?.left)!, y: accountSeparateLine.bottom + 30, width: (accountTextField?.width)!, height: (accountTextField?.height)!), text: "", textAlignment: .center, textColor: UIColor.white, placeholder: "请输入密码", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 16), leftView: pwdLeftView)
+        view.addSubview(pwdTextField!)
         
-        let pwdSeparateLine = UILabel(frame: CGRect(x: pwdTextField.left, y: pwdTextField.bottom, width: accountTextField.width, height: 0.5))
+        let pwdSeparateLine = UILabel(frame: CGRect(x: (pwdTextField?.left)!, y: (pwdTextField?.bottom)!, width: (accountTextField?.width)!, height: 0.5))
         pwdSeparateLine.backgroundColor = UIColor.white
         view.addSubview(pwdSeparateLine)
         
         // 忘记密码
-        let findPwdBtn = UIButton(frame: CGRect(x: pwdTextField.right - 60, y: pwdSeparateLine.bottom + 10, width: 60, height: 20), title: "忘记密码", titleColor: UIColor.white, font: UIFont.systemFont(ofSize: 12), target: self, selector:#selector(findPwdBtnClick))
+        let findPwdBtn = UIButton(frame: CGRect(x: (pwdTextField?.right)! - 60, y: pwdSeparateLine.bottom + 10, width: 60, height: 20), title: "忘记密码", titleColor: UIColor.white, font: UIFont.systemFont(ofSize: 12), target: self, selector:#selector(findPwdBtnClick))
         view.addSubview(findPwdBtn)
         
         // 登录
@@ -97,7 +111,7 @@ class LoginViewController: BaseViewController {
         view.addSubview(registerBtn)
         
         // DEMO ACCOUNT
-        accountTextField.text = "13528768996"
-        pwdTextField.text = "ylj123456"
+        accountTextField?.text = "13528768996"
+        pwdTextField?.text = "ylj123456"
     }
 }

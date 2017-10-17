@@ -23,6 +23,9 @@
 		E9C592061F90B5ED00D3835A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C592051F90B5ED00D3835A /* UIImage+Extension.swift */; };
 		E9C592081F90BD8600D3835A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C592071F90BD8600D3835A /* RegisterViewController.swift */; };
 		E9C5920A1F9456FA00D3835A /* MBProgressHUDResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E9C592091F9456FA00D3835A /* MBProgressHUDResource.bundle */; };
+		E9C592591F95E4E200D3835A /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C592581F95E4E200D3835A /* HttpManager.swift */; };
+		E9C5925B1F95EC8100D3835A /* ServerUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C5925A1F95EC8100D3835A /* ServerUrl.swift */; };
+		E9C5925D1F95FB9700D3835A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C5925C1F95FB9700D3835A /* String+Extension.swift */; };
 		F2BC641C1F91BB7B00E06B16 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC641B1F91BB7B00E06B16 /* MainTabBarController.swift */; };
 		F2BC641E1F91BBD600E06B16 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC641D1F91BBD600E06B16 /* HomeViewController.swift */; };
 		F2BC64201F91BBE500E06B16 /* TradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC641F1F91BBE500E06B16 /* TradeViewController.swift */; };
@@ -52,6 +55,9 @@
 		E9C592051F90B5ED00D3835A /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		E9C592071F90BD8600D3835A /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		E9C592091F9456FA00D3835A /* MBProgressHUDResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUDResource.bundle; sourceTree = "<group>"; };
+		E9C592581F95E4E200D3835A /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
+		E9C5925A1F95EC8100D3835A /* ServerUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerUrl.swift; sourceTree = "<group>"; };
+		E9C5925C1F95FB9700D3835A /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		F2BC641B1F91BB7B00E06B16 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F2BC641D1F91BBD600E06B16 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F2BC641F1F91BBE500E06B16 /* TradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +181,7 @@
 			children = (
 				E91EDC411F8F59EE00DA6716 /* GlobalConstants.swift */,
 				E91EDC461F90667A00DA6716 /* AppConstants.swift */,
+				E9C5925A1F95EC8100D3835A /* ServerUrl.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -377,6 +384,7 @@
 		E91EDC321F8F422A00DA6716 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E9C592571F95E4A400D3835A /* Manager */,
 				F2BC642B1F93080300E06B16 /* Category */,
 				F2BC64291F93079200E06B16 /* BridgeHeader */,
 				E91EDC431F8F5F2600DA6716 /* Extension */,
@@ -410,8 +418,17 @@
 				E9C592011F90A28A00D3835A /* UITextField+Extension.swift */,
 				E9C592031F90AC8900D3835A /* UIButton+Extension.swift */,
 				E9C592051F90B5ED00D3835A /* UIImage+Extension.swift */,
+				E9C5925C1F95FB9700D3835A /* String+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E9C592571F95E4A400D3835A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				E9C592581F95E4E200D3835A /* HttpManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		F2BC64291F93079200E06B16 /* BridgeHeader */ = {
@@ -516,6 +533,7 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -523,6 +541,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -575,15 +594,18 @@
 				F2BC641C1F91BB7B00E06B16 /* MainTabBarController.swift in Sources */,
 				E91EDC421F8F59EE00DA6716 /* GlobalConstants.swift in Sources */,
 				E91EDC451F8F5FB600DA6716 /* UIView+Extension.swift in Sources */,
+				E9C5925B1F95EC8100D3835A /* ServerUrl.swift in Sources */,
 				E91EDC401F8F48A900DA6716 /* LoginViewController.swift in Sources */,
 				F2BC64201F91BBE500E06B16 /* TradeViewController.swift in Sources */,
 				E91EDC491F90694700DA6716 /* UIColor+Extension.swift in Sources */,
 				E9C592041F90AC8900D3835A /* UIButton+Extension.swift in Sources */,
 				E91EDC471F90667A00DA6716 /* AppConstants.swift in Sources */,
+				E9C5925D1F95FB9700D3835A /* String+Extension.swift in Sources */,
 				E91EDC3C1F8F481E00DA6716 /* BaseNavigationController.swift in Sources */,
 				E9C592081F90BD8600D3835A /* RegisterViewController.swift in Sources */,
 				F2BC64241F91BC0A00E06B16 /* AccountViewController.swift in Sources */,
 				F2BC641E1F91BBD600E06B16 /* HomeViewController.swift in Sources */,
+				E9C592591F95E4E200D3835A /* HttpManager.swift in Sources */,
 				E91EDC361F8F42F100DA6716 /* AppDelegate.swift in Sources */,
 				E91EDC3E1F8F483600DA6716 /* BaseTabBarController.swift in Sources */,
 				E9C592021F90A28A00D3835A /* UITextField+Extension.swift in Sources */,

@@ -6,47 +6,43 @@
 	<dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>IQKeyboardManagerSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-SwiftTrade.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>SnapKit.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>38E162C0EBC148544E6EBEA7C3F92DF2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3A79DBEE91F9627FB1F59CAE1D1A7673</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>41FA54D12162DAD51D02FC58A2CD5034</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7026CD5A6054799A3600333A8F804FDB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -61,7 +57,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FD7AD9A8BF1D8FFB7F9F67C5F4A9EC02</key>
+		<key>D1CBB04B9217F7942E9EBA160A5E34C5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F5E8C677290C1E2B40B4B77004E9F74F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
