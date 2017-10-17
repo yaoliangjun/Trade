@@ -33,7 +33,7 @@ class LoginViewController: BaseViewController {
     func loginBtnClick() {
         MBProgressHUD.show(withStatus: "登录中...") { 
             ((UIApplication.shared.delegate) as! AppDelegate).showMainPage()
-        }
+        }        
     }
     
     // 找回密码
