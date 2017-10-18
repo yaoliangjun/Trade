@@ -11,7 +11,7 @@ import UIKit
 class ServerUrl: NSObject {
 
     // 服务器地址
-    static let baseUrl = ""
+    static let baseUrl = "http://api.qiyelian.cc:9000"
     
     
     static let loginUrl = "/user/login" // 登录

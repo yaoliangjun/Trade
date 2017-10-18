@@ -37,13 +37,10 @@ class LoginViewController: BaseViewController {
         let password = pwdTextField?.text?.md5()
         let params = ["phone": account ?? "", "password": password ?? ""]
         
-        MBProgressHUD.showLoading(withStatus: "登录中...")
-        
-        HttpManager.sharedManager.post(url: ServerUrl.loginUrl, params: params, success: { (response) in
+        HttpManager.sharedManager.post(url: ServerUrl.loginUrl, params: params, showHUD: true, success: { (response) in
             print("response: \(response)")
             
             ((UIApplication.shared.delegate) as! AppDelegate).showMainPage()
-            MBProgressHUD.dismiss()
             
         }) { (error) in
             
