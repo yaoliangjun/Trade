@@ -12,5 +12,6 @@ pod 'Alamofire', '~> 4.5'
 pod 'IQKeyboardManagerSwift'
 pod 'MBProgressHUD'
 pod 'SwiftyJSON'
+pod 'HandyJSON', '~> 1.8.0'
 
 end
