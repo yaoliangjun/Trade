@@ -13,8 +13,10 @@ class HttpManager: NSObject {
 
     static let sharedManager: HttpManager = HttpManager()
     
+    let token = UserDefaults.value(forKey: AppConstants.token)
     let headers = [
-        "Content-Type": "application/x-www-form-urlencoded"
+        "Content-Type": "application/x-www-form-urlencoded",
+        "token": ""
     ]
 }
 
