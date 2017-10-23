@@ -14,5 +14,10 @@ class ServerUrl: NSObject {
     static let baseUrl = "http://api.qiyelian.cc:9000"
     
     
+    // 注册登录
     static let loginUrl = "/user/login" // 登录
+    
+    
+    // 主页
+    static let marketSummary = "/market/summary" // 获取当前各币种行情
 }
