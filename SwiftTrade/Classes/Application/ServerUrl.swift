@@ -9,9 +9,9 @@
 import UIKit
 
 class ServerUrl: NSObject {
-
+    
     // 服务器地址
-    static let baseUrl = "http://api.qiyelian.cc:9000"
+    static let baseUrl = "http://119.23.217.175:9000"
     
     
     // 注册登录

@@ -26,6 +26,9 @@
 		E9C592591F95E4E200D3835A /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C592581F95E4E200D3835A /* HttpManager.swift */; };
 		E9C5925B1F95EC8100D3835A /* ServerUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C5925A1F95EC8100D3835A /* ServerUrl.swift */; };
 		E9C5925D1F95FB9700D3835A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C5925C1F95FB9700D3835A /* String+Extension.swift */; };
+		E9D694CE1F9F30C3003D28DE /* BaseResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D694CD1F9F30C3003D28DE /* BaseResponseModel.swift */; };
+		E9D694D11F9F31C1003D28DE /* HomeServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D694D01F9F31C1003D28DE /* HomeServices.swift */; };
+		E9D694D31F9F382F003D28DE /* MarketSummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D694D21F9F382F003D28DE /* MarketSummaryModel.swift */; };
 		F2BC641C1F91BB7B00E06B16 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC641B1F91BB7B00E06B16 /* MainTabBarController.swift */; };
 		F2BC641E1F91BBD600E06B16 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC641D1F91BBD600E06B16 /* HomeViewController.swift */; };
 		F2BC64201F91BBE500E06B16 /* TradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC641F1F91BBE500E06B16 /* TradeViewController.swift */; };
@@ -58,6 +61,9 @@
 		E9C592581F95E4E200D3835A /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
 		E9C5925A1F95EC8100D3835A /* ServerUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerUrl.swift; sourceTree = "<group>"; };
 		E9C5925C1F95FB9700D3835A /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		E9D694CD1F9F30C3003D28DE /* BaseResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponseModel.swift; sourceTree = "<group>"; };
+		E9D694D01F9F31C1003D28DE /* HomeServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeServices.swift; sourceTree = "<group>"; };
+		E9D694D21F9F382F003D28DE /* MarketSummaryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketSummaryModel.swift; sourceTree = "<group>"; };
 		F2BC641B1F91BB7B00E06B16 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F2BC641D1F91BBD600E06B16 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F2BC641F1F91BBE500E06B16 /* TradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +215,7 @@
 		E91EDC1C1F8F422A00DA6716 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E9D694CD1F9F30C3003D28DE /* BaseResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,6 +230,7 @@
 		E91EDC1E1F8F422A00DA6716 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E9D694CF1F9F31B1003D28DE /* Services */,
 				E91EDC1F1F8F422A00DA6716 /* Controller */,
 				E91EDC201F8F422A00DA6716 /* Model */,
 				E91EDC211F8F422A00DA6716 /* View */,
@@ -241,6 +249,7 @@
 		E91EDC201F8F422A00DA6716 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E9D694D21F9F382F003D28DE /* MarketSummaryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -431,6 +440,14 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		E9D694CF1F9F31B1003D28DE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E9D694D01F9F31C1003D28DE /* HomeServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		F2BC64291F93079200E06B16 /* BridgeHeader */ = {
 			isa = PBXGroup;
 			children = (
@@ -596,7 +613,9 @@
 				F2BC641C1F91BB7B00E06B16 /* MainTabBarController.swift in Sources */,
 				E91EDC421F8F59EE00DA6716 /* GlobalConstants.swift in Sources */,
 				E91EDC451F8F5FB600DA6716 /* UIView+Extension.swift in Sources */,
+				E9D694CE1F9F30C3003D28DE /* BaseResponseModel.swift in Sources */,
 				E9C5925B1F95EC8100D3835A /* ServerUrl.swift in Sources */,
+				E9D694D11F9F31C1003D28DE /* HomeServices.swift in Sources */,
 				E91EDC401F8F48A900DA6716 /* LoginViewController.swift in Sources */,
 				F2BC64201F91BBE500E06B16 /* TradeViewController.swift in Sources */,
 				E91EDC491F90694700DA6716 /* UIColor+Extension.swift in Sources */,
@@ -604,6 +623,7 @@
 				E91EDC471F90667A00DA6716 /* AppConstants.swift in Sources */,
 				E9C5925D1F95FB9700D3835A /* String+Extension.swift in Sources */,
 				E91EDC3C1F8F481E00DA6716 /* BaseNavigationController.swift in Sources */,
+				E9D694D31F9F382F003D28DE /* MarketSummaryModel.swift in Sources */,
 				E9C592081F90BD8600D3835A /* RegisterViewController.swift in Sources */,
 				F2BC64241F91BC0A00E06B16 /* AccountViewController.swift in Sources */,
 				F2BC641E1F91BBD600E06B16 /* HomeViewController.swift in Sources */,

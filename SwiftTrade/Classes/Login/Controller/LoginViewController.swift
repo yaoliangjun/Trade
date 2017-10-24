@@ -38,10 +38,8 @@ class LoginViewController: BaseViewController {
         let params = ["phone": account ?? "", "password": password ?? ""]
         
         HttpManager.sharedManager.post(url: ServerUrl.loginUrl, params: params, showHUD: true, success: { (response) in
-            print("response: \(response)")
             let token = (response["content"]!["token"]) as! String
-            UserDefaults.setValue(token, forKey: AppConstants.token)
-            print("token: \(token)")
+            UserDefaults.standard.setValue(token, forKey: AppConstants.token)
             
             ((UIApplication.shared.delegate) as! AppDelegate).showMainPage()
             

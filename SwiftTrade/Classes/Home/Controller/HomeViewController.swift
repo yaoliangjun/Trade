@@ -7,6 +7,7 @@
 //  首页
 
 import UIKit
+import HandyJSON
 
 class HomeViewController: BaseViewController {
 
@@ -14,8 +15,26 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         
         setupSubViews()
+        fetchMarketSummary()
     }
 
+//    override func viewWillAppear(_ animated: Bool) {
+//        super .viewWillAppear(animated)
+//        fetchMarketSummary()
+//    }
+    
+    // 获取市场
+    func fetchMarketSummary() {
+        HomeServices.fetchMarketSummary(params: Dictionary.init(), showHUD: true, success: { (response) in
+            print(response)
+            let array = [MarketSummaryModel].deserialize(from: response.content)
+            print(array)
+            
+        }) { (error) in
+            
+        }
+    }
+    
     func setupSubViews() {
         view.addSubview(tableView)
     }
