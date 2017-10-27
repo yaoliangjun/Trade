@@ -90,6 +90,7 @@ class LoginViewController: BaseViewController {
         pwdLeftView.addSubview(pwdImageView)
         
         pwdTextField = UITextField(frame: CGRect(x: (accountTextField?.left)!, y: accountSeparateLine.bottom + 30, width: (accountTextField?.width)!, height: (accountTextField?.height)!), text: "", textAlignment: .center, textColor: UIColor.white, placeholder: "请输入密码", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 16), leftView: pwdLeftView)
+        pwdTextField?.isSecureTextEntry = true
         view.addSubview(pwdTextField!)
         
         let pwdSeparateLine = UILabel(frame: CGRect(x: (pwdTextField?.left)!, y: (pwdTextField?.bottom)!, width: (accountTextField?.width)!, height: 0.5))

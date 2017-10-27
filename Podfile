@@ -13,5 +13,6 @@ pod 'IQKeyboardManagerSwift'
 pod 'MBProgressHUD'
 pod 'SwiftyJSON'
 pod 'HandyJSON', '~> 1.8.0'
+pod 'MJExtension'
 
 end

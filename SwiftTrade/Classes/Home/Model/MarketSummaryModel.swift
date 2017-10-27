@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import HandyJSON
 
-class MarketSummaryModel: HandyJSON {
+class MarketSummaryModel: NSObject {
     
     var amount : Int?                 // 成交额
     var buyPrice : Float?
@@ -27,9 +26,4 @@ class MarketSummaryModel: HandyJSON {
     var quotaDuration : AnyObject?
     var sellPrice : Float?
     var volume : Int?                // 成交量
-    
-    
-    required init() {
-        
-    }
 }

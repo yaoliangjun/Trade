@@ -7,18 +7,13 @@
 //
 
 import UIKit
-import HandyJSON
 
-class BaseResponseModel: HandyJSON {
+class BaseResponseModel: NSObject {
 
-    var content: String?
+    var content: Any?
     var page: Int?
     var pageNum: Int?
     var total: Int?
     var statusCode: Int?
     var errorMessage: String?
-    
-    required init() {
-        
-    }
 }

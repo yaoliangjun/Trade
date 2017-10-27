@@ -11,7 +11,7 @@ import UIKit
 class ServerUrl: NSObject {
     
     // 服务器地址
-    static let baseUrl = "http://119.23.217.175:9000"
+    static let baseUrl = "http://47.92.150.205:9070"
     
     
     // 注册登录

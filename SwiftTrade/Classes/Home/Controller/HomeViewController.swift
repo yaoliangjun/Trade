@@ -7,7 +7,6 @@
 //  首页
 
 import UIKit
-import HandyJSON
 
 class HomeViewController: BaseViewController {
 
@@ -27,7 +26,7 @@ class HomeViewController: BaseViewController {
     func fetchMarketSummary() {
         HomeServices.fetchMarketSummary(params: Dictionary.init(), showHUD: true, success: { (response) in
             print(response)
-            let array = [MarketSummaryModel].deserialize(from: response.content)
+            let array: [MarketSummaryModel] = MarketSummaryModel.mj_objectArray(withKeyValuesArray: response.content) as! [MarketSummaryModel]
             print(array)
             
         }) { (error) in
