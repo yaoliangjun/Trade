@@ -22,13 +22,14 @@
 		E9C592041F90AC8900D3835A /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C592031F90AC8900D3835A /* UIButton+Extension.swift */; };
 		E9C592061F90B5ED00D3835A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C592051F90B5ED00D3835A /* UIImage+Extension.swift */; };
 		E9C592081F90BD8600D3835A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C592071F90BD8600D3835A /* RegisterViewController.swift */; };
-		E9C5920A1F9456FA00D3835A /* MBProgressHUDResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E9C592091F9456FA00D3835A /* MBProgressHUDResource.bundle */; };
 		E9C592591F95E4E200D3835A /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C592581F95E4E200D3835A /* HttpManager.swift */; };
 		E9C5925B1F95EC8100D3835A /* ServerUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C5925A1F95EC8100D3835A /* ServerUrl.swift */; };
 		E9C5925D1F95FB9700D3835A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C5925C1F95FB9700D3835A /* String+Extension.swift */; };
 		E9D694CE1F9F30C3003D28DE /* BaseResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D694CD1F9F30C3003D28DE /* BaseResponseModel.swift */; };
 		E9D694D11F9F31C1003D28DE /* HomeServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D694D01F9F31C1003D28DE /* HomeServices.swift */; };
 		E9D694D31F9F382F003D28DE /* MarketSummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D694D21F9F382F003D28DE /* MarketSummaryModel.swift */; };
+		F23EB85E1FA5839A00F7CCC5 /* BaseServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EB85D1FA5839A00F7CCC5 /* BaseServices.swift */; };
+		F23EB8611FA58A8900F7CCC5 /* LoginServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EB8601FA58A8900F7CCC5 /* LoginServices.swift */; };
 		F2BC641C1F91BB7B00E06B16 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC641B1F91BB7B00E06B16 /* MainTabBarController.swift */; };
 		F2BC641E1F91BBD600E06B16 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC641D1F91BBD600E06B16 /* HomeViewController.swift */; };
 		F2BC64201F91BBE500E06B16 /* TradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC641F1F91BBE500E06B16 /* TradeViewController.swift */; };
@@ -57,13 +58,14 @@
 		E9C592031F90AC8900D3835A /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		E9C592051F90B5ED00D3835A /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		E9C592071F90BD8600D3835A /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		E9C592091F9456FA00D3835A /* MBProgressHUDResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUDResource.bundle; sourceTree = "<group>"; };
 		E9C592581F95E4E200D3835A /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
 		E9C5925A1F95EC8100D3835A /* ServerUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerUrl.swift; sourceTree = "<group>"; };
 		E9C5925C1F95FB9700D3835A /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		E9D694CD1F9F30C3003D28DE /* BaseResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponseModel.swift; sourceTree = "<group>"; };
 		E9D694D01F9F31C1003D28DE /* HomeServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeServices.swift; sourceTree = "<group>"; };
 		E9D694D21F9F382F003D28DE /* MarketSummaryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketSummaryModel.swift; sourceTree = "<group>"; };
+		F23EB85D1FA5839A00F7CCC5 /* BaseServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseServices.swift; sourceTree = "<group>"; };
+		F23EB8601FA58A8900F7CCC5 /* LoginServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginServices.swift; sourceTree = "<group>"; };
 		F2BC641B1F91BB7B00E06B16 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F2BC641D1F91BBD600E06B16 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F2BC641F1F91BBE500E06B16 /* TradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeViewController.swift; sourceTree = "<group>"; };
@@ -185,9 +187,9 @@
 		E91EDC191F8F422A00DA6716 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				E9C5925A1F95EC8100D3835A /* ServerUrl.swift */,
 				E91EDC411F8F59EE00DA6716 /* GlobalConstants.swift */,
 				E91EDC461F90667A00DA6716 /* AppConstants.swift */,
-				E9C5925A1F95EC8100D3835A /* ServerUrl.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -195,6 +197,7 @@
 		E91EDC1A1F8F422A00DA6716 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F23EB85C1FA5837C00F7CCC5 /* Services */,
 				E91EDC1B1F8F422A00DA6716 /* Controller */,
 				E91EDC1C1F8F422A00DA6716 /* Model */,
 				E91EDC1D1F8F422A00DA6716 /* View */,
@@ -230,10 +233,10 @@
 		E91EDC1E1F8F422A00DA6716 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				E9D694CF1F9F31B1003D28DE /* Services */,
 				E91EDC1F1F8F422A00DA6716 /* Controller */,
 				E91EDC201F8F422A00DA6716 /* Model */,
 				E91EDC211F8F422A00DA6716 /* View */,
+				E9D694CF1F9F31B1003D28DE /* Services */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 		E91EDC261F8F422A00DA6716 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				F23EB85F1FA58A6800F7CCC5 /* Services */,
 				E91EDC271F8F422A00DA6716 /* Controller */,
 				E91EDC281F8F422A00DA6716 /* Model */,
 				E91EDC291F8F422A00DA6716 /* View */,
@@ -448,6 +452,22 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		F23EB85C1FA5837C00F7CCC5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F23EB85D1FA5839A00F7CCC5 /* BaseServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F23EB85F1FA58A6800F7CCC5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F23EB8601FA58A8900F7CCC5 /* LoginServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		F2BC64291F93079200E06B16 /* BridgeHeader */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,7 +479,6 @@
 		F2BC642B1F93080300E06B16 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				E9C592091F9456FA00D3835A /* MBProgressHUDResource.bundle */,
 				F2BC644B1F931D9000E06B16 /* MBProgressHUD+Extension.h */,
 				F2BC644C1F931D9000E06B16 /* MBProgressHUD+Extension.m */,
 			);
@@ -530,7 +549,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9C5920A1F9456FA00D3835A /* MBProgressHUDResource.bundle in Resources */,
 				F2BC64271F91C01300E06B16 /* Assets.xcassets in Resources */,
 				F2BC64281F91C01300E06B16 /* Info.plist in Resources */,
 			);
@@ -547,7 +565,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftTrade/Pods-SwiftTrade-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
@@ -557,7 +574,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
@@ -620,6 +636,7 @@
 				E9D694D11F9F31C1003D28DE /* HomeServices.swift in Sources */,
 				E91EDC401F8F48A900DA6716 /* LoginViewController.swift in Sources */,
 				F2BC64201F91BBE500E06B16 /* TradeViewController.swift in Sources */,
+				F23EB85E1FA5839A00F7CCC5 /* BaseServices.swift in Sources */,
 				E91EDC491F90694700DA6716 /* UIColor+Extension.swift in Sources */,
 				E9C592041F90AC8900D3835A /* UIButton+Extension.swift in Sources */,
 				E91EDC471F90667A00DA6716 /* AppConstants.swift in Sources */,
@@ -627,6 +644,7 @@
 				E91EDC3C1F8F481E00DA6716 /* BaseNavigationController.swift in Sources */,
 				E9D694D31F9F382F003D28DE /* MarketSummaryModel.swift in Sources */,
 				E9C592081F90BD8600D3835A /* RegisterViewController.swift in Sources */,
+				F23EB8611FA58A8900F7CCC5 /* LoginServices.swift in Sources */,
 				F2BC64241F91BC0A00E06B16 /* AccountViewController.swift in Sources */,
 				F2BC641E1F91BBD600E06B16 /* HomeViewController.swift in Sources */,
 				E9C592591F95E4E200D3835A /* HttpManager.swift in Sources */,

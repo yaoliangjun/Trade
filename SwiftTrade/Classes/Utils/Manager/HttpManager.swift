@@ -53,7 +53,7 @@ extension HttpManager {
     }
     
     // MARK: - POST请求
-    func post(url: String, params : [String : Any], showHUD: Bool, success : @escaping (_ response : [String : AnyObject]) -> (), failture : @escaping (_ error : Error) -> ()) {
+    func post(url: String, params : [String : Any], showHUD: Bool, success : @escaping (_ response : String) -> (), failture : @escaping (_ error : Error) -> ()) {
         
         self.showHUD(showHUD: showHUD)
         let requestUrl = ServerUrl.baseUrl + url
@@ -65,10 +65,10 @@ extension HttpManager {
             switch response.result {
                 
             case .success(let value):
-                let responseJson = JSON(value)
-                print("RESPONSE: \(responseJson) \n")
+                let responseJson = JSON(value).rawString()
+                print("RESPONSE: \(responseJson!) \n")
                 
-                success(value as! [String : AnyObject])
+                success(responseJson!)
                 self.dismissHUD(showHUD: showHUD)
                 
             case .failure(let error):

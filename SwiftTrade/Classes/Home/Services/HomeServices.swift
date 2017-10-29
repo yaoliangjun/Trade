@@ -8,15 +8,19 @@
 
 import UIKit
 
-class HomeServices: NSObject {
-
-    static func fetchMarketSummary(params : [String : Any], showHUD: Bool, success : @escaping (_ response : BaseResponseModel) -> (), failture : @escaping (_ error : Error) -> ()) {
+class HomeServices: BaseServices {
+    
+    static func fetchMarketSummary(params : [String : Any], showHUD: Bool, success : @escaping (_ response : [MarketSummaryModel]) -> (), failture : @escaping (_ error : Error) -> ()) {
         HttpManager.sharedManager.get(url: ServerUrl.marketSummary, params: params, showHUD: showHUD, success: { (response) in
             
-            success(BaseResponseModel.mj_object(withKeyValues: response))
+            let responseModel = processResponse(responseJSON: response)
+            let array = MarketSummaryModel.mj_objectArray(withKeyValuesArray: responseModel.content) as! [MarketSummaryModel]
+            success(array)
             
         }) { (error) in
             failture(error)
         }
     }
+    
+    
 }

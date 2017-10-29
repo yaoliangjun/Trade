@@ -10,6 +10,8 @@ import UIKit
 
 class HomeViewController: BaseViewController {
 
+//    let marketSummaryArray: [MarketSummaryModel]? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,10 +26,8 @@ class HomeViewController: BaseViewController {
     
     // 获取市场
     func fetchMarketSummary() {
-        HomeServices.fetchMarketSummary(params: Dictionary.init(), showHUD: true, success: { (response) in
-            print(response)
-            let array: [MarketSummaryModel] = MarketSummaryModel.mj_objectArray(withKeyValuesArray: response.content) as! [MarketSummaryModel]
-            print(array)
+        HomeServices.fetchMarketSummary(params: Dictionary.init(), showHUD: true, success: { (marketSummaryArray) in
+            print(marketSummaryArray)
             
         }) { (error) in
             
@@ -39,9 +39,16 @@ class HomeViewController: BaseViewController {
     }
     
     // MARK: - Getter / Setter
+    lazy var marketSummaryArray: [MarketSummaryModel] = {
+        return Array<MarketSummaryModel>()
+    }()
+    
     lazy var tableHeaderView: UIView = {
         let tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: GlobalConstants.screenHeight / 3.8))
-        tableHeaderView.backgroundColor = UIColor.orange
+        let imageView = UIImageView(image: UIImage(named: "home_banner"))
+        imageView.frame = CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: GlobalConstants.screenHeight / 3.8)
+        tableHeaderView.addSubview(imageView)
+        
         return tableHeaderView
     }()
     
@@ -60,7 +67,7 @@ class HomeViewController: BaseViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 10
+        return marketSummaryArray.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -37,10 +37,9 @@ class LoginViewController: BaseViewController {
         let password = pwdTextField?.text?.md5()
         let params = ["phone": account ?? "", "password": password ?? ""]
         
-        HttpManager.sharedManager.post(url: ServerUrl.loginUrl, params: params, showHUD: true, success: { (response) in
-            let token = (response["content"]!["token"]) as! String
+        LoginServices.login(params: params, showHUD: true, success: { (response) in
+            let token = (response.content as! NSDictionary)["token"]
             UserDefaults.standard.setValue(token, forKey: AppConstants.token)
-            
             ((UIApplication.shared.delegate) as! AppDelegate).showMainPage()
             
         }) { (error) in
