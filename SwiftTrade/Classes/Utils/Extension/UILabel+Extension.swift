@@ -11,7 +11,17 @@ import UIKit
 
 extension UILabel {
 
-    /// 创建一个UILabel
+    /// 创建一个普通的UILabel
+    convenience init(text: String, textColor: UIColor, font: UIFont) {
+        self.init(text: text, textAlignment: .left, textColor: textColor, font: font)
+    }
+    
+    /// 创建一个没有Frame的UILabel
+    convenience init(text: String, textAlignment: NSTextAlignment, textColor: UIColor, font: UIFont) {
+        self.init(frame: CGRect.zero, text: text, textAlignment: textAlignment, textColor: textColor, font: font)
+    }
+    
+    /// 创建一个有Frame和对齐方式的UILabel
     convenience init(frame: CGRect, text: String, textAlignment: NSTextAlignment, textColor: UIColor, font: UIFont) {        
         self.init(frame: frame)
         self.text = text

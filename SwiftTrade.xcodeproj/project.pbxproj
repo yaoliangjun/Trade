@@ -30,6 +30,7 @@
 		E9D694D31F9F382F003D28DE /* MarketSummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D694D21F9F382F003D28DE /* MarketSummaryModel.swift */; };
 		F23EB85E1FA5839A00F7CCC5 /* BaseServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EB85D1FA5839A00F7CCC5 /* BaseServices.swift */; };
 		F23EB8611FA58A8900F7CCC5 /* LoginServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EB8601FA58A8900F7CCC5 /* LoginServices.swift */; };
+		F23EB8631FA7575200F7CCC5 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EB8621FA7575200F7CCC5 /* HomeCell.swift */; };
 		F2BC641C1F91BB7B00E06B16 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC641B1F91BB7B00E06B16 /* MainTabBarController.swift */; };
 		F2BC641E1F91BBD600E06B16 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC641D1F91BBD600E06B16 /* HomeViewController.swift */; };
 		F2BC64201F91BBE500E06B16 /* TradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC641F1F91BBE500E06B16 /* TradeViewController.swift */; };
@@ -66,6 +67,7 @@
 		E9D694D21F9F382F003D28DE /* MarketSummaryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketSummaryModel.swift; sourceTree = "<group>"; };
 		F23EB85D1FA5839A00F7CCC5 /* BaseServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseServices.swift; sourceTree = "<group>"; };
 		F23EB8601FA58A8900F7CCC5 /* LoginServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginServices.swift; sourceTree = "<group>"; };
+		F23EB8621FA7575200F7CCC5 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeCell.swift; path = SwiftTrade/Classes/Login/Services/HomeCell.swift; sourceTree = SOURCE_ROOT; };
 		F2BC641B1F91BB7B00E06B16 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F2BC641D1F91BBD600E06B16 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F2BC641F1F91BBE500E06B16 /* TradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeViewController.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 		E91EDC211F8F422A00DA6716 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F23EB8621FA7575200F7CCC5 /* HomeCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
@@ -577,6 +581,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -650,6 +655,7 @@
 				E9C592591F95E4E200D3835A /* HttpManager.swift in Sources */,
 				E91EDC361F8F42F100DA6716 /* AppDelegate.swift in Sources */,
 				E91EDC3E1F8F483600DA6716 /* BaseTabBarController.swift in Sources */,
+				F23EB8631FA7575200F7CCC5 /* HomeCell.swift in Sources */,
 				E9C592021F90A28A00D3835A /* UITextField+Extension.swift in Sources */,
 				E91EDC3A1F8F480000DA6716 /* BaseViewController.swift in Sources */,
 				F2BC64221F91BBF900E06B16 /* InformationViewController.swift in Sources */,

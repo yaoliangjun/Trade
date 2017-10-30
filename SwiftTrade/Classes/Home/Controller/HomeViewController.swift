@@ -9,25 +9,24 @@
 import UIKit
 
 class HomeViewController: BaseViewController {
-
-//    let marketSummaryArray: [MarketSummaryModel]? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupSubViews()
-        fetchMarketSummary()
+//        fetchMarketSummary()
     }
 
-//    override func viewWillAppear(_ animated: Bool) {
-//        super .viewWillAppear(animated)
-//        fetchMarketSummary()
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(animated)
+        fetchMarketSummary()
+    }
     
     // 获取市场
     func fetchMarketSummary() {
         HomeServices.fetchMarketSummary(params: Dictionary.init(), showHUD: true, success: { (marketSummaryArray) in
-            print(marketSummaryArray)
+            self.markets = marketSummaryArray
+            self.tableView.reloadData()
             
         }) { (error) in
             
@@ -39,7 +38,7 @@ class HomeViewController: BaseViewController {
     }
     
     // MARK: - Getter / Setter
-    lazy var marketSummaryArray: [MarketSummaryModel] = {
+    lazy var markets: [MarketSummaryModel] = {
         return Array<MarketSummaryModel>()
     }()
     
@@ -59,6 +58,8 @@ class HomeViewController: BaseViewController {
         tableView.rowHeight = 70
         tableView.tableHeaderView = self.tableHeaderView
         tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = GlobalConstants.backgroundColor
         
         return tableView
     }()
@@ -67,7 +68,7 @@ class HomeViewController: BaseViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return marketSummaryArray.count
+        return markets.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -78,15 +79,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let homeCellReuseId = "homeCellReuseId"
         var cell = tableView.dequeueReusableCell(withIdentifier: homeCellReuseId)
         if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: homeCellReuseId)
+            cell = HomeCell(style: .default, reuseIdentifier: homeCellReuseId)
         }
-        
-        cell?.textLabel?.text = "Jerry Yao"
         
         return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionHeader: UIView = UIView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: 10))
+        sectionHeader.backgroundColor = AppConstants.gapColor;
+        return sectionHeader;
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
     }
 }
