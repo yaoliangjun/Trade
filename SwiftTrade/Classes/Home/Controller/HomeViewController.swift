@@ -14,11 +14,6 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         
         setupSubViews()
-//        fetchMarketSummary()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super .viewWillAppear(animated)
         fetchMarketSummary()
     }
     
@@ -77,11 +72,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let homeCellReuseId = "homeCellReuseId"
-        var cell = tableView.dequeueReusableCell(withIdentifier: homeCellReuseId)
+        var cell = tableView.dequeueReusableCell(withIdentifier: homeCellReuseId) as? HomeCell
         if cell == nil {
             cell = HomeCell(style: .default, reuseIdentifier: homeCellReuseId)
         }
         
+        cell!.marketSummaryModel = markets[indexPath.section]
         return cell!
     }
     

@@ -8,16 +8,17 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class HomeCell: UITableViewCell {
 
-    var currencyImageView: UIImageView?
-    var currencyName: UILabel?
-    var currencyCode: UILabel?
-    var price: UILabel?
-    var turnoverRate: UILabel?
-    var volume: UILabel?
-    var turnover: UILabel?
+    private var currencyImageView: UIImageView?
+    private var currencyName: UILabel?
+    private var currencyCode: UILabel?
+    private var price: UILabel?
+    private var turnoverRate: UILabel?
+    private var volume: UILabel?
+    private var turnover: UILabel?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -28,6 +29,55 @@ class HomeCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    var marketSummaryModel: MarketSummaryModel? {
+        didSet {
+            
+            currencyImageView?.kf.setImage(with: URL(string: (marketSummaryModel?.coinIcon)!))
+            currencyName?.text = marketSummaryModel?.coinName;
+            currencyCode?.text = marketSummaryModel?.coinSymbol?.uppercased()
+            price?.text = String(format: "￥%.2f", Float((marketSummaryModel?.lastPrice)!)!)
+            
+            //
+            var volumeStr = marketSummaryModel?.volume
+            if (volumeStr?.isEmpty)! {
+                volumeStr = "成交量%@0.00"
+                
+            } else {
+                volumeStr = String(format: "成交量%.2f", Float(volumeStr!)!)
+            }
+            volume?.text = volumeStr
+
+            //
+            var amountStr = marketSummaryModel?.amount
+            if (amountStr?.isEmpty)! {
+                amountStr = "成交额%@0.00万"
+                
+            } else {
+                amountStr = String(format: "成交额%.2f万", Float(amountStr!)!)
+            }
+            turnover?.text = amountStr
+
+            //
+            var changeRateStr = marketSummaryModel?.changeRate
+            if (changeRateStr?.isEmpty)! {
+                changeRateStr = "+0.00%"
+                turnoverRate?.textColor = AppConstants.greyTextColor
+                
+            } else {
+                let floatChangeRate: Float = Float(changeRateStr!)!
+                if floatChangeRate >= 0 {
+                    changeRateStr = String(format: "+%.2f%%", floatChangeRate)
+                    turnoverRate?.textColor = UIColor.red
+                    
+                } else {
+                    changeRateStr = String(format: "%.2f%%", floatChangeRate)
+                    turnoverRate?.textColor = UIColor.green
+                }
+            }
+            turnoverRate?.text = changeRateStr
+        }
+    }
+    
     // 设置子View
     func setupSubViews() {
         
