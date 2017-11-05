@@ -14,7 +14,10 @@ class RegisterViewController: BaseViewController {
     var codeTextField: UITextField? = nil
     var pwdTextField: UITextField? = nil
     var rePwdTextField: UITextField? = nil
+    var timer: Timer?
+    var verifyCodeBtn: UIButton?
     
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,22 +39,22 @@ class RegisterViewController: BaseViewController {
         let pwd = pwdTextField?.text
         let rePwd = rePwdTextField?.text
         
-        if (account?.characters.count)! <= 0 {
+        if (account?.isEmpty)! {
             MBProgressHUD.show(withStatus: "手机号不能为空")
             return
         }
         
-        if (verifyCode?.characters.count)! <= 0 {
+        if (verifyCode?.isEmpty)! {
             MBProgressHUD.show(withStatus: "验证码不能为空")
             return
         }
         
-        if (pwd?.characters.count)! <= 0 {
+        if (pwd?.isEmpty)! {
             MBProgressHUD.show(withStatus: "登录密码不能为空")
             return
         }
         
-        if (rePwd?.characters.count)! <= 0 {
+        if (rePwd?.isEmpty)! {
             MBProgressHUD.show(withStatus: "请重复输入登录密码")
             return
         }
@@ -61,16 +64,59 @@ class RegisterViewController: BaseViewController {
             return
         }
         
-        // TODO: 注册逻辑
-        navigationController?.popViewController(animated: true)
+        view.endEditing(true)
+        
+        let params = ["phone" : account ?? "", "verificationCode" : verifyCode ?? "", "password" : pwd ?? ""]
+        LoginServices.register(params: params, showHUD: true, success: { (response) in
+            MBProgressHUD.show(withStatus: "注册成功", completionHandle: { 
+                self.navigationController?.popViewController(animated: true)
+            })
+            
+        }) { (error) in
+            
+        }
     }
     
     // 获取验证码
     func verifyCodeBtnClick() {
         let account = accountTextField?.text
-        if (account?.characters.count)! <= 0 {
+        if (account?.isEmpty)! {
             MBProgressHUD.show(withStatus: "手机号不能为空")
             return
+        }
+
+        view.endEditing(true)
+        
+        // 保存点击时候的时间
+        UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: AppConstants.startGetVerifyCode)
+        UserDefaults.standard.synchronize()
+        
+        verifyCodeCountdown()
+        verifyCodeBtn?.isEnabled = false
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(verifyCodeCountdown), userInfo: nil, repeats: true)
+        
+        let params = ["phone": account ?? "", "type": "1"]
+        LoginServices.verifyCode(params: params, showHUD: false, success: { (response) in
+            
+        }) { (error) in
+            
+        }
+    }
+    
+    // 获取验证码倒计时
+    func verifyCodeCountdown() {
+        
+        let countdownSecond = 30.0
+        let startTimeInterval = UserDefaults.standard.double(forKey: AppConstants.startGetVerifyCode)
+        if startTimeInterval + countdownSecond > Date().timeIntervalSince1970 {
+            let countdownInterval = Int(startTimeInterval + countdownSecond - Date().timeIntervalSince1970)
+            verifyCodeBtn?.setTitle(String(countdownInterval), for: .normal)
+            
+        } else {
+            verifyCodeBtn?.setTitle("获取验证码", for: .normal)
+            verifyCodeBtn?.isEnabled = true
+            timer?.invalidate()
+            timer = nil
         }
     }
     
@@ -113,8 +159,8 @@ class RegisterViewController: BaseViewController {
         view.addSubview(codeSeparateLine)
         
         // 获取验证码
-        let verifyCodeBtn = UIButton(frame: CGRect(x: (codeTextField?.right)! + 10, y: (codeTextField?.top)! + 5, width: 80, height: 40), title: "获取验证码", titleColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 14), backgroundImage: UIImage.createImage(color: AppConstants.goldColor)!, highlightedBackgroundImage: UIImage.createImage(color: UIColor.brown)!, cornerRadius: 5, target: self, selector: #selector(verifyCodeBtnClick))
-        view.addSubview(verifyCodeBtn)
+        verifyCodeBtn = UIButton(frame: CGRect(x: (codeTextField?.right)! + 10, y: (codeTextField?.top)! + 5, width: 80, height: 40), title: "获取验证码", titleColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 14), backgroundImage: UIImage.createImage(color: AppConstants.goldColor)!, highlightedBackgroundImage: UIImage.createImage(color: UIColor.brown)!, cornerRadius: 5, target: self, selector: #selector(verifyCodeBtnClick))
+        view.addSubview(verifyCodeBtn!)
         
         // 登录密码
         let pwdImageView = UIImageView(frame: CGRect(x: 10, y: 15, width: 15, height: 20))

@@ -38,16 +38,16 @@ extension HttpManager {
                 switch response.result {
 
                 case .success(let value):
+                    self.dismissHUD(showHUD: showHUD)
+                    
                     let responseJson = JSON(value).rawString()
                     print("RESPONSE: \(responseJson!) \n")
-                    
                     success(responseJson!)
-                    self.dismissHUD(showHUD: showHUD)
                     
                 case .failure(let error):
-                    failture(error)
                     self.dismissHUD(showHUD: showHUD)
                     print("HTTP REQUEST ERROR: \(error)")
+                    failture(error)
                 }
         }
     }
@@ -65,16 +65,16 @@ extension HttpManager {
             switch response.result {
                 
             case .success(let value):
+                self.dismissHUD(showHUD: showHUD)
+                
                 let responseJson = JSON(value).rawString()
                 print("RESPONSE: \(responseJson!) \n")
-                
                 success(responseJson!)
-                self.dismissHUD(showHUD: showHUD)
                 
             case .failure(let error):
-                failture(error)
                 self.dismissHUD(showHUD: showHUD)
                 print("HTTP REQUEST ERROR: \(error)")
+                failture(error)
             }
         }
     }

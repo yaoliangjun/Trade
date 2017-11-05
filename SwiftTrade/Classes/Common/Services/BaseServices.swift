@@ -10,11 +10,20 @@ import UIKit
 
 class BaseServices: NSObject {
 
-    static func processResponse(responseJSON: String?) -> BaseResponseModel {
+    static func processResponse(responseJSON: String?) -> BaseResponseModel? {
         guard let response = responseJSON else {
-            return BaseResponseModel()
+            return nil
         }
         
-        return BaseResponseModel.mj_object(withKeyValues: response)
+        let responseModel = BaseResponseModel.mj_object(withKeyValues: response)
+        if responseModel?.statusCode != 0 {
+            let errorMsg = responseModel?.errorMessage ?? ""
+            if !errorMsg.isEmpty {
+                MBProgressHUD.show(withStatus: errorMsg)
+            }
+            return nil
+        }
+        
+        return responseModel!
     }
 }

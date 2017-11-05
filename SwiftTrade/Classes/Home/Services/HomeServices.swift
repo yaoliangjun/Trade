@@ -14,7 +14,7 @@ class HomeServices: BaseServices {
         HttpManager.sharedManager.get(url: ServerUrl.marketSummary, params: params, showHUD: showHUD, success: { (response) in
             
             let responseModel = processResponse(responseJSON: response)
-            let array = MarketSummaryModel.mj_objectArray(withKeyValuesArray: responseModel.content) as! [MarketSummaryModel]
+            let array = MarketSummaryModel.mj_objectArray(withKeyValuesArray: responseModel?.content) as! [MarketSummaryModel]
             success(array)
             
         }) { (error) in

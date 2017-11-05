@@ -38,7 +38,7 @@ class LoginViewController: BaseViewController {
         let params = ["phone": account ?? "", "password": password ?? ""]
         
         LoginServices.login(params: params, showHUD: true, success: { (response) in
-            let token = (response.content as! NSDictionary)["token"]
+            let token = (response?.content as! NSDictionary)["token"]
             UserDefaults.standard.setValue(token, forKey: AppConstants.token)
             ((UIApplication.shared.delegate) as! AppDelegate).showMainPage()
             

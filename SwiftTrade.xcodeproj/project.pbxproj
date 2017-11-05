@@ -302,10 +302,10 @@
 		E91EDC261F8F422A00DA6716 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				F23EB85F1FA58A6800F7CCC5 /* Services */,
 				E91EDC271F8F422A00DA6716 /* Controller */,
 				E91EDC281F8F422A00DA6716 /* Model */,
 				E91EDC291F8F422A00DA6716 /* View */,
+				F23EB85F1FA58A6800F7CCC5 /* Services */,
 			);
 			path = Login;
 			sourceTree = "<group>";

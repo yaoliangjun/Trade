@@ -10,10 +10,39 @@ import UIKit
 
 class LoginServices: BaseServices {
 
-    static func login(params: [String: Any], showHUD: Bool, success: @escaping (_ response: BaseResponseModel) -> (), failure: @escaping (_ error: Error) -> () ) {
-        HttpManager.sharedManager.post(url: ServerUrl.loginUrl, params: params, showHUD: showHUD, success: { (response) in
+    /** 登录 */
+    static func login(params: [String: Any], showHUD: Bool, success: @escaping (_ response: BaseResponseModel?) -> (), failure: @escaping (_ error: Error) -> () ) {
+        HttpManager.sharedManager.post(url: ServerUrl.login, params: params, showHUD: showHUD, success: { (response) in
             let responseModel = processResponse(responseJSON: response)
-            success(responseModel)
+            if responseModel != nil {
+                success(responseModel)
+            }
+            
+        }) { (error) in
+            failure(error)
+        }
+    }
+
+    /** 注册 */
+    static func register(params: [String: Any], showHUD: Bool, success: @escaping (_ response: BaseResponseModel?) -> (), failure: @escaping (_ error: Error) -> () ) {
+        HttpManager.sharedManager.post(url: ServerUrl.register, params: params, showHUD: showHUD, success: { (response) in
+            let responseModel = processResponse(responseJSON: response)
+            if responseModel != nil {
+                success(responseModel)
+            }
+            
+        }) { (error) in
+            failure(error)
+        }
+    }
+    
+    /** 获取验证码 */
+    static func verifyCode(params: [String: Any], showHUD: Bool, success: @escaping (_ response: BaseResponseModel?) -> (), failure: @escaping (_ error: Error) -> () ) {
+        HttpManager.sharedManager.post(url: ServerUrl.verifyCode, params: params, showHUD: showHUD, success: { (response) in
+            let responseModel = processResponse(responseJSON: response)
+            if responseModel != nil {
+                success(responseModel)
+            }
             
         }) { (error) in
             failure(error)

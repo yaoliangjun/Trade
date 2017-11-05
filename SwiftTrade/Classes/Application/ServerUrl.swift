@@ -13,11 +13,13 @@ class ServerUrl: NSObject {
     // 服务器地址
     static let baseUrl = "http://47.92.150.205:9000"
     
+    /******************************************  注册登录  ************************************************/
     
-    // 注册登录
-    static let loginUrl = "/user/login" // 登录
+    static let login = "/user/login" // 登录
+    static let register = "/user/register" // 注册
+    static let verifyCode = "/user/veri-code" // 获取短信验证码
     
-    
-    // 主页
+    /******************************************  主页  ***************************************************/
+
     static let marketSummary = "/market/summary" // 获取当前各币种行情
 }

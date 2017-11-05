@@ -21,5 +21,7 @@ extension UITextField {
         self.font = font;
         self.leftView = leftView
         self.leftViewMode = .always
+        self.autocorrectionType = .no
+        self.autocapitalizationType = .none
     }
 }
