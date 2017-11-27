@@ -10,10 +10,10 @@ import UIKit
 
 class BaseResponseModel: NSObject {
 
-    var content: Any?
-    var statusCode: Int = 1
-    var errorMessage: String?
-    var page: Int?
-    var pageNum: Int?
-    var total: Int?
+    var content: Any? = nil
+    var statusCode: Int = 0
+    var errorMessage: String? = nil
+    var page: Int? = 0
+    var pageNum: Int? = 0
+    var total: Int? = 0
 }
