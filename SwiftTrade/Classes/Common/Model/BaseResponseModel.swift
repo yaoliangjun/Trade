@@ -11,8 +11,8 @@ import UIKit
 class BaseResponseModel: NSObject {
 
     var content: Any? = nil
-    var statusCode: Int = 0
     var errorMessage: String? = nil
+    var statusCode: Int = 0
     var page: Int? = 0
     var pageNum: Int? = 0
     var total: Int? = 0
