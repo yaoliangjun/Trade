@@ -17,6 +17,7 @@
 		E91EDC451F8F5FB600DA6716 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EDC441F8F5FB600DA6716 /* UIView+Extension.swift */; };
 		E91EDC471F90667A00DA6716 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EDC461F90667A00DA6716 /* AppConstants.swift */; };
 		E91EDC491F90694700DA6716 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EDC481F90694700DA6716 /* UIColor+Extension.swift */; };
+		E9C3D7A71FCBEEE70047222F /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D7A61FCBEEE70047222F /* BaseTableViewController.swift */; };
 		E9C592001F909E8900D3835A /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C591FF1F909E8900D3835A /* UILabel+Extension.swift */; };
 		E9C592021F90A28A00D3835A /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C592011F90A28A00D3835A /* UITextField+Extension.swift */; };
 		E9C592041F90AC8900D3835A /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C592031F90AC8900D3835A /* UIButton+Extension.swift */; };
@@ -54,6 +55,7 @@
 		E91EDC441F8F5FB600DA6716 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E91EDC461F90667A00DA6716 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		E91EDC481F90694700DA6716 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		E9C3D7A61FCBEEE70047222F /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		E9C591FF1F909E8900D3835A /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		E9C592011F90A28A00D3835A /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		E9C592031F90AC8900D3835A /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				E91EDC391F8F480000DA6716 /* BaseViewController.swift */,
 				E91EDC3B1F8F481E00DA6716 /* BaseNavigationController.swift */,
 				E91EDC3D1F8F483600DA6716 /* BaseTabBarController.swift */,
+				E9C3D7A61FCBEEE70047222F /* BaseTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 				E91EDC401F8F48A900DA6716 /* LoginViewController.swift in Sources */,
 				F2BC64201F91BBE500E06B16 /* TradeViewController.swift in Sources */,
 				F23EB85E1FA5839A00F7CCC5 /* BaseServices.swift in Sources */,
+				E9C3D7A71FCBEEE70047222F /* BaseTableViewController.swift in Sources */,
 				E91EDC491F90694700DA6716 /* UIColor+Extension.swift in Sources */,
 				E9C592041F90AC8900D3835A /* UIButton+Extension.swift in Sources */,
 				E91EDC471F90667A00DA6716 /* AppConstants.swift in Sources */,

@@ -19,6 +19,10 @@ class BaseTabBarController: UITabBarController {
     func setupTabBarAppearance() {
         // 设置背景颜色
         tabBar.barTintColor = AppConstants.tabBarColor
+
+        tabBar.backgroundImage = UIImage.createImage(color: AppConstants.navigationBarColor)
+        tabBar.shadowImage = UIImage()
+
         // 设置字体和颜色
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 11)], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: AppConstants.goldColor, NSFontAttributeName: UIFont.systemFont(ofSize: 11)], for: .selected)

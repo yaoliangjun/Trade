@@ -22,8 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
-        
-        showLoginPage()
+
+        let token = UserDefaults.standard.object(forKey: AppConstants.token) as! String
+        if token.isEmpty {
+            showLoginPage();
+        } else {
+            showMainPage();
+        }
         
         return true
     }

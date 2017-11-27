@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController {
+class HomeViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,18 +21,30 @@ class HomeViewController: BaseViewController {
     func fetchMarketSummary() {
         HomeServices.fetchMarketSummary(params: Dictionary.init(), showHUD: true, success: { (marketSummaryArray) in
             self.markets = marketSummaryArray
-            self.tableView.reloadData()
-            
+            self.tableView?.reloadData()
+
         }) { (error) in
             
         }
     }
     
-    func setupSubViews() {
-        view.addSubview(tableView)
+
+    // MARK: - Private Method
+    override func pullDownHandle() {
+        fetchMarketSummary()
     }
     
     // MARK: - Getter / Setter
+    func setupSubViews() {
+        tableView = createTableView(style: .plain, needRefresh: true)
+        tableView?.delegate = self
+        tableView?.dataSource = self
+        tableView?.rowHeight = 70
+        tableView?.tableHeaderView = tableHeaderView
+        tableView?.backgroundColor = AppConstants.gapColor
+        view.addSubview(tableView!)
+    }
+
     lazy var markets: [MarketSummaryModel] = {
         return Array<MarketSummaryModel>()
     }()
@@ -44,19 +56,6 @@ class HomeViewController: BaseViewController {
         tableHeaderView.addSubview(imageView)
         
         return tableHeaderView
-    }()
-    
-    lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: GlobalConstants.tableViewHeight))
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.rowHeight = 70
-        tableView.tableHeaderView = self.tableHeaderView
-        tableView.tableFooterView = UIView()
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = GlobalConstants.backgroundColor
-        
-        return tableView
     }()
 }
 
@@ -71,14 +70,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let homeCellReuseId = "homeCellReuseId"
-        var cell = tableView.dequeueReusableCell(withIdentifier: homeCellReuseId) as? HomeCell
-        if cell == nil {
-            cell = HomeCell(style: .default, reuseIdentifier: homeCellReuseId)
-        }
-        
-        cell!.marketSummaryModel = markets[indexPath.section]
-        return cell!
+       let cell = HomeCell.cellWithTableView(tableView: tableView)
+        cell.marketSummaryModel = markets[indexPath.section]
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

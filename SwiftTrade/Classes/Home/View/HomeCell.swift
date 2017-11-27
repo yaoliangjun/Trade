@@ -19,7 +19,18 @@ class HomeCell: UITableViewCell {
     private var turnoverRate: UILabel?
     private var volume: UILabel?
     private var turnover: UILabel?
-    
+
+    static func cellWithTableView(tableView: UITableView) -> HomeCell {
+        let homeCellReuseId = "homeCellReuseId"
+        var cell = tableView.dequeueReusableCell(withIdentifier: homeCellReuseId) as? HomeCell
+        if cell == nil {
+            cell = HomeCell(style: .default, reuseIdentifier: homeCellReuseId)
+            cell?.backgroundColor = UIColor.white
+        }
+
+        return cell!
+    }
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupSubViews()
