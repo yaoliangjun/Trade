@@ -16,7 +16,6 @@ class HttpManager: NSObject {
 
     static let sharedManager: HttpManager = HttpManager()
 
-    
     let headers: HTTPHeaders = [
         "Content-Type": "application/x-www-form-urlencoded",
         "token": token ?? ""
@@ -24,53 +23,37 @@ class HttpManager: NSObject {
 }
 
 extension HttpManager {
-    
+
     // MARK: - GET请求
-    func get(url: String, params : [String : Any], showHUD: Bool, success : @escaping (_ response : String) -> (), failture : @escaping (_ error : Error) -> ()) {
-        
-        self.showHUD(showHUD: showHUD)
-        let requestUrl = ServerUrl.baseUrl + url
-        print("REQUEST URL: \(requestUrl)")
-        print("REQUEST PARAMS: \(params)")
-        
-        Alamofire.request(requestUrl, method: .get, parameters: params, headers: headers).responseJSON { (response) in
-
-                switch response.result {
-
-                case .success(let value):
-                    self.dismissHUD(showHUD: showHUD)
-                    
-                    let responseJson = JSON(value).rawString()
-                    print("RESPONSE: \(responseJson!) \n")
-                    success(responseJson!)
-                    
-                case .failure(let error):
-                    self.dismissHUD(showHUD: showHUD)
-                    print("HTTP REQUEST ERROR: \(error)")
-                    failture(error)
-                }
-        }
+    func get(url: String, params: [String: Any], showHUD: Bool, success: @escaping (_ response: Any?) -> (), failture: @escaping (_ error: Error) -> ()) {
+        request(url: url, method: .get, params: params, showHUD: showHUD, success: success, failture: failture)
     }
     
-    // MARK: - POST请求
-    func post(url: String, params : [String : Any], showHUD: Bool, success : @escaping (_ response : String) -> (), failture : @escaping (_ error : Error) -> ()) {
-        
+    // MARK: POST请求
+    func post(url: String, params: [String : Any], showHUD: Bool, success: @escaping (_ response: Any?) -> (), failture: @escaping (_ error: Error) -> ()) {
+        request(url: url, method: .post, params: params, showHUD: showHUD, success: success, failture: failture)
+    }
+
+    // MARK: 请求基类
+    fileprivate func request(url: String, method: HTTPMethod, params: Parameters?, showHUD: Bool, success : @escaping (_ response : Any?) -> (), failture : @escaping (_ error : Error) -> ()) -> () {
+
         self.showHUD(showHUD: showHUD)
         let requestUrl = ServerUrl.baseUrl + url
-        print("REQUEST URL: \(requestUrl)")
-        print("REQUEST PARAMS: \(params)")
-        
-        Alamofire.request(requestUrl, method: .post, parameters: params, headers: headers).responseJSON { (response) in
-            
+        Alamofire.request(requestUrl, method: method, parameters: params, headers: headers).responseJSON { (response) in
+
             switch response.result {
-                
+
             case .success(let value):
                 self.dismissHUD(showHUD: showHUD)
-                
+
                 let responseJson = JSON(value).rawString()
+
+                print("REQUEST METHOD: \(method)")
+                print("REQUEST URL: \(url)")
+                print("REQUEST PARAMS: \(String(describing: params))")
                 print("RESPONSE: \(responseJson!) \n")
-                success(responseJson!)
-                
+                success(value)
+
             case .failure(let error):
                 self.dismissHUD(showHUD: showHUD)
                 print("HTTP REQUEST ERROR: \(error)")
@@ -78,7 +61,7 @@ extension HttpManager {
             }
         }
     }
-    
+
     // MARK: - Private Method
     func showHUD(showHUD: Bool) {
         if showHUD {

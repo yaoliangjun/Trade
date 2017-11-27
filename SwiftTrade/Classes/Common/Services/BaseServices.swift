@@ -10,7 +10,7 @@ import UIKit
 
 class BaseServices: NSObject {
 
-    static func processResponse(responseJSON: String?) -> BaseResponseModel? {
+    static func processResponse(responseJSON: Any?) -> BaseResponseModel? {
         guard let response = responseJSON else {
             return nil
         }
