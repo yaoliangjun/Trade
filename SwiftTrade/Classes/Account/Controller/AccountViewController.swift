@@ -23,7 +23,7 @@ class AccountViewController: BaseTableViewController {
         tableView = createTableView(style: .plain, needRefresh: true)
         tableView?.delegate = self
         tableView?.dataSource = self
-        tableView?.separatorColor = AppConstants.gapColor
+        tableView?.separatorColor = AppConstants.grayColor
         tableView?.separatorStyle = .singleLine
         view.addSubview(tableView!)
     }
@@ -36,20 +36,25 @@ class AccountViewController: BaseTableViewController {
 
     // 设置
     func settingBtnClick() {
-
+        let settingVC = SettingViewController()
+        navigationController?.pushViewController(settingVC, animated: true)
     }
 
     // MARK: - Getter / Setter
-    lazy var sectionTwoTitleArray: [String] = {
-        var sectionTwoTitleArray = ["我的持仓", "充值提现", "虚拟币转入", "虚拟币转出"]
+    lazy var sectionTwoArray: [[String: String]] = {
+        var sectionTwoArray = [["我的持仓": "account_position"],
+                               ["充值提现": "account_cash-value"],
+                               ["虚拟币转入": "account_virtual-currency-transfer"],
+                               ["虚拟币转出": "account_virtual-currency"]]
 
-        return sectionTwoTitleArray
+        return sectionTwoArray
     }()
 
-    lazy var sectionThreeTitleArray: [String] = {
-        var sectionThreeTitleArray = ["委托管理", "成交记录"]
+    lazy var sectionThreeArray: [[String: String]] = {
+        var sectionThreeArray = [["委托管理": "account_entrusted-management"],
+                                 ["成交记录": "account_transaction-record"]]
 
-        return sectionThreeTitleArray
+        return sectionThreeArray
     }()
 }
 
@@ -69,27 +74,41 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellReuseId = "CellReuseId"
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId)
-        if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: cellReuseId)
-            cell?.textLabel?.textColor = AppConstants.greyTextColor
-            cell?.textLabel?.font = UIFont.systemFont(ofSize: 14)
-        }
-
 
         let section = indexPath.section
         if section == 0 {
-            cell?.textLabel?.text = nil
+            let cell = AccountInfoCell.cellWithTableView(tableView: tableView)
+            cell.textLabel?.text = nil
+            cell.accessoryType = .none
+            cell.selectionStyle = .none
 
-        } else if section == 1 {
-            cell?.textLabel?.text = sectionTwoTitleArray[indexPath.row];
+            return cell
 
-        } else if section == 2 {
-            cell?.textLabel?.text = sectionThreeTitleArray[indexPath.row];
+        } else {
+            let cellReuseId = "CellReuseId"
+            var cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId)
+            if cell == nil {
+                cell = UITableViewCell(style: .default, reuseIdentifier: cellReuseId)
+                cell?.textLabel?.textColor = AppConstants.greyTextColor
+                cell?.textLabel?.font = UIFont.systemFont(ofSize: 14)
+            }
+            cell?.selectionStyle = .default
+
+            if section == 1 {
+                let dict: [String: String] = sectionTwoArray[indexPath.row];
+                cell?.textLabel?.text = dict.keys.first;
+                cell?.imageView?.image = UIImage(named: dict.values.first!)
+                cell?.accessoryType = .disclosureIndicator
+
+            } else if section == 2 {
+                let dict: [String: String] = sectionThreeArray[indexPath.row];
+                cell?.textLabel?.text = dict.keys.first;
+                cell?.imageView?.image = UIImage(named: dict.values.first!)
+                cell?.accessoryType = .disclosureIndicator
+            }
+            
+            return cell!
         }
-
-        return cell!
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -104,6 +123,13 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 15
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 120
+        }
+        return 50
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

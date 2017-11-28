@@ -24,6 +24,7 @@ class BaseTableViewController: BaseViewController {
         tableView.rowHeight = 50
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
+        tableView.backgroundColor = AppConstants.gapColor
         return tableView
     }
 
