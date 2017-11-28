@@ -17,7 +17,8 @@ class AppConstants: NSObject {
     static let greyTextColor = UIColor(hexValue: 0x333333) // 灰色文字颜色
     static let gapColor = UIColor(hexValue: 0xEDEDED) // 灰色空隙颜色
     static let grayColor = UIColor(hexValue: 0xCCCCCC) // 灰色
-    
+    static let redTextColor = UIColor(hexValue: 0xFE3131) // 红色文字
+
     // 字符串常量
     static let token = "token"
     static let startGetVerifyCode = "startGetVerifyCode"

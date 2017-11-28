@@ -21,6 +21,8 @@
 		E9C3D7AB1FCCFF880047222F /* AccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D7AA1FCCFF880047222F /* AccountInfoCell.swift */; };
 		E9C3D7D21FCD144D0047222F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D7D11FCD144D0047222F /* SettingViewController.swift */; };
 		E9C3D7D41FCD16D10047222F /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D7D31FCD16D10047222F /* UIBarButtonItem+Extension.swift */; };
+		E9C3D7D91FCD6AC10047222F /* InfoServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D7D81FCD6AC10047222F /* InfoServices.swift */; };
+		E9C3D7DB1FCD6E1F0047222F /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D7DA1FCD6E1F0047222F /* InfoModel.swift */; };
 		E9C592001F909E8900D3835A /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C591FF1F909E8900D3835A /* UILabel+Extension.swift */; };
 		E9C592021F90A28A00D3835A /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C592011F90A28A00D3835A /* UITextField+Extension.swift */; };
 		E9C592041F90AC8900D3835A /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C592031F90AC8900D3835A /* UIButton+Extension.swift */; };
@@ -62,6 +64,8 @@
 		E9C3D7AA1FCCFF880047222F /* AccountInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCell.swift; sourceTree = "<group>"; };
 		E9C3D7D11FCD144D0047222F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E9C3D7D31FCD16D10047222F /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		E9C3D7D81FCD6AC10047222F /* InfoServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoServices.swift; sourceTree = "<group>"; };
+		E9C3D7DA1FCD6E1F0047222F /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
 		E9C591FF1F909E8900D3835A /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		E9C592011F90A28A00D3835A /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		E9C592031F90AC8900D3835A /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
@@ -267,8 +271,9 @@
 			isa = PBXGroup;
 			children = (
 				E91EDC231F8F422A00DA6716 /* Controller */,
-				E91EDC241F8F422A00DA6716 /* Model */,
-				E91EDC251F8F422A00DA6716 /* View */,
+				E9C3D7D71FCD6A850047222F /* Model */,
+				E9C3D7D61FCD6A850047222F /* View */,
+				E9C3D7D51FCD6A850047222F /* Services */,
 			);
 			path = Information;
 			sourceTree = "<group>";
@@ -279,20 +284,6 @@
 				F2BC64211F91BBF900E06B16 /* InformationViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		E91EDC241F8F422A00DA6716 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		E91EDC251F8F422A00DA6716 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		E91EDC261F8F422A00DA6716 /* Login */ = {
@@ -449,6 +440,29 @@
 				E9C3D7AA1FCCFF880047222F /* AccountInfoCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E9C3D7D51FCD6A850047222F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E9C3D7D81FCD6AC10047222F /* InfoServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E9C3D7D61FCD6A850047222F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9C3D7D71FCD6A850047222F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9C3D7DA1FCD6E1F0047222F /* InfoModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E9C592571F95E4A400D3835A /* Manager */ = {
@@ -647,6 +661,7 @@
 				E9C592061F90B5ED00D3835A /* UIImage+Extension.swift in Sources */,
 				F2BC644E1F931D9000E06B16 /* MBProgressHUD+Extension.m in Sources */,
 				E9C592001F909E8900D3835A /* UILabel+Extension.swift in Sources */,
+				E9C3D7D91FCD6AC10047222F /* InfoServices.swift in Sources */,
 				F2BC641C1F91BB7B00E06B16 /* MainTabBarController.swift in Sources */,
 				E91EDC421F8F59EE00DA6716 /* GlobalConstants.swift in Sources */,
 				E91EDC451F8F5FB600DA6716 /* UIView+Extension.swift in Sources */,
@@ -668,6 +683,7 @@
 				E9D694D31F9F382F003D28DE /* MarketSummaryModel.swift in Sources */,
 				E9C592081F90BD8600D3835A /* RegisterViewController.swift in Sources */,
 				F23EB8611FA58A8900F7CCC5 /* LoginServices.swift in Sources */,
+				E9C3D7DB1FCD6E1F0047222F /* InfoModel.swift in Sources */,
 				F2BC64241F91BC0A00E06B16 /* AccountViewController.swift in Sources */,
 				F2BC641E1F91BBD600E06B16 /* HomeViewController.swift in Sources */,
 				E9C592591F95E4E200D3835A /* HttpManager.swift in Sources */,

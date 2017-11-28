@@ -12,6 +12,8 @@ import MJRefresh
 class BaseTableViewController: BaseViewController {
 
     var tableView: UITableView? = nil;
+    var pageNumber = 0 // 默认页码:第0页
+    var pageCount = 15 // 默认每页显示条数
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,7 @@ class BaseTableViewController: BaseViewController {
         tableView.rowHeight = 50
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
+        tableView.backgroundColor = AppConstants.gapColor
 
         if needRefresh {
             addRefreshComponentsWithTableView(tableView: tableView)

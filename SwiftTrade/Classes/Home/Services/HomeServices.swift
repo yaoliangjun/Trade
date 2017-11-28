@@ -21,6 +21,4 @@ class HomeServices: BaseServices {
             failture(error)
         }
     }
-    
-    
 }

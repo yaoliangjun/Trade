@@ -8,11 +8,25 @@
 
 import UIKit
 
-class SettingViewController: BaseTableViewController {
+class SettingViewController: BaseTableViewController, UIAlertViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubViews()
+    }
+
+    // MARK: - Private Method
+    func logoutBtnClick() {
+
+        let alertView = UIAlertView(title: "提示", message: "确定要退出登录吗?", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "确定")
+        alertView.show()
+    }
+
+    // MARK: - UIAlertViewDelegate
+    func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
+        if buttonIndex != alertView.cancelButtonIndex {
+            (UIApplication.shared.delegate as! AppDelegate).showModalLoginPage()
+        }
     }
 
     // MARK: - Getter / Setter
@@ -23,8 +37,24 @@ class SettingViewController: BaseTableViewController {
         tableView?.dataSource = self
         tableView?.separatorColor = AppConstants.grayColor
         tableView?.separatorStyle = .singleLine
+        tableView?.tableFooterView = tableFooterView
         view.addSubview(tableView!)
     }
+
+    lazy var tableFooterView: UIView = {
+
+        let tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: 100))
+        let logoutBtn = UIButton(title: "退出登录", titleColor: AppConstants.redTextColor, highlightedTitleColor: UIColor.red, font: UIFont.systemFont(ofSize: 14), backgroundColor: UIColor.white, cornerRadius: 0, borderWidth: 0, borderColor: nil, target: self, selector: #selector(logoutBtnClick))
+            tableFooterView.addSubview(logoutBtn)
+            logoutBtn.snp.makeConstraints { (make) in
+                make.left.right.equalTo(tableFooterView)
+                make.top.equalTo(tableFooterView).offset(30)
+                make.height.equalTo(50)
+            }
+
+        return tableFooterView
+
+    }()
 
     lazy var sectionOneArray: [[String: String]] = {
         let sectionOneArray = [["行情刷新频率": "account_refresh-rate"]]

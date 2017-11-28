@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         setupIQKeyboardManager()
@@ -32,20 +31,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-    
+
+    // 显示主页面
+    func showMainPage() {
+        window?.rootViewController = MainTabBarController()
+    }
+
     // 显示登录页
     func showLoginPage() {
         let navigationController = BaseNavigationController(rootViewController: LoginViewController())
         window?.rootViewController = navigationController
     }
-    
-    // 显示主页面
-    func showMainPage() {
-        window?.rootViewController = MainTabBarController()
+
+    func showModalLoginPage() {
+        let navigationController = BaseNavigationController(rootViewController: LoginViewController())
+        window?.rootViewController?.present(navigationController, animated: true, completion: nil)
     }
     
     // 键盘管理
-    func setupIQKeyboardManager() {
+    fileprivate func setupIQKeyboardManager() {
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
     }
