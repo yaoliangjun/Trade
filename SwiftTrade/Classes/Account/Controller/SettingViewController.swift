@@ -25,7 +25,7 @@ class SettingViewController: BaseTableViewController, UIAlertViewDelegate {
     // MARK: - UIAlertViewDelegate
     func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
         if buttonIndex != alertView.cancelButtonIndex {
-            (UIApplication.shared.delegate as! AppDelegate).showModalLoginPage()
+            (UIApplication.shared.delegate as! AppDelegate).logout()
         }
     }
 

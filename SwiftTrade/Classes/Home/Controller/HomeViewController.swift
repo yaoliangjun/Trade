@@ -70,7 +70,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let cell = HomeCell.cellWithTableView(tableView: tableView)
+        let cell = HomeCell.cellWithTableView(tableView: tableView) as! HomeCell
         cell.marketSummaryModel = markets[indexPath.section]
         return cell
     }

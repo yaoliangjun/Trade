@@ -8,28 +8,52 @@
 
 import UIKit
 
-class InformationDetailViewController: BaseViewController {
+class InformationDetailViewController: BaseViewController, UIWebViewDelegate {
 
+    var infoModel: InfoModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupSubViews()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // MARK: - UIWebViewDelegate
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        MBProgressHUD.showLoading()
+        return true
     }
-    
 
-    /*
-    // MARK: - Navigation
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        MBProgressHUD.dismiss()
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        // 修改字体颜色
+        webView.stringByEvaluatingJavaScript(from: "document.getElementsByTagName('body')[0].style.webkitTextFillColor= '#333333'")
+
+        // 修改所有元素的背景颜色
+        let allElementsStr = "var objs = document.getElementsByTagName('*'); for(var i=0; i<objs.length; i++) { objs[i].style.backgroundColor='#EDEDED'; }"
+        webView.stringByEvaluatingJavaScript(from: allElementsStr)
     }
-    */
 
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        MBProgressHUD.dismiss()
+    }
+
+    // MARK: - Getter / Setter
+    func setupSubViews() {
+        title = "资讯详情"
+
+        let webView = UIWebView(frame: view.bounds)
+        webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 64, 0)
+        webView.isOpaque = false
+        webView.backgroundColor = AppConstants.gapColor
+        webView.scrollView.backgroundColor = AppConstants.gapColor
+        webView.delegate = self
+        view.addSubview(webView)
+
+        let htmlContennt = infoModel?.content
+        guard let content = htmlContennt else {
+            return
+        }
+        webView.loadHTMLString(content, baseURL: nil)
+    }
 }

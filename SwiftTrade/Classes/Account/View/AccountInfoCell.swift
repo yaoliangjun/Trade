@@ -8,34 +8,14 @@
 
 import UIKit
 
-class AccountInfoCell: UITableViewCell {
+class AccountInfoCell: CommonTableViewCell {
 
     fileprivate var accountLabel: UILabel?
     fileprivate var totalAssetLabel: UILabel?
     fileprivate var totalCoinLabel: UILabel?
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupSubViews()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    static func cellWithTableView(tableView: UITableView) -> AccountInfoCell {
-        let cellReuseId = "accountInfoCellReuseId"
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId) as? AccountInfoCell
-        if cell == nil {
-            cell = AccountInfoCell(style: .default, reuseIdentifier: cellReuseId)
-            cell?.backgroundColor = UIColor.white
-        }
-
-        return cell!
-    }
-
     // 设置子View
-    fileprivate func setupSubViews() {
+    override func setupSubViews() {
 
         let accountText = UILabel(text: "账号", textColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 15))
         contentView.addSubview(accountText)

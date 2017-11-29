@@ -22,12 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
 
-        let token = UserDefaults.standard.object(forKey: AppConstants.token) as! String
-        if token.isEmpty {
-            showLoginPage();
-        } else {
-            showMainPage();
+        let token = UserDefaults.standard.object(forKey: AppConstants.token) as! String?
+        guard let _ = token else {
+            showLoginPage()
+            return true
         }
+        showMainPage()
         
         return true
     }
@@ -43,7 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigationController
     }
 
-    func showModalLoginPage() {
+    // 退出登录
+    func logout() {
+        UserDefaults.standard.set("", forKey: AppConstants.token)
         let navigationController = BaseNavigationController(rootViewController: LoginViewController())
         window?.rootViewController?.present(navigationController, animated: true, completion: nil)
     }

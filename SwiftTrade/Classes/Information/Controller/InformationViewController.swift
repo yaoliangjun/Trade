@@ -45,7 +45,7 @@ class InformationViewController: BaseTableViewController {
         view.addSubview(tableView!)
     }
 
-    lazy var infoArray: [InfoModel] = {
+    lazy var infoArray: [InfoModel]? = {
         return Array<InfoModel>()
     }()
 
@@ -62,7 +62,7 @@ class InformationViewController: BaseTableViewController {
 extension InformationViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return infoArray.count
+        return (infoArray?.count) ?? 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,13 +70,18 @@ extension InformationViewController: UITableViewDelegate, UITableViewDataSource 
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = HomeCell.cellWithTableView(tableView: tableView)
-//        cell.marketSummaryModel = infoArray[indexPath.section]
+        let cell = InfoCell.cellWithTableView(tableView: tableView) as! InfoCell
+        cell.setupInfoModel(infoModel: infoArray![indexPath.section])
+        
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        let infoDetailVC = InformationDetailViewController()
+        infoDetailVC.infoModel = infoArray?[indexPath.section]
+        navigationController?.pushViewController(infoDetailVC, animated: true)
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

@@ -20,7 +20,6 @@ class RegisterViewController: BaseViewController {
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupSubViews()
     }
     
@@ -125,7 +124,7 @@ class RegisterViewController: BaseViewController {
     func setupSubViews() {
         //
         let backgroundView = UIImageView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: GlobalConstants.screenHeight))
-        backgroundView.image = UIImage(named: "login_background")
+        backgroundView.image = UIImage(named: "background")
         view.addSubview(backgroundView)
         
         //

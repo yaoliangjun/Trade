@@ -10,16 +10,20 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-let token: String? = UserDefaults.standard.value(forKey: AppConstants.token) as? String
-
 class HttpManager: NSObject {
 
     static let sharedManager: HttpManager = HttpManager()
 
-    let headers: HTTPHeaders = [
-        "Content-Type": "application/x-www-form-urlencoded",
-        "token": token ?? ""
-    ]
+    func globalHeader() -> HTTPHeaders {
+
+        let token: String? = UserDefaults.standard.value(forKey: AppConstants.token) as? String
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/x-www-form-urlencoded",
+            "token": token ?? ""
+        ]
+
+        return headers
+    }
 }
 
 extension HttpManager {
@@ -39,7 +43,7 @@ extension HttpManager {
 
         self.showHUD(showHUD: showHUD)
         let requestUrl = ServerUrl.baseUrl + url
-        Alamofire.request(requestUrl, method: method, parameters: params, headers: headers).responseJSON { (response) in
+        Alamofire.request(requestUrl, method: method, parameters: params, headers: globalHeader()).responseJSON { (response) in
 
             switch response.result {
 
@@ -48,8 +52,7 @@ extension HttpManager {
 
                 let responseJson = JSON(value).rawString()
 
-                print("REQUEST METHOD: \(method)")
-                print("REQUEST URL: \(url)")
+                print("REQUEST URL: \(url), REQUEST METHOD: \(method)")
                 print("REQUEST PARAMS: \(String(describing: params))")
                 print("RESPONSE: \(responseJson!) \n")
                 success(value)

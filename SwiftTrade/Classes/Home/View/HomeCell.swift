@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class HomeCell: UITableViewCell {
+class HomeCell: CommonTableViewCell {
 
     private var currencyImageView: UIImageView?
     private var currencyName: UILabel?
@@ -19,26 +19,6 @@ class HomeCell: UITableViewCell {
     private var turnoverRate: UILabel?
     private var volume: UILabel?
     private var turnover: UILabel?
-
-    static func cellWithTableView(tableView: UITableView) -> HomeCell {
-        let homeCellReuseId = "homeCellReuseId"
-        var cell = tableView.dequeueReusableCell(withIdentifier: homeCellReuseId) as? HomeCell
-        if cell == nil {
-            cell = HomeCell(style: .default, reuseIdentifier: homeCellReuseId)
-            cell?.backgroundColor = UIColor.white
-        }
-
-        return cell!
-    }
-
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupSubViews()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
     var marketSummaryModel: MarketSummaryModel? {
         didSet {
@@ -90,7 +70,7 @@ class HomeCell: UITableViewCell {
     }
     
     // 设置子View
-    func setupSubViews() {
+    override func setupSubViews() {
         
         // 货币图片
         currencyImageView = UIImageView(image: UIImage(named: "home_btc"));

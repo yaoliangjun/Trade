@@ -16,7 +16,18 @@ class BaseServices: NSObject {
         }
         
         let responseModel = BaseResponseModel.mj_object(withKeyValues: response)
-        if responseModel?.statusCode != 0 {
+
+        if responseModel?.statusCode == 401 {
+            // Token失效
+            let errorMsg = responseModel?.errorMessage ?? ""
+            if !errorMsg.isEmpty {
+                MBProgressHUD.show(withStatus: errorMsg)
+            }
+            
+            (UIApplication.shared.delegate as! AppDelegate).logout()
+            return nil
+
+        } else if responseModel?.statusCode != 0 {
             let errorMsg = responseModel?.errorMessage ?? ""
             if !errorMsg.isEmpty {
                 MBProgressHUD.show(withStatus: errorMsg)

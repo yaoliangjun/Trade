@@ -1,48 +1,75 @@
 //
 //  MBProgressHUD+Extension.h
-//  iCan
 //
-//  Created by Jerry Yao on 2016/4/19.
-//  Copyright © 2016年 MS. All rights reserved.
-//  MBProgressHUD二次封装
+//
+//  Created by yaoliangjun on 2017/10/27.
+//  Copyright © 2017年 weiqitong. All rights reserved.
+//  MBProgressHUD封装
 
-//#import "MBProgressHUD.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+
+// HUD显示时长
+typedef NS_ENUM(NSInteger, HUDDuration) {
+    HUDDurationShort = 1,
+    HUDDurationLong = 2
+};
 
 @interface MBProgressHUD (Extension)
 
-#pragma mark - 显示HUD，然后消失
 
-/** 显示一个成功的文本信息, 带对勾的HUD, 一秒后消失 */
-+ (void)showSuccessWithStatus:(NSString *)status;
-
-/** 显示一个失败的文本信息HUD, 一秒后消失 */
-+ (void)showErrorWithStatus:(NSString *)status;
-
-/** 显示一个文本信息HUD, 1.5秒后消失 */
+#pragma mark - 显示然后消失
+/** 默认的HUD，2秒后消失 */
 + (void)showWithStatus:(NSString *)status;
 
 /**
- @param status 需要显示的Toast
+ HUD消失后再做一些事情
+ @param status 显示的文字
+ @param completionHandle 回调
+ */
++ (void)showWithStatus:(NSString *)status completionHandle:(void(^)())completionHandle;
+
+/**
+ HUD消失后再做一些事情:显示1秒
+ @param status 显示的文字
+ @param completionHandle 回调
+ */
++ (void)showShortWithStatus:(NSString *)status completionHandle:(void(^)())completionHandle;
+
+/**
+ HUD消失后再做一些事情:显示2秒
+ @param status 显示的文字
+ @param completionHandle 回调
+ */
++ (void)showLongWithStatus:(NSString *)status completionHandle:(void(^)())completionHandle;
+
+/**
+ HUD消失后再做一些事情
+ @param status 显示的文字
+ @param duration 显示多久,单位是秒
+ @param completionHandle 回调
+ */
++ (void)showWithStatus:(NSString *)status duration:(float)duration completionHandle:(void(^)())completionHandle;
+
+/**
+ 显示一个HUD
+ @param status 需要显示的文字
  @param duration 显示多久,单位是秒
  */
 + (void)showWithStatus:(NSString *)status duration:(float)duration;
 
-/**
- 默认的Toast，一秒后消失，消失后再做一些事情
- 
- @param status <#status description#>
- @param completionHandle <#completionHandle description#>
- */
-+ (void)showWithStatus:(NSString *)status completionHandle:(void(^)())completionHandle;
+/** 显示一个图片HUD */
++ (void)showStatus:(NSString *)status imageName:(NSString *)imageName;
 
-/** 显示一个文本信息, 带菊花加载的HUD, 一秒后消失 */
-+ (void)showLoadingWithStatus:(NSString *)status;
-
-/** 显示一个菊花加载 */
+#pragma mark - 持续显示
+/** 显示菊花HUD */
 + (void)showLoading;
 
-/** 隐藏HUD */
+/** 显示带文字的菊花HUD */
++ (void)showLoadingWithStatus:(NSString *)status;
+
+/** 隐藏菊花HUD */
 + (void)dismiss;
 
 @end
+
+
