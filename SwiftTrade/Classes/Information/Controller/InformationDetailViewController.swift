@@ -14,7 +14,6 @@ class InformationDetailViewController: BaseViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSubViews()
     }
 
     // MARK: - UIWebViewDelegate
@@ -39,7 +38,7 @@ class InformationDetailViewController: BaseViewController, UIWebViewDelegate {
     }
 
     // MARK: - Getter / Setter
-    func setupSubViews() {
+    override func setupSubViews() {
         title = "资讯详情"
 
         let webView = UIWebView(frame: view.bounds)

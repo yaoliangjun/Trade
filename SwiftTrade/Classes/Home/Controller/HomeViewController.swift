@@ -12,8 +12,6 @@ class HomeViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupSubViews()
         fetchMarketSummary()
     }
     
@@ -35,7 +33,7 @@ class HomeViewController: BaseTableViewController {
     }
     
     // MARK: - Getter / Setter
-    func setupSubViews() {
+    override func setupSubViews() {
         tableView = createTableView(style: .plain, needRefresh: true)
         tableView?.delegate = self
         tableView?.dataSource = self

@@ -12,10 +12,9 @@ class AccountViewController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSubViews()
     }
 
-    func setupSubViews() {
+    override func setupSubViews() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "account_personal-center"), style: .plain, target: self, action: #selector(personalCenterBtnClick))
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "account_set-up"), style: .plain, target: self, action: #selector(settingBtnClick))

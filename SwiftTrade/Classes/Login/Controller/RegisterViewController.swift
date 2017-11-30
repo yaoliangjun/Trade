@@ -4,7 +4,7 @@
 //
 //  Created by yaoliangjun on 2017/10/13.
 //  Copyright © 2017年 Jerry Yao. All rights reserved.
-//
+//  注册页
 
 import UIKit
 
@@ -20,7 +20,6 @@ class RegisterViewController: BaseViewController {
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSubViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -121,7 +120,7 @@ class RegisterViewController: BaseViewController {
     
     // MARK: - Getter / Setter
     // 设置子View
-    func setupSubViews() {
+    override func setupSubViews() {
         //
         let backgroundView = UIImageView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: GlobalConstants.screenHeight))
         backgroundView.image = UIImage(named: "background")

@@ -12,17 +12,28 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupBaseViewController()
+        setupSubViews()
+    }
 
+
+    /// 子类重写该方法设置视图
+    func setupSubViews() {
+
+    }
+
+    /// 设置基类控制器
+    private func setupBaseViewController() {
         view.backgroundColor = GlobalConstants.backgroundColor
 
-        let count: Int = (navigationController?.viewControllers.count)!
-        if count > 1 {
+        let count: Int? = navigationController?.viewControllers.count
+        if count != nil && count! > 1 {
             // 设置导航栏返回按钮图片
-            navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "global_arrow_normal", target: self, selector: #selector(backBarButtonItemClick))
+            navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "global_arrow_normal", target: self, selector: #selector(popViewController))
         }
     }
 
-    func backBarButtonItemClick() {
+    func popViewController() {
         navigationController?.popViewController(animated: true)
     }
 }

@@ -12,7 +12,6 @@ class SettingViewController: BaseTableViewController, UIAlertViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSubViews()
     }
 
     // MARK: - Private Method
@@ -30,7 +29,7 @@ class SettingViewController: BaseTableViewController, UIAlertViewDelegate {
     }
 
     // MARK: - Getter / Setter
-    func setupSubViews() {
+    override func setupSubViews() {
         title = "设置"
         tableView = createTableView(style: .plain)
         tableView?.delegate = self
