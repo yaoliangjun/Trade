@@ -10,10 +10,42 @@ import UIKit
 
 class AccountViewController: BaseTableViewController {
 
+    var assetModel: MyAssetModel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchAssets()
     }
 
+    // MARK: - Private Method
+    // 获取我的资产
+    func fetchAssets() {
+        AccountServices.myAssets(params: [:], showHUD: true, success: { (response) in
+            self.assetModel = response
+            self.tableView?.reloadData()
+
+        }) { (error) in
+            
+        }
+    }
+
+    // 下拉刷新
+    override func pullDownHandle() {
+        fetchAssets()
+    }
+
+    // 个人中心
+    func personalCenterBtnClick() {
+
+    }
+
+    // 设置
+    func settingBtnClick() {
+        let settingVC = SettingViewController()
+        navigationController?.pushViewController(settingVC, animated: true)
+    }
+
+    // MARK: - Getter / Setter
     override func setupSubViews() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "account_personal-center"), style: .plain, target: self, action: #selector(personalCenterBtnClick))
 
@@ -27,19 +59,6 @@ class AccountViewController: BaseTableViewController {
         view.addSubview(tableView!)
     }
 
-    // MARK: - Private Method
-    // 个人中心
-    func personalCenterBtnClick() {
-
-    }
-
-    // 设置
-    func settingBtnClick() {
-        let settingVC = SettingViewController()
-        navigationController?.pushViewController(settingVC, animated: true)
-    }
-
-    // MARK: - Getter / Setter
     lazy var sectionTwoArray: [[String: String]] = {
         var sectionTwoArray = [["我的持仓": "account_position"],
                                ["充值提现": "account_cash-value"],
@@ -76,11 +95,12 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
 
         let section = indexPath.section
         if section == 0 {
-            let cell = AccountInfoCell.cellWithTableView(tableView: tableView)
+            let cell = AccountInfoCell.cellWithTableView(tableView: tableView) as! AccountInfoCell
             cell.textLabel?.text = nil
             cell.accessoryType = .none
             cell.selectionStyle = .none
-
+            cell.setupAssetInfo(assetModel: assetModel)
+            
             return cell
 
         } else {

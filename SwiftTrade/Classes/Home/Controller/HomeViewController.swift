@@ -17,7 +17,7 @@ class HomeViewController: BaseTableViewController {
     
     // 获取市场
     func fetchMarketSummary() {
-        HomeServices.fetchMarketSummary(params: Dictionary.init(), showHUD: true, success: { (marketSummaryArray) in
+        HomeServices.fetchMarketSummary(params: [:], showHUD: true, success: { (marketSummaryArray) in
             self.markets = marketSummaryArray
             self.tableView?.reloadData()
 

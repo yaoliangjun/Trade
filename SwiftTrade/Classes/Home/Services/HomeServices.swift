@@ -10,7 +10,7 @@ import UIKit
 
 class HomeServices: BaseServices {
     
-    static func fetchMarketSummary(params : [String : Any], showHUD: Bool, success : @escaping (_ response : [MarketSummaryModel]) -> (), failture : @escaping (_ error : Error) -> ()) {
+    static func fetchMarketSummary(params : [String : Any]?, showHUD: Bool, success : @escaping (_ response : [MarketSummaryModel]) -> (), failture : @escaping (_ error : Error) -> ()) {
         HttpManager.sharedManager.get(url: ServerUrl.marketSummary, params: params, showHUD: showHUD, success: { (response) in
             
             let responseModel = processResponse(responseJSON: response)

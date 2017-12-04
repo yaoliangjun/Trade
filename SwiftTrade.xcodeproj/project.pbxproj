@@ -17,6 +17,8 @@
 		E91EDC451F8F5FB600DA6716 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EDC441F8F5FB600DA6716 /* UIView+Extension.swift */; };
 		E91EDC471F90667A00DA6716 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EDC461F90667A00DA6716 /* AppConstants.swift */; };
 		E91EDC491F90694700DA6716 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EDC481F90694700DA6716 /* UIColor+Extension.swift */; };
+		E96E993B1FD51F8D00A861DA /* AccountServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96E993A1FD51F8D00A861DA /* AccountServices.swift */; };
+		E98AFECB1FD5389B007A8029 /* MyAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98AFECA1FD5389B007A8029 /* MyAssetModel.swift */; };
 		E9C3D7A71FCBEEE70047222F /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D7A61FCBEEE70047222F /* BaseTableViewController.swift */; };
 		E9C3D7AB1FCCFF880047222F /* AccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D7AA1FCCFF880047222F /* AccountInfoCell.swift */; };
 		E9C3D7D21FCD144D0047222F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D7D11FCD144D0047222F /* SettingViewController.swift */; };
@@ -66,6 +68,8 @@
 		E91EDC441F8F5FB600DA6716 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E91EDC461F90667A00DA6716 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		E91EDC481F90694700DA6716 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		E96E993A1FD51F8D00A861DA /* AccountServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServices.swift; sourceTree = "<group>"; };
+		E98AFECA1FD5389B007A8029 /* MyAssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAssetModel.swift; sourceTree = "<group>"; };
 		E9C3D7A61FCBEEE70047222F /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		E9C3D7AA1FCCFF880047222F /* AccountInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCell.swift; sourceTree = "<group>"; };
 		E9C3D7D11FCD144D0047222F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 				E91EDC161F8F422A00DA6716 /* Controller */,
 				E9C3D7A81FCCFF030047222F /* Model */,
 				E9C3D7A91FCCFF030047222F /* View */,
+				E96E99391FD51F4E00A861DA /* Services */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -426,9 +431,18 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		E96E99391FD51F4E00A861DA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E96E993A1FD51F8D00A861DA /* AccountServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		E9C3D7A81FCCFF030047222F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E98AFECA1FD5389B007A8029 /* MyAssetModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -685,10 +699,12 @@
 				E91EDC421F8F59EE00DA6716 /* GlobalConstants.swift in Sources */,
 				E91EDC451F8F5FB600DA6716 /* UIView+Extension.swift in Sources */,
 				E9D694CE1F9F30C3003D28DE /* BaseResponseModel.swift in Sources */,
+				E96E993B1FD51F8D00A861DA /* AccountServices.swift in Sources */,
 				E9C5925B1F95EC8100D3835A /* ServerUrl.swift in Sources */,
 				E9D694D11F9F31C1003D28DE /* HomeServices.swift in Sources */,
 				E91EDC401F8F48A900DA6716 /* LoginViewController.swift in Sources */,
 				E9C3D7E11FCE8F010047222F /* InformationDetailViewController.swift in Sources */,
+				E98AFECB1FD5389B007A8029 /* MyAssetModel.swift in Sources */,
 				F2BC64201F91BBE500E06B16 /* TradeViewController.swift in Sources */,
 				F23EB85E1FA5839A00F7CCC5 /* BaseServices.swift in Sources */,
 				E9C3D7A71FCBEEE70047222F /* BaseTableViewController.swift in Sources */,

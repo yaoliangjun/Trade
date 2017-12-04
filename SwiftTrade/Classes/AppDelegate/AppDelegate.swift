@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // 退出登录
     func logout() {
-        UserDefaults.standard.set("", forKey: AppConstants.token)
+        UserDefaults.standard.set(nil, forKey: AppConstants.token)
         let navigationController = BaseNavigationController(rootViewController: LoginViewController())
         window?.rootViewController?.present(navigationController, animated: true, completion: nil)
     }

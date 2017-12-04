@@ -29,12 +29,12 @@ class HttpManager: NSObject {
 extension HttpManager {
 
     // MARK: - GET请求
-    func get(url: String, params: [String: Any], showHUD: Bool, success: @escaping (_ response: Any?) -> (), failture: @escaping (_ error: Error) -> ()) {
+    func get(url: String, params: [String: Any]?, showHUD: Bool, success: @escaping (_ response: Any?) -> (), failture: @escaping (_ error: Error) -> ()) {
         request(url: url, method: .get, params: params, showHUD: showHUD, success: success, failture: failture)
     }
     
     // MARK: POST请求
-    func post(url: String, params: [String : Any], showHUD: Bool, success: @escaping (_ response: Any?) -> (), failture: @escaping (_ error: Error) -> ()) {
+    func post(url: String, params: [String : Any]?, showHUD: Bool, success: @escaping (_ response: Any?) -> (), failture: @escaping (_ error: Error) -> ()) {
         request(url: url, method: .post, params: params, showHUD: showHUD, success: success, failture: failture)
     }
 

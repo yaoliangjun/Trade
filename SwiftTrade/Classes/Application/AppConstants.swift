@@ -21,6 +21,7 @@ class AppConstants: NSObject {
 
     // 字符串常量
     static let token = "token"
+    static let account = "account"
     static let startGetVerifyCode = "startGetVerifyCode"
     static let isFirstLaunching = "isFirstLaunching"
 }

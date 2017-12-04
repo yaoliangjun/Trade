@@ -14,6 +14,17 @@ class AccountInfoCell: CommonTableViewCell {
     fileprivate var totalAssetLabel: UILabel?
     fileprivate var totalCoinLabel: UILabel?
 
+    // 设置数据
+    func setupAssetInfo(assetModel: MyAssetModel?) {
+
+        guard let model = assetModel else {
+            return
+        }
+
+        totalAssetLabel?.text = String(format: "￥%.2f", Double(model.totalAssets!)!)
+        totalCoinLabel?.text = String(format: "￥%.2f", Double(model.totalCoinAssets!)!)
+    }
+    
     // 设置子View
     override func setupSubViews() {
 
@@ -26,8 +37,14 @@ class AccountInfoCell: CommonTableViewCell {
             make.width.lessThanOrEqualTo(80)
         }
 
-        // 账号
-        accountLabel = UILabel(text: "135****8996", textAlignment:.right, textColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 15))
+        // 设置账号
+        var account = UserDefaults.standard.object(forKey: AppConstants.account) as? NSString
+        account = account ?? ""
+        if account!.length >= 11 {
+            account = account?.replacingCharacters(in: NSMakeRange(3, 4), with: "****") as NSString?
+        }
+
+        accountLabel = UILabel(text: account! as String, textAlignment:.right, textColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 15))
         contentView.addSubview(accountLabel!)
         accountLabel!.snp.makeConstraints { (make) in
             make.left.equalTo(accountText.snp.right).offset(10)
@@ -50,7 +67,7 @@ class AccountInfoCell: CommonTableViewCell {
         let totalAssetText = UILabel(text: "总资产", textColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 15))
         contentView.addSubview(totalAssetText)
 
-        totalAssetLabel = UILabel(text: "¥2025546,55", textColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 15))
+        totalAssetLabel = UILabel(text: "¥0.00", textColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 15))
         contentView.addSubview(totalAssetLabel!)
 
         totalAssetText.snp.makeConstraints { (make) in
@@ -71,7 +88,7 @@ class AccountInfoCell: CommonTableViewCell {
         let totalCoinText = UILabel(text: "币值", textColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 15))
         contentView.addSubview(totalCoinText)
 
-        totalCoinLabel = UILabel(text: "¥2025546,55", textColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 15))
+        totalCoinLabel = UILabel(text: "¥0.00", textColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 15))
         contentView.addSubview(totalCoinLabel!)
 
         totalCoinText.snp.makeConstraints { (make) in
