@@ -28,4 +28,14 @@ extension String {
         
         return String(format: hash as String)
     }
+
+    /// 校验字符串的长度是否为8-16且包含数字和字符
+    func validPasswordFieldFormatter() -> Bool {
+        var result = false
+        let regex = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
+        result = predicate.evaluate(with: self)
+
+        return result
+    }
 }

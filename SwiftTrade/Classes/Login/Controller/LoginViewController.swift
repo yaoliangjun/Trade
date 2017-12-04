@@ -32,9 +32,19 @@ class LoginViewController: BaseViewController {
     // 登录
     func loginBtnClick() {
         let account = accountTextField?.text
-        let password = pwdTextField?.text?.md5()
-        let params = ["phone": account ?? "", "password": password ?? ""]
-        
+        if (account?.isEmpty)! {
+            MBProgressHUD.show(withStatus: "请输入账号")
+            return
+        }
+
+        let password = pwdTextField?.text
+        if (password?.isEmpty)! {
+            MBProgressHUD.show(withStatus: "请输入密码")
+            return
+        }
+
+        let params = ["phone": account!, "password": password!.md5()]
+
         LoginServices.login(params: params, showHUD: true, success: { (response) in
             let token = (response?.content as! NSDictionary)["token"]
             UserDefaults.standard.setValue(token, forKey: AppConstants.token)
@@ -49,7 +59,7 @@ class LoginViewController: BaseViewController {
     
     // 找回密码
     func findPwdBtnClick() {
-        print(#function)
+        navigationController?.pushViewController(ForgetPasswordViewController(), animated: true)
     }
     
     // 注册
@@ -96,8 +106,8 @@ class LoginViewController: BaseViewController {
         pwdSeparateLine.backgroundColor = UIColor.white
         view.addSubview(pwdSeparateLine)
         
-        // 忘记密码
-        let findPwdBtn = UIButton(frame: CGRect(x: (pwdTextField?.right)! - 60, y: pwdSeparateLine.bottom + 10, width: 60, height: 20), title: "忘记密码", titleColor: UIColor.white, font: UIFont.systemFont(ofSize: 12), target: self, selector:#selector(findPwdBtnClick))
+        // 找回密码
+        let findPwdBtn = UIButton(frame: CGRect(x: (pwdTextField?.right)! - 60, y: pwdSeparateLine.bottom + 10, width: 60, height: 20), title: "找回密码", titleColor: UIColor.white, font: UIFont.systemFont(ofSize: 12), target: self, selector:#selector(findPwdBtnClick))
         view.addSubview(findPwdBtn)
         
         // 登录

@@ -18,7 +18,8 @@ class ServerUrl: NSObject {
     static let login = "/user/login" // 登录
     static let register = "/user/register" // 注册
     static let verifyCode = "/user/veri-code" // 获取短信验证码
-    
+    static let findPassword = "/user/forget-pwd" // 忘记登陆密码
+
     /******************************************  主页  ***************************************************/
 
     static let marketSummary = "/market/summary" // 获取当前各币种行情

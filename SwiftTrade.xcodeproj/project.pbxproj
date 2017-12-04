@@ -19,6 +19,7 @@
 		E91EDC491F90694700DA6716 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EDC481F90694700DA6716 /* UIColor+Extension.swift */; };
 		E96E993B1FD51F8D00A861DA /* AccountServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96E993A1FD51F8D00A861DA /* AccountServices.swift */; };
 		E98AFECB1FD5389B007A8029 /* MyAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98AFECA1FD5389B007A8029 /* MyAssetModel.swift */; };
+		E98AFECD1FD55736007A8029 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98AFECC1FD55736007A8029 /* ForgetPasswordViewController.swift */; };
 		E9C3D7A71FCBEEE70047222F /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D7A61FCBEEE70047222F /* BaseTableViewController.swift */; };
 		E9C3D7AB1FCCFF880047222F /* AccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D7AA1FCCFF880047222F /* AccountInfoCell.swift */; };
 		E9C3D7D21FCD144D0047222F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D7D11FCD144D0047222F /* SettingViewController.swift */; };
@@ -70,6 +71,7 @@
 		E91EDC481F90694700DA6716 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		E96E993A1FD51F8D00A861DA /* AccountServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServices.swift; sourceTree = "<group>"; };
 		E98AFECA1FD5389B007A8029 /* MyAssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAssetModel.swift; sourceTree = "<group>"; };
+		E98AFECC1FD55736007A8029 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		E9C3D7A61FCBEEE70047222F /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		E9C3D7AA1FCCFF880047222F /* AccountInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCell.swift; sourceTree = "<group>"; };
 		E9C3D7D11FCD144D0047222F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 			children = (
 				E91EDC3F1F8F48A900DA6716 /* LoginViewController.swift */,
 				E9C592071F90BD8600D3835A /* RegisterViewController.swift */,
+				E98AFECC1FD55736007A8029 /* ForgetPasswordViewController.swift */,
 				E9C3D7E81FCEB9AE0047222F /* GuideViewController.swift */,
 			);
 			path = Controller;
@@ -712,6 +715,7 @@
 				E9C3D7AB1FCCFF880047222F /* AccountInfoCell.swift in Sources */,
 				E9C3D7DF1FCE4EA50047222F /* NSDate+Extension.swift in Sources */,
 				E9C592041F90AC8900D3835A /* UIButton+Extension.swift in Sources */,
+				E98AFECD1FD55736007A8029 /* ForgetPasswordViewController.swift in Sources */,
 				E9C3D7D41FCD16D10047222F /* UIBarButtonItem+Extension.swift in Sources */,
 				E91EDC471F90667A00DA6716 /* AppConstants.swift in Sources */,
 				E9C5925D1F95FB9700D3835A /* String+Extension.swift in Sources */,

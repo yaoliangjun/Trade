@@ -48,4 +48,17 @@ class LoginServices: BaseServices {
             failure(error)
         }
     }
+
+    /** 找回密码 */
+    static func findPassword(params: [String: Any], showHUD: Bool, success: @escaping (_ response: BaseResponseModel?) -> (), failure: @escaping (_ error: Error) -> () ) {
+        HttpManager.sharedManager.post(url: ServerUrl.findPassword, params: params, showHUD: showHUD, success: { (response) in
+            let responseModel = processResponse(responseJSON: response)
+            if responseModel != nil {
+                success(responseModel)
+            }
+
+        }) { (error) in
+            failure(error)
+        }
+    }
 }
