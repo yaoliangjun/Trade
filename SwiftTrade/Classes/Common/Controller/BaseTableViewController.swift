@@ -17,8 +17,6 @@ class BaseTableViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     func createTableView(style: UITableViewStyle) -> UITableView {
@@ -31,12 +29,7 @@ class BaseTableViewController: BaseViewController {
     }
 
     func createTableView(style: UITableViewStyle, needRefresh: Bool) -> UITableView {
-        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: GlobalConstants.tableViewHeight), style: style)
-        tableView.rowHeight = 50
-        tableView.tableFooterView = UIView()
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = AppConstants.gapColor
-
+        let tableView = self.createTableView(style: style)
         if needRefresh {
             addRefreshComponentsWithTableView(tableView: tableView)
         }

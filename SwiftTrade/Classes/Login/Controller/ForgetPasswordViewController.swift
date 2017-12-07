@@ -16,10 +16,15 @@ class ForgetPasswordViewController: BaseViewController {
     var rePwdTextField: UITextField? = nil
     var timer: Timer?
     var verifyCodeBtn: UIButton?
-
+    var districtArray: [DistrictModel]?
+    var currentDistrict: String = Locale.current.regionCode! // 当前区域 CN
+    var currentDistrictCode: String = "86" // 当前区号 86
+    var imageBtn: ImageButton?
+    
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchDistrictNum()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -28,6 +33,28 @@ class ForgetPasswordViewController: BaseViewController {
         // 设置导航栏透明和去掉导航栏底部的黑线
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
+    }
+
+    // MARK: - HTTP
+    // 获取区号
+    func fetchDistrictNum() {
+        LoginServices.districtNum(params: [:], showHUD: true, success: { (response) in
+            guard let districtArray = response else {
+                return
+            }
+
+            self.districtArray = districtArray
+            for model in districtArray {
+                if (model.abbre?.contains(self.currentDistrict))! {
+                    self.currentDistrictCode = model.code!
+                    print(self.currentDistrictCode)
+                }
+            }
+
+
+        }) { (error) in
+
+        }
     }
 
     // MARK: - Private Method
@@ -127,6 +154,22 @@ class ForgetPasswordViewController: BaseViewController {
         }
     }
 
+    // 选择区号
+    func districtNumBtnClick() {
+        let districtNumVC = DistrictNumViewController()
+        districtNumVC.districtArray = districtArray
+        districtNumVC.didSelectedDistrictNumBlock = { (districtModel) in
+            guard let code = districtModel?.code else {
+                self.currentDistrictCode = "86"
+                return
+            }
+            self.currentDistrictCode = code
+            self.imageBtn?.setTitle("+\(self.currentDistrictCode)", for: .normal)
+        }
+
+        navigationController?.pushViewController(districtNumVC, animated: true)
+    }
+    
     // MARK: - Getter / Setter
     // 设置子View
     override func setupSubViews() {
@@ -145,10 +188,16 @@ class ForgetPasswordViewController: BaseViewController {
         let accountLeftView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 50))
         accountLeftView.addSubview(accountImageView)
 
-        accountTextField = UITextField(frame: CGRect(x: 20, y: titleLabel.bottom + 30, width: GlobalConstants.screenWidth - 40, height: 50), text: "", textAlignment: .left, textColor: UIColor.white, placeholder: "请输入注册手机号", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 14), leftView: accountLeftView)
+        accountTextField = UITextField(frame: CGRect(x: 20, y: titleLabel.bottom + 30, width: GlobalConstants.screenWidth - 40 - 90, height: 50), text: "", textAlignment: .left, textColor: UIColor.white, placeholder: "请输入注册手机号", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 14), leftView: accountLeftView)
         view.addSubview(accountTextField!)
 
-        let accountSeparateLine = UILabel(frame: CGRect(x: (accountTextField?.left)!, y: (accountTextField?.bottom)!, width: (accountTextField?.width)!, height: 0.5))
+        let defaultTitle = "+\(currentDistrictCode)"
+        imageBtn = ImageButton(title: defaultTitle, titleColor: UIColor.white, font: UIFont.systemFont(ofSize: 14), image: UIImage(named: "arrow_right_white"), target: self, selector: #selector(districtNumBtnClick))
+        imageBtn?.frame = CGRect(x: (accountTextField?.right)!, y: (accountTextField?.top)! + 10, width: 90, height: 30)
+        imageBtn?.titleLabel?.textAlignment = .right
+        view.addSubview(imageBtn!)
+        
+        let accountSeparateLine = UILabel(frame: CGRect(x: (accountTextField?.left)!, y: (accountTextField?.bottom)!, width: GlobalConstants.screenWidth - 40, height: 0.5))
         accountSeparateLine.backgroundColor = UIColor.white
         view.addSubview(accountSeparateLine)
 
@@ -175,7 +224,7 @@ class ForgetPasswordViewController: BaseViewController {
         let pwdLeftView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 50))
         pwdLeftView.addSubview(pwdImageView)
 
-        pwdTextField = UITextField(frame: CGRect(x: accountSeparateLine.left, y: codeSeparateLine.bottom + 10, width: (accountTextField?.width)!, height: 50), text: "", textAlignment: .left, textColor: UIColor.white, placeholder: "请输入6-16位数字和字符的登录密码", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 14), leftView: pwdLeftView)
+        pwdTextField = UITextField(frame: CGRect(x: accountSeparateLine.left, y: codeSeparateLine.bottom + 10, width: accountSeparateLine.width, height: 50), text: "", textAlignment: .left, textColor: UIColor.white, placeholder: "请输入6-16位数字和字符的登录密码", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 14), leftView: pwdLeftView)
         view.addSubview(pwdTextField!)
 
         let pwdSeparateLine = UILabel(frame: CGRect(x: (codeTextField?.left)!, y: (pwdTextField?.bottom)!, width: (pwdTextField?.width)!, height: 0.5))
@@ -188,10 +237,10 @@ class ForgetPasswordViewController: BaseViewController {
         let rePwdLeftView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 50))
         rePwdLeftView.addSubview(rePwdImageView)
 
-        rePwdTextField = UITextField(frame: CGRect(x: pwdSeparateLine.left, y: pwdSeparateLine.bottom + 10, width: (accountTextField?.width)!, height: 50), text: "", textAlignment: .left, textColor: UIColor.white, placeholder: "请重复输入登录密码", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 14), leftView: rePwdLeftView)
+        rePwdTextField = UITextField(frame: CGRect(x: pwdSeparateLine.left, y: pwdSeparateLine.bottom + 10, width: accountSeparateLine.width, height: 50), text: "", textAlignment: .left, textColor: UIColor.white, placeholder: "请重复输入登录密码", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 14), leftView: rePwdLeftView)
         view.addSubview(rePwdTextField!)
 
-        let rePwdSeparateLine = UILabel(frame: CGRect(x: (codeTextField?.left)!, y: (rePwdTextField?.bottom)!, width: (accountTextField?.width)!, height: 0.5))
+        let rePwdSeparateLine = UILabel(frame: CGRect(x: (codeTextField?.left)!, y: (rePwdTextField?.bottom)!, width: (rePwdTextField?.width)!, height: 0.5))
         rePwdSeparateLine.backgroundColor = UIColor.white
         view.addSubview(rePwdSeparateLine)
 

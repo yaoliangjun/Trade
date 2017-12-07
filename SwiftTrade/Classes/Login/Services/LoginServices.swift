@@ -61,4 +61,16 @@ class LoginServices: BaseServices {
             failure(error)
         }
     }
+
+    /** 获取区号 */
+    static func districtNum(params: [String: Any]?, showHUD: Bool, success: @escaping (_ response: [DistrictModel]?) -> (), failure: @escaping (_ error: Error) -> ()) {
+        HttpManager.sharedManager.get(url: ServerUrl.nationals, params: params, showHUD: showHUD, success: { (response) in
+            let responseModel = processResponse(responseJSON: response)
+            let array = DistrictModel.mj_objectArray(withKeyValuesArray: responseModel?.content) as? [DistrictModel]
+            success(array)
+
+        }) { (error) in
+            
+        }
+    }
 }

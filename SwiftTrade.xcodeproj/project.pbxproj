@@ -17,6 +17,7 @@
 		E91EDC451F8F5FB600DA6716 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EDC441F8F5FB600DA6716 /* UIView+Extension.swift */; };
 		E91EDC471F90667A00DA6716 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EDC461F90667A00DA6716 /* AppConstants.swift */; };
 		E91EDC491F90694700DA6716 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EDC481F90694700DA6716 /* UIColor+Extension.swift */; };
+		E95D90531FD636CA00DF115E /* DistrictModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95D90521FD636CA00DF115E /* DistrictModel.swift */; };
 		E96E993B1FD51F8D00A861DA /* AccountServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96E993A1FD51F8D00A861DA /* AccountServices.swift */; };
 		E98AFECB1FD5389B007A8029 /* MyAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98AFECA1FD5389B007A8029 /* MyAssetModel.swift */; };
 		E98AFECD1FD55736007A8029 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98AFECC1FD55736007A8029 /* ForgetPasswordViewController.swift */; };
@@ -40,9 +41,16 @@
 		E9C592591F95E4E200D3835A /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C592581F95E4E200D3835A /* HttpManager.swift */; };
 		E9C5925B1F95EC8100D3835A /* ServerUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C5925A1F95EC8100D3835A /* ServerUrl.swift */; };
 		E9C5925D1F95FB9700D3835A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C5925C1F95FB9700D3835A /* String+Extension.swift */; };
+		E9C9EBEE1FD679A100B8A5F6 /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C9EBED1FD679A100B8A5F6 /* ImageButton.swift */; };
+		E9C9EBF01FD6819900B8A5F6 /* DistrictNumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C9EBEF1FD6819900B8A5F6 /* DistrictNumViewController.swift */; };
+		E9C9EBF21FD6876B00B8A5F6 /* DistrictNumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C9EBF11FD6876B00B8A5F6 /* DistrictNumCell.swift */; };
+		E9C9EBF51FD68C8C00B8A5F6 /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C9EBF41FD68C8C00B8A5F6 /* CommonUtils.swift */; };
 		E9D694CE1F9F30C3003D28DE /* BaseResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D694CD1F9F30C3003D28DE /* BaseResponseModel.swift */; };
 		E9D694D11F9F31C1003D28DE /* HomeServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D694D01F9F31C1003D28DE /* HomeServices.swift */; };
 		E9D694D31F9F382F003D28DE /* MarketSummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D694D21F9F382F003D28DE /* MarketSummaryModel.swift */; };
+		E9E694A81FD9225D00606D6C /* BuyInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E694A71FD9225D00606D6C /* BuyInViewController.swift */; };
+		E9E694AA1FD9227A00606D6C /* SellOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E694A91FD9227A00606D6C /* SellOutViewController.swift */; };
+		E9E694AC1FD9228700606D6C /* CancelOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E694AB1FD9228700606D6C /* CancelOrderViewController.swift */; };
 		F23EB85E1FA5839A00F7CCC5 /* BaseServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EB85D1FA5839A00F7CCC5 /* BaseServices.swift */; };
 		F23EB8611FA58A8900F7CCC5 /* LoginServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EB8601FA58A8900F7CCC5 /* LoginServices.swift */; };
 		F23EB8651FA76BE400F7CCC5 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EB8641FA76BE400F7CCC5 /* HomeCell.swift */; };
@@ -69,6 +77,7 @@
 		E91EDC441F8F5FB600DA6716 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E91EDC461F90667A00DA6716 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		E91EDC481F90694700DA6716 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		E95D90521FD636CA00DF115E /* DistrictModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictModel.swift; sourceTree = "<group>"; };
 		E96E993A1FD51F8D00A861DA /* AccountServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServices.swift; sourceTree = "<group>"; };
 		E98AFECA1FD5389B007A8029 /* MyAssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAssetModel.swift; sourceTree = "<group>"; };
 		E98AFECC1FD55736007A8029 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -92,9 +101,16 @@
 		E9C592581F95E4E200D3835A /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
 		E9C5925A1F95EC8100D3835A /* ServerUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerUrl.swift; sourceTree = "<group>"; };
 		E9C5925C1F95FB9700D3835A /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		E9C9EBED1FD679A100B8A5F6 /* ImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
+		E9C9EBEF1FD6819900B8A5F6 /* DistrictNumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictNumViewController.swift; sourceTree = "<group>"; };
+		E9C9EBF11FD6876B00B8A5F6 /* DistrictNumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictNumCell.swift; sourceTree = "<group>"; };
+		E9C9EBF41FD68C8C00B8A5F6 /* CommonUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
 		E9D694CD1F9F30C3003D28DE /* BaseResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponseModel.swift; sourceTree = "<group>"; };
 		E9D694D01F9F31C1003D28DE /* HomeServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeServices.swift; sourceTree = "<group>"; };
 		E9D694D21F9F382F003D28DE /* MarketSummaryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketSummaryModel.swift; sourceTree = "<group>"; };
+		E9E694A71FD9225D00606D6C /* BuyInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyInViewController.swift; sourceTree = "<group>"; };
+		E9E694A91FD9227A00606D6C /* SellOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellOutViewController.swift; sourceTree = "<group>"; };
+		E9E694AB1FD9228700606D6C /* CancelOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderViewController.swift; sourceTree = "<group>"; };
 		F23EB85D1FA5839A00F7CCC5 /* BaseServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseServices.swift; sourceTree = "<group>"; };
 		F23EB8601FA58A8900F7CCC5 /* LoginServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginServices.swift; sourceTree = "<group>"; };
 		F23EB8641FA76BE400F7CCC5 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
@@ -217,6 +233,7 @@
 		E91EDC1A1F8F422A00DA6716 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E9C9EBF31FD68C7700B8A5F6 /* Utils */,
 				E91EDC1B1F8F422A00DA6716 /* Controller */,
 				E9C3D7E21FCEA01B0047222F /* View */,
 				E91EDC1C1F8F422A00DA6716 /* Model */,
@@ -303,8 +320,8 @@
 			isa = PBXGroup;
 			children = (
 				E91EDC271F8F422A00DA6716 /* Controller */,
-				E91EDC281F8F422A00DA6716 /* Model */,
-				E91EDC291F8F422A00DA6716 /* View */,
+				E95D90511FD636AF00DF115E /* Model */,
+				E95D90501FD636AF00DF115E /* View */,
 				F23EB85F1FA58A6800F7CCC5 /* Services */,
 			);
 			path = Login;
@@ -317,22 +334,9 @@
 				E9C592071F90BD8600D3835A /* RegisterViewController.swift */,
 				E98AFECC1FD55736007A8029 /* ForgetPasswordViewController.swift */,
 				E9C3D7E81FCEB9AE0047222F /* GuideViewController.swift */,
+				E9C9EBEF1FD6819900B8A5F6 /* DistrictNumViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		E91EDC281F8F422A00DA6716 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		E91EDC291F8F422A00DA6716 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		E91EDC2A1F8F422A00DA6716 /* Main */ = {
@@ -381,6 +385,9 @@
 			isa = PBXGroup;
 			children = (
 				F2BC641F1F91BBE500E06B16 /* TradeViewController.swift */,
+				E9E694A71FD9225D00606D6C /* BuyInViewController.swift */,
+				E9E694A91FD9227A00606D6C /* SellOutViewController.swift */,
+				E9E694AB1FD9228700606D6C /* CancelOrderViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -432,6 +439,22 @@
 				E9C3D7DE1FCE4EA50047222F /* NSDate+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E95D90501FD636AF00DF115E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9C9EBF11FD6876B00B8A5F6 /* DistrictNumCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E95D90511FD636AF00DF115E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E95D90521FD636CA00DF115E /* DistrictModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E96E99391FD51F4E00A861DA /* Services */ = {
@@ -487,6 +510,7 @@
 			children = (
 				E9C3D7E31FCEA03D0047222F /* BaseTableViewCell.swift */,
 				E9C3D7E51FCEA1250047222F /* CommonTableViewCell.swift */,
+				E9C9EBED1FD679A100B8A5F6 /* ImageButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -506,6 +530,14 @@
 				E9C592581F95E4E200D3835A /* HttpManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		E9C9EBF31FD68C7700B8A5F6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E9C9EBF41FD68C8C00B8A5F6 /* CommonUtils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		E9D694CF1F9F31B1003D28DE /* Services */ = {
@@ -636,6 +668,7 @@
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeMenuViewController/SwipeMenuViewController.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -647,6 +680,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeMenuViewController.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -694,10 +728,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9C592061F90B5ED00D3835A /* UIImage+Extension.swift in Sources */,
+				E9C9EBEE1FD679A100B8A5F6 /* ImageButton.swift in Sources */,
 				F2BC644E1F931D9000E06B16 /* MBProgressHUD+Extension.m in Sources */,
 				E9C592001F909E8900D3835A /* UILabel+Extension.swift in Sources */,
 				E9C3D7D91FCD6AC10047222F /* InfoServices.swift in Sources */,
 				F2BC641C1F91BB7B00E06B16 /* MainTabBarController.swift in Sources */,
+				E9C9EBF21FD6876B00B8A5F6 /* DistrictNumCell.swift in Sources */,
 				E9C3D7DD1FCE469E0047222F /* InfoCell.swift in Sources */,
 				E91EDC421F8F59EE00DA6716 /* GlobalConstants.swift in Sources */,
 				E91EDC451F8F5FB600DA6716 /* UIView+Extension.swift in Sources */,
@@ -711,6 +747,7 @@
 				F2BC64201F91BBE500E06B16 /* TradeViewController.swift in Sources */,
 				F23EB85E1FA5839A00F7CCC5 /* BaseServices.swift in Sources */,
 				E9C3D7A71FCBEEE70047222F /* BaseTableViewController.swift in Sources */,
+				E95D90531FD636CA00DF115E /* DistrictModel.swift in Sources */,
 				E91EDC491F90694700DA6716 /* UIColor+Extension.swift in Sources */,
 				E9C3D7AB1FCCFF880047222F /* AccountInfoCell.swift in Sources */,
 				E9C3D7DF1FCE4EA50047222F /* NSDate+Extension.swift in Sources */,
@@ -721,10 +758,13 @@
 				E9C5925D1F95FB9700D3835A /* String+Extension.swift in Sources */,
 				E91EDC3C1F8F481E00DA6716 /* BaseNavigationController.swift in Sources */,
 				E9C3D7E61FCEA1250047222F /* CommonTableViewCell.swift in Sources */,
+				E9E694AC1FD9228700606D6C /* CancelOrderViewController.swift in Sources */,
 				E9C3D7D21FCD144D0047222F /* SettingViewController.swift in Sources */,
 				E9D694D31F9F382F003D28DE /* MarketSummaryModel.swift in Sources */,
+				E9C9EBF51FD68C8C00B8A5F6 /* CommonUtils.swift in Sources */,
 				E9C592081F90BD8600D3835A /* RegisterViewController.swift in Sources */,
 				F23EB8611FA58A8900F7CCC5 /* LoginServices.swift in Sources */,
+				E9E694A81FD9225D00606D6C /* BuyInViewController.swift in Sources */,
 				E9C3D7DB1FCD6E1F0047222F /* InfoModel.swift in Sources */,
 				F2BC64241F91BC0A00E06B16 /* AccountViewController.swift in Sources */,
 				F2BC641E1F91BBD600E06B16 /* HomeViewController.swift in Sources */,
@@ -733,10 +773,12 @@
 				E91EDC361F8F42F100DA6716 /* AppDelegate.swift in Sources */,
 				E91EDC3E1F8F483600DA6716 /* BaseTabBarController.swift in Sources */,
 				F23EB8651FA76BE400F7CCC5 /* HomeCell.swift in Sources */,
+				E9C9EBF01FD6819900B8A5F6 /* DistrictNumViewController.swift in Sources */,
 				E9C592021F90A28A00D3835A /* UITextField+Extension.swift in Sources */,
 				E91EDC3A1F8F480000DA6716 /* BaseViewController.swift in Sources */,
 				E9C3D7E41FCEA03D0047222F /* BaseTableViewCell.swift in Sources */,
 				F2BC64221F91BBF900E06B16 /* InformationViewController.swift in Sources */,
+				E9E694AA1FD9227A00606D6C /* SellOutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,7 +827,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -830,7 +872,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -848,9 +890,9 @@
 				DEVELOPMENT_TEAM = XYE8BFY28C;
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/";
 				INFOPLIST_FILE = SwiftTrade/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.trade.weijiaosuo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.trade.trevell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftTrade/Classes/Utils/BridgeHeader/SwiftTrade-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -868,9 +910,9 @@
 				DEVELOPMENT_TEAM = XYE8BFY28C;
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/";
 				INFOPLIST_FILE = SwiftTrade/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.trade.weijiaosuo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.trade.trevell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftTrade/Classes/Utils/BridgeHeader/SwiftTrade-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
