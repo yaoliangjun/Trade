@@ -13,8 +13,7 @@ class AccountServices: BaseServices {
     static func myAssets(params: [String: Any]?, showHUD: Bool, success: @escaping (_ response: MyAssetModel?) -> (), failure: @escaping (_ error: Error) -> ()) {
 
         HttpManager.sharedManager.get(url: ServerUrl.myAssets, params: params, showHUD: showHUD, success: { (response) in
-            let responseModel = processResponse(responseJSON: response)
-            let myAssetModel = MyAssetModel.mj_object(withKeyValues: responseModel?.content)
+            let myAssetModel = MyAssetModel.mj_object(withKeyValues: response?.content)
             success(myAssetModel)
 
         }) { (error) in

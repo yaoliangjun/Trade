@@ -11,13 +11,20 @@ import SwipeMenuViewController
 
 class TradeViewController: SwipeMenuViewController {
 
-    private var titles: [String] = ["买入", "卖出", "撤单"]
-    private var viewControllers: [UIViewController] = [BuyInViewController(), SellOutViewController(), CancelOrderViewController()]
+    lazy var titles: [String] = ["买入", "卖出", "撤单"]
+    lazy var viewControllers: [UIViewController] = {
+        var viewControllers = [BuyInViewController(), SellOutViewController(), CancelOrderViewController()]
+        return viewControllers
+    }()
 
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         swipeMenuView.reloadData(options: menuOptions)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     lazy var menuOptions: SwipeMenuViewOptions = {

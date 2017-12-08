@@ -22,8 +22,12 @@ class ServerUrl: NSObject {
     static let nationals = "/finance/qianbao/nationals" // 获取国家地区区号
 
 
-    /** 主页 */
+    /** 首页 */
     static let marketSummary = "/market/summary" // 获取当前各币种行情
+
+
+    /** 交易 */
+    static let cancelOrders = "/trade" // 撤单列表
 
 
     /** 资讯 */

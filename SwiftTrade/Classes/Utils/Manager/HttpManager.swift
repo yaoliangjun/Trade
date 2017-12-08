@@ -29,17 +29,17 @@ class HttpManager: NSObject {
 extension HttpManager {
 
     // MARK: - GET请求
-    func get(url: String, params: [String: Any]?, showHUD: Bool, success: @escaping (_ response: Any?) -> (), failture: @escaping (_ error: Error) -> ()) {
+    func get(url: String, params: [String: Any]?, showHUD: Bool, success: @escaping (_ response: BaseResponseModel?) -> (), failture: @escaping (_ error: Error) -> ()) {
         request(url: url, method: .get, params: params, showHUD: showHUD, success: success, failture: failture)
     }
     
     // MARK: POST请求
-    func post(url: String, params: [String : Any]?, showHUD: Bool, success: @escaping (_ response: Any?) -> (), failture: @escaping (_ error: Error) -> ()) {
+    func post(url: String, params: [String : Any]?, showHUD: Bool, success: @escaping (_ response: BaseResponseModel?) -> (), failture: @escaping (_ error: Error) -> ()) {
         request(url: url, method: .post, params: params, showHUD: showHUD, success: success, failture: failture)
     }
 
     // MARK: 请求基类
-    fileprivate func request(url: String, method: HTTPMethod, params: Parameters?, showHUD: Bool, success : @escaping (_ response : Any?) -> (), failture : @escaping (_ error : Error) -> ()) -> () {
+    fileprivate func request(url: String, method: HTTPMethod, params: Parameters?, showHUD: Bool, success : @escaping (_ response : BaseResponseModel?) -> (), failture : @escaping (_ error : Error) -> ()) -> () {
 
         self.showHUD(showHUD: showHUD)
         let requestUrl = ServerUrl.baseUrl + url
@@ -51,11 +51,14 @@ extension HttpManager {
                 self.dismissHUD(showHUD: showHUD)
 
                 let responseJson = JSON(value).rawString()
-
                 print("REQUEST URL: \(url), REQUEST METHOD: \(method)")
                 print("REQUEST PARAMS: \(String(describing: params))")
                 print("RESPONSE: \(responseJson!) \n")
-                success(value)
+
+                let responseModel = self.processResponse(responseJSON: responseJson)
+                if responseModel != nil {
+                    success(responseModel)
+                }
 
             case .failure(let error):
                 self.dismissHUD(showHUD: showHUD)
@@ -63,6 +66,34 @@ extension HttpManager {
                 failture(error)
             }
         }
+    }
+
+    func processResponse(responseJSON: Any?) -> BaseResponseModel? {
+        guard let response = responseJSON else {
+            return nil
+        }
+
+        let responseModel = BaseResponseModel.mj_object(withKeyValues: response)
+
+        if responseModel?.statusCode == 401 {
+            // Token失效
+            let errorMsg = responseModel?.errorMessage ?? ""
+            if !errorMsg.isEmpty {
+                MBProgressHUD.show(withStatus: errorMsg)
+            }
+
+            (UIApplication.shared.delegate as! AppDelegate).logout()
+            return nil
+
+        } else if responseModel?.statusCode != 0 {
+            let errorMsg = responseModel?.errorMessage ?? ""
+            if !errorMsg.isEmpty {
+                MBProgressHUD.show(withStatus: errorMsg)
+            }
+            return nil
+        }
+
+        return responseModel!
     }
 
     // MARK: - Private Method

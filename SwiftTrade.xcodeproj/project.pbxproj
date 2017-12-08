@@ -17,6 +17,8 @@
 		E91EDC451F8F5FB600DA6716 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EDC441F8F5FB600DA6716 /* UIView+Extension.swift */; };
 		E91EDC471F90667A00DA6716 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EDC461F90667A00DA6716 /* AppConstants.swift */; };
 		E91EDC491F90694700DA6716 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EDC481F90694700DA6716 /* UIColor+Extension.swift */; };
+		E93142FE1FDA6F7B00B3A155 /* TradeServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93142FD1FDA6F7B00B3A155 /* TradeServices.swift */; };
+		E93143001FDA708600B3A155 /* CancelOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93142FF1FDA708600B3A155 /* CancelOrderModel.swift */; };
 		E95D90531FD636CA00DF115E /* DistrictModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95D90521FD636CA00DF115E /* DistrictModel.swift */; };
 		E96E993B1FD51F8D00A861DA /* AccountServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96E993A1FD51F8D00A861DA /* AccountServices.swift */; };
 		E98AFECB1FD5389B007A8029 /* MyAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98AFECA1FD5389B007A8029 /* MyAssetModel.swift */; };
@@ -77,6 +79,8 @@
 		E91EDC441F8F5FB600DA6716 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E91EDC461F90667A00DA6716 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		E91EDC481F90694700DA6716 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		E93142FD1FDA6F7B00B3A155 /* TradeServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeServices.swift; sourceTree = "<group>"; };
+		E93142FF1FDA708600B3A155 /* CancelOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderModel.swift; sourceTree = "<group>"; };
 		E95D90521FD636CA00DF115E /* DistrictModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictModel.swift; sourceTree = "<group>"; };
 		E96E993A1FD51F8D00A861DA /* AccountServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServices.swift; sourceTree = "<group>"; };
 		E98AFECA1FD5389B007A8029 /* MyAssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAssetModel.swift; sourceTree = "<group>"; };
@@ -375,8 +379,9 @@
 			isa = PBXGroup;
 			children = (
 				E91EDC2F1F8F422A00DA6716 /* Controller */,
-				E91EDC301F8F422A00DA6716 /* Model */,
-				E91EDC311F8F422A00DA6716 /* View */,
+				E93142FB1FDA6F4C00B3A155 /* Model */,
+				E93142FA1FDA6F4C00B3A155 /* View */,
+				E93142FC1FDA6F4C00B3A155 /* Services */,
 			);
 			path = Trade;
 			sourceTree = "<group>";
@@ -390,20 +395,6 @@
 				E9E694AB1FD9228700606D6C /* CancelOrderViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		E91EDC301F8F422A00DA6716 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		E91EDC311F8F422A00DA6716 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		E91EDC321F8F422A00DA6716 /* Utils */ = {
@@ -439,6 +430,29 @@
 				E9C3D7DE1FCE4EA50047222F /* NSDate+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E93142FA1FDA6F4C00B3A155 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E93142FB1FDA6F4C00B3A155 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E93142FF1FDA708600B3A155 /* CancelOrderModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E93142FC1FDA6F4C00B3A155 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E93142FD1FDA6F7B00B3A155 /* TradeServices.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		E95D90501FD636AF00DF115E /* View */ = {
@@ -739,6 +753,7 @@
 				E91EDC451F8F5FB600DA6716 /* UIView+Extension.swift in Sources */,
 				E9D694CE1F9F30C3003D28DE /* BaseResponseModel.swift in Sources */,
 				E96E993B1FD51F8D00A861DA /* AccountServices.swift in Sources */,
+				E93143001FDA708600B3A155 /* CancelOrderModel.swift in Sources */,
 				E9C5925B1F95EC8100D3835A /* ServerUrl.swift in Sources */,
 				E9D694D11F9F31C1003D28DE /* HomeServices.swift in Sources */,
 				E91EDC401F8F48A900DA6716 /* LoginViewController.swift in Sources */,
@@ -767,6 +782,7 @@
 				E9E694A81FD9225D00606D6C /* BuyInViewController.swift in Sources */,
 				E9C3D7DB1FCD6E1F0047222F /* InfoModel.swift in Sources */,
 				F2BC64241F91BC0A00E06B16 /* AccountViewController.swift in Sources */,
+				E93142FE1FDA6F7B00B3A155 /* TradeServices.swift in Sources */,
 				F2BC641E1F91BBD600E06B16 /* HomeViewController.swift in Sources */,
 				E9C592591F95E4E200D3835A /* HttpManager.swift in Sources */,
 				E9C3D7E91FCEB9AE0047222F /* GuideViewController.swift in Sources */,

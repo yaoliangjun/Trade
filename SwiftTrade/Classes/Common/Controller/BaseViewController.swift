@@ -16,6 +16,9 @@ class BaseViewController: UIViewController {
         setupSubViews()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 
     /// 子类重写该方法设置视图
     func setupSubViews() {

@@ -14,6 +14,21 @@ class CancelOrderViewController: BaseViewController {
         super.viewDidLoad()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchCancelOrders()
+    }
+
+    // MARK: - HTTP
+    func fetchCancelOrders() {
+        TradeServices.fetchCancelOrders(params: [:], showHUD: true, success: { (response) in
+
+        }) { (error) in
+
+        }
+    }
+
+    // MARK: - Getter / Setter
     override func setupSubViews() {
 
     }
