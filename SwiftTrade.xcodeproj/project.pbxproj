@@ -21,6 +21,7 @@
 		E93143001FDA708600B3A155 /* CancelOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93142FF1FDA708600B3A155 /* CancelOrderModel.swift */; };
 		E95D90531FD636CA00DF115E /* DistrictModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95D90521FD636CA00DF115E /* DistrictModel.swift */; };
 		E96E993B1FD51F8D00A861DA /* AccountServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96E993A1FD51F8D00A861DA /* AccountServices.swift */; };
+		E97AC0061FEBAC50007EFC63 /* CancelOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97AC0051FEBAC50007EFC63 /* CancelOrderCell.swift */; };
 		E98AFECB1FD5389B007A8029 /* MyAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98AFECA1FD5389B007A8029 /* MyAssetModel.swift */; };
 		E98AFECD1FD55736007A8029 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98AFECC1FD55736007A8029 /* ForgetPasswordViewController.swift */; };
 		E9C3D7A71FCBEEE70047222F /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D7A61FCBEEE70047222F /* BaseTableViewController.swift */; };
@@ -88,6 +89,7 @@
 		E93142FF1FDA708600B3A155 /* CancelOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderModel.swift; sourceTree = "<group>"; };
 		E95D90521FD636CA00DF115E /* DistrictModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictModel.swift; sourceTree = "<group>"; };
 		E96E993A1FD51F8D00A861DA /* AccountServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServices.swift; sourceTree = "<group>"; };
+		E97AC0051FEBAC50007EFC63 /* CancelOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderCell.swift; sourceTree = "<group>"; };
 		E98AFECA1FD5389B007A8029 /* MyAssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAssetModel.swift; sourceTree = "<group>"; };
 		E98AFECC1FD55736007A8029 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		E9C3D7A61FCBEEE70047222F /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 		E93142FA1FDA6F4C00B3A155 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E97AC0051FEBAC50007EFC63 /* CancelOrderCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -808,6 +811,7 @@
 				F2BC64241F91BC0A00E06B16 /* AccountViewController.swift in Sources */,
 				E93142FE1FDA6F7B00B3A155 /* TradeServices.swift in Sources */,
 				F2BC641E1F91BBD600E06B16 /* HomeViewController.swift in Sources */,
+				E97AC0061FEBAC50007EFC63 /* CancelOrderCell.swift in Sources */,
 				E9C592591F95E4E200D3835A /* HttpManager.swift in Sources */,
 				E9C3D7E91FCEB9AE0047222F /* GuideViewController.swift in Sources */,
 				E91EDC361F8F42F100DA6716 /* AppDelegate.swift in Sources */,

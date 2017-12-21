@@ -24,6 +24,7 @@ class TradeViewController: PageController {
         menuViewStyle = .line
         menuHeight = 44
         menuBGColor = UIColor.white
+        pageAnimatable = true
         progressColor = AppConstants.goldColor
         titleColorNormal = AppConstants.greyTextColor
         titleColorSelected = AppConstants.greyTextColor
@@ -53,10 +54,6 @@ class TradeViewController: PageController {
 
     func pageController(_ pageController: PageController, viewControllerAtIndex index: Int) -> UIViewController {
         return viewControllers[index]
-    }
-
-    func pageController(_ pageController: PageController, lazyLoadViewController viewController: UIViewController, withInfo info: NSDictionary) {
-        print(info)
     }
 
     override func menuView(_ menuView: MenuView, widthForItemAtIndex index: Int) -> CGFloat {

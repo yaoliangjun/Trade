@@ -51,7 +51,7 @@ extension HttpManager {
                 self.dismissHUD(showHUD: showHUD)
 
                 let responseJson = JSON(value).rawString()
-                print("REQUEST METHOD: \(method) \nREQUEST URL: \(requestUrl) \nREQUEST PARAMS: \(String(describing: params)) \nRESPONSE: \(responseJson!)")
+                print("REQUEST URL: \(requestUrl) \nREQUEST PARAMS: \(String(describing: params)) \nREQUEST METHOD: \(method) \nRESPONSE: \(responseJson!)\n\n")
 
                 let responseModel = self.processResponse(responseJSON: responseJson)
                 if responseModel != nil {

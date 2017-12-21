@@ -39,7 +39,6 @@ class HomeViewController: BaseTableViewController {
         tableView?.dataSource = self
         tableView?.rowHeight = 70
         tableView?.tableHeaderView = tableHeaderView
-        tableView?.backgroundColor = AppConstants.gapColor
         view.addSubview(tableView!)
     }
 

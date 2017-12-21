@@ -10,17 +10,17 @@ import UIKit
 
 class ServerUrl: NSObject {
 
+    /** 服务器环境 */
     enum Environment {
         case develop
         case production
     }
 
-    /** 服务器环境 */
-    static let environment = Environment.production
+    static let environment = Environment.develop
 
     static func baseUrl() -> String {
         if environment == .develop {
-            return "http://47.92.150.205:9000"
+            return "http://47.52.72.135/newton/dev/api"
 
         } else {
             return "http://47.52.142.113:9070"
