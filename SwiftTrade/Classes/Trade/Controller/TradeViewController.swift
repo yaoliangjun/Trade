@@ -7,49 +7,59 @@
 //  交易页面
 
 import UIKit
-import SwipeMenuViewController
 
-class TradeViewController: SwipeMenuViewController {
+class TradeViewController: PageController {
 
-    lazy var titles: [String] = ["买入", "卖出", "撤单"]
-    lazy var viewControllers: [UIViewController] = {
+    private lazy var vcTitles: [String] = ["买入", "卖出", "撤单"]
+    private lazy var viewControllers: [UIViewController] = {
         var viewControllers = [BuyInViewController(), SellOutViewController(), CancelOrderViewController()]
         return viewControllers
     }()
 
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        //Do whatever you want here
+        dataSource = self
+        delegate = self
+        menuViewStyle = .line
+        menuHeight = 44
+        menuBGColor = UIColor.white
+        progressColor = AppConstants.goldColor
+        titleColorNormal = AppConstants.greyTextColor
+        titleColorSelected = AppConstants.greyTextColor
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        swipeMenuView.reloadData(options: menuOptions)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
 
-    lazy var menuOptions: SwipeMenuViewOptions = {
-        var menuOptions = SwipeMenuViewOptions()
-        menuOptions.tabView.backgroundColor = UIColor.white
-        menuOptions.tabView.needsAdjustItemViewWidth = false
-        menuOptions.tabView.itemView.width = GlobalConstants.screenWidth / 3
-        menuOptions.tabView.itemView.textColor = AppConstants.greyTextColor
-        menuOptions.tabView.itemView.font = UIFont.systemFont(ofSize: 16)
-        menuOptions.tabView.itemView.selectedTextColor = AppConstants.greyTextColor
-        menuOptions.tabView.underlineView.backgroundColor = AppConstants.goldColor
-
-        return menuOptions
-    }()
-
-    // MARK - SwipeMenuViewDataSource
-    override func numberOfPages(in swipeMenuView: SwipeMenuView) -> Int {
-        return titles.count
+    // MARK: - PageControllerDataSource
+    func numberOfControllersInPageController(_ pageController: PageController) -> Int {
+        return vcTitles.count
     }
 
-    override func swipeMenuView(_ swipeMenuView: SwipeMenuView, titleForPageAt index: Int) -> String {
-        return titles[index]
+    func pageController(_ pageController: PageController, titleAtIndex index: Int) -> String {
+        return vcTitles[index]
     }
 
-    override func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewControllerForPageAt index: Int) -> UIViewController {
+    func pageController(_ pageController: PageController, viewControllerAtIndex index: Int) -> UIViewController {
         return viewControllers[index]
+    }
+
+    func pageController(_ pageController: PageController, lazyLoadViewController viewController: UIViewController, withInfo info: NSDictionary) {
+        print(info)
+    }
+
+    override func menuView(_ menuView: MenuView, widthForItemAtIndex index: Int) -> CGFloat {
+        return GlobalConstants.screenWidth / 3
     }
 }

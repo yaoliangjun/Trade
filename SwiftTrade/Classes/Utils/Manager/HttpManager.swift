@@ -42,7 +42,7 @@ extension HttpManager {
     fileprivate func request(url: String, method: HTTPMethod, params: Parameters?, showHUD: Bool, success : @escaping (_ response : BaseResponseModel?) -> (), failture : @escaping (_ error : Error) -> ()) -> () {
 
         self.showHUD(showHUD: showHUD)
-        let requestUrl = ServerUrl.baseUrl + url
+        let requestUrl = ServerUrl.baseUrl() + url
         Alamofire.request(requestUrl, method: method, parameters: params, headers: globalHeader()).responseJSON { (response) in
 
             switch response.result {
@@ -51,9 +51,7 @@ extension HttpManager {
                 self.dismissHUD(showHUD: showHUD)
 
                 let responseJson = JSON(value).rawString()
-                print("REQUEST URL: \(url), REQUEST METHOD: \(method)")
-                print("REQUEST PARAMS: \(String(describing: params))")
-                print("RESPONSE: \(responseJson!) \n")
+                print("REQUEST METHOD: \(method) \nREQUEST URL: \(requestUrl) \nREQUEST PARAMS: \(String(describing: params)) \nRESPONSE: \(responseJson!)")
 
                 let responseModel = self.processResponse(responseJSON: responseJson)
                 if responseModel != nil {

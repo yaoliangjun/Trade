@@ -15,6 +15,5 @@ pod 'MBProgressHUD'
 pod 'SwiftyJSON'
 pod 'MJExtension'
 pod 'MJRefresh'
-pod 'SwipeMenuViewController', '1.1.5'
 
 end

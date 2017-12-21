@@ -14,6 +14,10 @@ class SellOutViewController: BaseViewController {
         super.viewDidLoad()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func setupSubViews() {
 
     }

@@ -9,9 +9,23 @@
 import UIKit
 
 class ServerUrl: NSObject {
-    
-    // 服务器地址
-    static let baseUrl = "http://47.92.150.205:9000"
+
+    enum Environment {
+        case develop
+        case production
+    }
+
+    /** 服务器环境 */
+    static let environment = Environment.production
+
+    static func baseUrl() -> String {
+        if environment == .develop {
+            return "http://47.92.150.205:9000"
+
+        } else {
+            return "http://47.52.142.113:9070"
+        }
+    }
     
 
     /** 注册登录 */

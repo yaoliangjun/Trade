@@ -53,6 +53,11 @@
 		E9E694A81FD9225D00606D6C /* BuyInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E694A71FD9225D00606D6C /* BuyInViewController.swift */; };
 		E9E694AA1FD9227A00606D6C /* SellOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E694A91FD9227A00606D6C /* SellOutViewController.swift */; };
 		E9E694AC1FD9228700606D6C /* CancelOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E694AB1FD9228700606D6C /* CancelOrderViewController.swift */; };
+		E9E9D2971FE36431002138F7 /* FloodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9D2921FE36431002138F7 /* FloodView.swift */; };
+		E9E9D2981FE36431002138F7 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9D2931FE36431002138F7 /* MenuItem.swift */; };
+		E9E9D2991FE36431002138F7 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9D2941FE36431002138F7 /* MenuView.swift */; };
+		E9E9D29A1FE36431002138F7 /* PageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9D2951FE36431002138F7 /* PageController.swift */; };
+		E9E9D29B1FE36431002138F7 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9D2961FE36431002138F7 /* ProgressView.swift */; };
 		F23EB85E1FA5839A00F7CCC5 /* BaseServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EB85D1FA5839A00F7CCC5 /* BaseServices.swift */; };
 		F23EB8611FA58A8900F7CCC5 /* LoginServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EB8601FA58A8900F7CCC5 /* LoginServices.swift */; };
 		F23EB8651FA76BE400F7CCC5 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EB8641FA76BE400F7CCC5 /* HomeCell.swift */; };
@@ -115,6 +120,11 @@
 		E9E694A71FD9225D00606D6C /* BuyInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyInViewController.swift; sourceTree = "<group>"; };
 		E9E694A91FD9227A00606D6C /* SellOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellOutViewController.swift; sourceTree = "<group>"; };
 		E9E694AB1FD9228700606D6C /* CancelOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderViewController.swift; sourceTree = "<group>"; };
+		E9E9D2921FE36431002138F7 /* FloodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloodView.swift; sourceTree = "<group>"; };
+		E9E9D2931FE36431002138F7 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		E9E9D2941FE36431002138F7 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		E9E9D2951FE36431002138F7 /* PageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageController.swift; sourceTree = "<group>"; };
+		E9E9D2961FE36431002138F7 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		F23EB85D1FA5839A00F7CCC5 /* BaseServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseServices.swift; sourceTree = "<group>"; };
 		F23EB8601FA58A8900F7CCC5 /* LoginServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginServices.swift; sourceTree = "<group>"; };
 		F23EB8641FA76BE400F7CCC5 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
@@ -400,6 +410,7 @@
 		E91EDC321F8F422A00DA6716 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E9E9D2911FE36431002138F7 /* PageController */,
 				E9C592571F95E4A400D3835A /* Manager */,
 				F2BC642B1F93080300E06B16 /* Category */,
 				F2BC64291F93079200E06B16 /* BridgeHeader */,
@@ -562,6 +573,18 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		E9E9D2911FE36431002138F7 /* PageController */ = {
+			isa = PBXGroup;
+			children = (
+				E9E9D2921FE36431002138F7 /* FloodView.swift */,
+				E9E9D2961FE36431002138F7 /* ProgressView.swift */,
+				E9E9D2931FE36431002138F7 /* MenuItem.swift */,
+				E9E9D2941FE36431002138F7 /* MenuView.swift */,
+				E9E9D2951FE36431002138F7 /* PageController.swift */,
+			);
+			path = PageController;
+			sourceTree = "<group>";
+		};
 		F23EB85C1FA5837C00F7CCC5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -682,7 +705,6 @@
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/SwipeMenuViewController/SwipeMenuViewController.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -694,7 +716,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeMenuViewController.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -741,6 +762,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9E9D29A1FE36431002138F7 /* PageController.swift in Sources */,
 				E9C592061F90B5ED00D3835A /* UIImage+Extension.swift in Sources */,
 				E9C9EBEE1FD679A100B8A5F6 /* ImageButton.swift in Sources */,
 				F2BC644E1F931D9000E06B16 /* MBProgressHUD+Extension.m in Sources */,
@@ -762,6 +784,8 @@
 				F2BC64201F91BBE500E06B16 /* TradeViewController.swift in Sources */,
 				F23EB85E1FA5839A00F7CCC5 /* BaseServices.swift in Sources */,
 				E9C3D7A71FCBEEE70047222F /* BaseTableViewController.swift in Sources */,
+				E9E9D2981FE36431002138F7 /* MenuItem.swift in Sources */,
+				E9E9D2991FE36431002138F7 /* MenuView.swift in Sources */,
 				E95D90531FD636CA00DF115E /* DistrictModel.swift in Sources */,
 				E91EDC491F90694700DA6716 /* UIColor+Extension.swift in Sources */,
 				E9C3D7AB1FCCFF880047222F /* AccountInfoCell.swift in Sources */,
@@ -787,6 +811,7 @@
 				E9C592591F95E4E200D3835A /* HttpManager.swift in Sources */,
 				E9C3D7E91FCEB9AE0047222F /* GuideViewController.swift in Sources */,
 				E91EDC361F8F42F100DA6716 /* AppDelegate.swift in Sources */,
+				E9E9D29B1FE36431002138F7 /* ProgressView.swift in Sources */,
 				E91EDC3E1F8F483600DA6716 /* BaseTabBarController.swift in Sources */,
 				F23EB8651FA76BE400F7CCC5 /* HomeCell.swift in Sources */,
 				E9C9EBF01FD6819900B8A5F6 /* DistrictNumViewController.swift in Sources */,
@@ -794,6 +819,7 @@
 				E91EDC3A1F8F480000DA6716 /* BaseViewController.swift in Sources */,
 				E9C3D7E41FCEA03D0047222F /* BaseTableViewCell.swift in Sources */,
 				F2BC64221F91BBF900E06B16 /* InformationViewController.swift in Sources */,
+				E9E9D2971FE36431002138F7 /* FloodView.swift in Sources */,
 				E9E694AA1FD9227A00606D6C /* SellOutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
