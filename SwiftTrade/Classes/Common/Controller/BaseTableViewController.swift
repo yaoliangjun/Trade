@@ -20,7 +20,7 @@ class BaseTableViewController: BaseViewController {
     }
 
     func createTableView(style: UITableViewStyle) -> UITableView {
-        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: GlobalConstants.tableViewHeight - GlobalConstants.navigationBarHeight), style: style)
+        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: GlobalConstants.tableViewHeight), style: style)
         tableView.rowHeight = 50
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none

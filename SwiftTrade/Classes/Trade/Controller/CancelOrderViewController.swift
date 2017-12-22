@@ -35,8 +35,11 @@ class CancelOrderViewController: BaseTableViewController, CancelOrderCellDelegat
         }
     }
 
-    // MARK: CancelOrderCellDelegate
-    func cancelOrderCell(cell: CancelOrderCell, cancelOrderModel: CancelOrderModel) {
+    override func pullDownHandle() {
+        fetchCancelOrders()
+    }
+
+    func cancelOrder(cancelOrderModel: CancelOrderModel) {
         TradeServices.cancelOrder(orderId: cancelOrderModel.id!, showHUD: true, success: { (response) in
             if response != nil {
                 MBProgressHUD.show(withStatus: "撤单成功")
@@ -50,12 +53,30 @@ class CancelOrderViewController: BaseTableViewController, CancelOrderCellDelegat
         }
     }
 
+    // MARK: CancelOrderCellDelegate
+    func cancelOrderCell(cell: CancelOrderCell, cancelOrderModel: CancelOrderModel) {
+
+        let alertController = UIAlertController(title: "提示", message: "确定要撤单吗?", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "确定", style: .default) { (action) in
+        self.cancelOrder(cancelOrderModel: cancelOrderModel)
+        }
+
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (action) in
+
+        }
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+
     // MARK: - Getter / Setter
     override func setupSubViews() {
         tableView = createTableView(style: .plain, needRefresh: true)
+        tableView?.frame = CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: GlobalConstants.tableViewHeight - 44)
         tableView?.delegate = self
         tableView?.dataSource = self
-        tableView?.rowHeight = 160
+        tableView?.rowHeight = 150
+        tableView?.allowsSelection = false
         view.addSubview(tableView!)
     }
 }
