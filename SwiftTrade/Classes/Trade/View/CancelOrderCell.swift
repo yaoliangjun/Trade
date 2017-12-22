@@ -8,7 +8,14 @@
 
 import UIKit
 
+@objc protocol CancelOrderCellDelegate: NSObjectProtocol {
+    func cancelOrderCell(cell: CancelOrderCell, cancelOrderModel: CancelOrderModel)
+}
+
 class CancelOrderCell: CommonTableViewCell {
+
+    weak var delegate: CancelOrderCellDelegate?
+    var cancelOrderModel: CancelOrderModel?
 
     var statusImageView: UIImageView? = nil
     var coinNameLabel: UILabel? = nil
@@ -22,6 +29,7 @@ class CancelOrderCell: CommonTableViewCell {
 
     // MARK: - Private Method
     func setupModel(cancelOrderModel: CancelOrderModel) {
+        self.cancelOrderModel = cancelOrderModel
 
         let type = cancelOrderModel.type
         if type == "BUY" {
@@ -55,8 +63,9 @@ class CancelOrderCell: CommonTableViewCell {
         dateLabel?.text = NSDate.dateString(millisecond: cancelOrderModel.createdAt, formatter: "yyyy-MM-dd HH:mm")
     }
 
+    // 撤单
     @objc private func cancelOrderBtnClick() {
-
+        delegate?.cancelOrderCell(cell: self, cancelOrderModel: cancelOrderModel!)
     }
 
     // MARK: - Getter / Setter

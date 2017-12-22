@@ -38,6 +38,11 @@ extension HttpManager {
         request(url: url, method: .post, params: params, showHUD: showHUD, success: success, failture: failture)
     }
 
+    // MARK: PUT请求
+    func put(url: String, params: [String : Any]?, showHUD: Bool, success: @escaping (_ response: BaseResponseModel?) -> (), failture: @escaping (_ error: Error) -> ()) {
+        request(url: url, method: .put, params: params, showHUD: showHUD, success: success, failture: failture)
+    }
+
     // MARK: 请求基类
     fileprivate func request(url: String, method: HTTPMethod, params: Parameters?, showHUD: Bool, success : @escaping (_ response : BaseResponseModel?) -> (), failture : @escaping (_ error : Error) -> ()) -> () {
 

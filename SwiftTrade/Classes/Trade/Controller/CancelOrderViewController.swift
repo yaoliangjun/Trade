@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CancelOrderViewController: BaseTableViewController {
+class CancelOrderViewController: BaseTableViewController, CancelOrderCellDelegate {
 
     lazy var cancelOrderArray: [CancelOrderModel] = {
         var cancelOrderArray = [CancelOrderModel]()
@@ -29,6 +29,21 @@ class CancelOrderViewController: BaseTableViewController {
         TradeServices.fetchCancelOrders(params: [:], showHUD: true, success: { (response) in
             self.cancelOrderArray = response
             self.tableView?.reloadData()
+
+        }) { (error) in
+
+        }
+    }
+
+    // MARK: CancelOrderCellDelegate
+    func cancelOrderCell(cell: CancelOrderCell, cancelOrderModel: CancelOrderModel) {
+        TradeServices.cancelOrder(orderId: cancelOrderModel.id!, showHUD: true, success: { (response) in
+            if response != nil {
+                MBProgressHUD.show(withStatus: "撤单成功")
+                let index = self.cancelOrderArray.index(of: cancelOrderModel)
+                self.cancelOrderArray.remove(at: index!)
+                self.tableView?.reloadData()
+            }
 
         }) { (error) in
 
@@ -57,6 +72,7 @@ extension CancelOrderViewController: UITableViewDelegate, UITableViewDataSource 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CancelOrderCell.cellWithTableView(tableView: tableView) as! CancelOrderCell
+        cell.delegate = self
         cell.setupModel(cancelOrderModel: cancelOrderArray[indexPath.section])
         return cell
     }

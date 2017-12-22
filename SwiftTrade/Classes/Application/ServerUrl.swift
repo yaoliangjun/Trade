@@ -41,8 +41,8 @@ class ServerUrl: NSObject {
 
 
     /** 交易 */
-    static let cancelOrders = "/trade" // 撤单列表
-
+    static let cancelOrderList = "/trade" // 撤单列表
+    static let cancelOrder = "/trade/cancel/%@" // 撤单
 
     /** 资讯 */
     static let infoList = "/info/list" // 获取资讯
