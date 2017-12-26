@@ -192,7 +192,7 @@ class ForgetPasswordViewController: BaseViewController {
         view.addSubview(accountTextField!)
 
         let defaultTitle = "+\(currentDistrictCode)"
-        imageBtn = ImageButton(title: defaultTitle, titleColor: UIColor.white, font: UIFont.systemFont(ofSize: 14), image: UIImage(named: "arrow_right_white"), target: self, selector: #selector(districtNumBtnClick))
+        imageBtn = ImageButton(title: defaultTitle, titleColor: UIColor.white, textAlignment: .right, font: UIFont.systemFont(ofSize: 14), image: UIImage(named: "arrow_right_white"), target: self, selector: #selector(districtNumBtnClick))
         imageBtn?.frame = CGRect(x: (accountTextField?.right)!, y: (accountTextField?.top)! + 10, width: 90, height: 30)
         imageBtn?.titleLabel?.textAlignment = .right
         view.addSubview(imageBtn!)

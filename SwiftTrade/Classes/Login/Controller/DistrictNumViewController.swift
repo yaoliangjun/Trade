@@ -35,6 +35,7 @@ class DistrictNumViewController: BaseTableViewController {
         self.definesPresentationContext = true
 
         tableView = createTableView(style: .grouped)
+        tableView?.frame = CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: GlobalConstants.tableViewHeight + GlobalConstants.tabBarHeight)
         tableView?.delegate = self
         tableView?.dataSource = self
         tableView?.rowHeight = 60

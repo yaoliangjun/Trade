@@ -16,7 +16,7 @@ extension UILabel {
         self.init(text: text, textAlignment: .left, textColor: textColor, font: font)
     }
     
-    /// 创建一个有对齐方式的普通UILabel
+    /// 创建一个普通的UILabel(有对齐方式)
     convenience init(text: String?, textAlignment: NSTextAlignment, textColor: UIColor?, font: UIFont?) {
         self.init(frame: CGRect.zero, text: text, textAlignment: textAlignment, textColor: textColor, font: font)
     }
@@ -27,12 +27,17 @@ extension UILabel {
         self.backgroundColor = backgroundColor
     }
 
-    /// 创建一个有Frame和对齐方式的UILabel
-    convenience init(frame: CGRect, text: String?, textAlignment: NSTextAlignment, textColor: UIColor?, font: UIFont?) {
+    /// 创建一个有Frame的UILabel
+    convenience init(frame: CGRect, text: String?, textColor: UIColor?, font: UIFont?) {
         self.init(frame: frame)
         self.text = text
         self.textColor = textColor
-        self.textAlignment = textAlignment
         self.font = font
+    }
+
+    /// 创建一个有Frame和对齐方式的UILabel
+    convenience init(frame: CGRect, text: String?, textAlignment: NSTextAlignment, textColor: UIColor?, font: UIFont?) {
+        self.init(frame: frame, text: text, textColor: textColor, font: font)
+        self.textAlignment = textAlignment
     }
 }

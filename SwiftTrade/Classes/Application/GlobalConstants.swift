@@ -18,4 +18,5 @@ class GlobalConstants: NSObject {
     
     // 颜色
     static let backgroundColor = AppConstants.gapColor // 页面背景颜色
+    static let placeholderColor = UIColor(hexValue: 0x777777)
 }

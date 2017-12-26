@@ -19,6 +19,9 @@
 		E91EDC491F90694700DA6716 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EDC481F90694700DA6716 /* UIColor+Extension.swift */; };
 		E93142FE1FDA6F7B00B3A155 /* TradeServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93142FD1FDA6F7B00B3A155 /* TradeServices.swift */; };
 		E93143001FDA708600B3A155 /* CancelOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93142FF1FDA708600B3A155 /* CancelOrderModel.swift */; };
+		E954CCF51FF0DE120042FC3A /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E954CCF41FF0DE120042FC3A /* UIImageView+Extension.swift */; };
+		E954CCF71FF0EE2D0042FC3A /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E954CCF61FF0EE2D0042FC3A /* StepperView.swift */; };
+		E954CCF91FF239C60042FC3A /* MarketPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E954CCF81FF239C60042FC3A /* MarketPriceCell.swift */; };
 		E95D90531FD636CA00DF115E /* DistrictModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95D90521FD636CA00DF115E /* DistrictModel.swift */; };
 		E96E993B1FD51F8D00A861DA /* AccountServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96E993A1FD51F8D00A861DA /* AccountServices.swift */; };
 		E97AC0061FEBAC50007EFC63 /* CancelOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97AC0051FEBAC50007EFC63 /* CancelOrderCell.swift */; };
@@ -87,6 +90,9 @@
 		E91EDC481F90694700DA6716 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		E93142FD1FDA6F7B00B3A155 /* TradeServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeServices.swift; sourceTree = "<group>"; };
 		E93142FF1FDA708600B3A155 /* CancelOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderModel.swift; sourceTree = "<group>"; };
+		E954CCF41FF0DE120042FC3A /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		E954CCF61FF0EE2D0042FC3A /* StepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
+		E954CCF81FF239C60042FC3A /* MarketPriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketPriceCell.swift; sourceTree = "<group>"; };
 		E95D90521FD636CA00DF115E /* DistrictModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictModel.swift; sourceTree = "<group>"; };
 		E96E993A1FD51F8D00A861DA /* AccountServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServices.swift; sourceTree = "<group>"; };
 		E97AC0051FEBAC50007EFC63 /* CancelOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderCell.swift; sourceTree = "<group>"; };
@@ -438,6 +444,7 @@
 				E9C592011F90A28A00D3835A /* UITextField+Extension.swift */,
 				E9C592031F90AC8900D3835A /* UIButton+Extension.swift */,
 				E9C592051F90B5ED00D3835A /* UIImage+Extension.swift */,
+				E954CCF41FF0DE120042FC3A /* UIImageView+Extension.swift */,
 				E9C5925C1F95FB9700D3835A /* String+Extension.swift */,
 				E9C3D7D31FCD16D10047222F /* UIBarButtonItem+Extension.swift */,
 				E9C3D7DE1FCE4EA50047222F /* NSDate+Extension.swift */,
@@ -449,6 +456,8 @@
 			isa = PBXGroup;
 			children = (
 				E97AC0051FEBAC50007EFC63 /* CancelOrderCell.swift */,
+				E954CCF61FF0EE2D0042FC3A /* StepperView.swift */,
+				E954CCF81FF239C60042FC3A /* MarketPriceCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -765,13 +774,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E954CCF71FF0EE2D0042FC3A /* StepperView.swift in Sources */,
 				E9E9D29A1FE36431002138F7 /* PageController.swift in Sources */,
 				E9C592061F90B5ED00D3835A /* UIImage+Extension.swift in Sources */,
 				E9C9EBEE1FD679A100B8A5F6 /* ImageButton.swift in Sources */,
 				F2BC644E1F931D9000E06B16 /* MBProgressHUD+Extension.m in Sources */,
+				E954CCF51FF0DE120042FC3A /* UIImageView+Extension.swift in Sources */,
 				E9C592001F909E8900D3835A /* UILabel+Extension.swift in Sources */,
 				E9C3D7D91FCD6AC10047222F /* InfoServices.swift in Sources */,
 				F2BC641C1F91BB7B00E06B16 /* MainTabBarController.swift in Sources */,
+				E954CCF91FF239C60042FC3A /* MarketPriceCell.swift in Sources */,
 				E9C9EBF21FD6876B00B8A5F6 /* DistrictNumCell.swift in Sources */,
 				E9C3D7DD1FCE469E0047222F /* InfoCell.swift in Sources */,
 				E91EDC421F8F59EE00DA6716 /* GlobalConstants.swift in Sources */,

@@ -71,13 +71,21 @@ class LoginViewController: BaseViewController {
     // 设置子View
     override func setupSubViews() {
         //
-        let backgroundView = UIImageView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: GlobalConstants.screenHeight))
+        let backgroundView = UIImageView()
         backgroundView.image = UIImage(named: "background")
         view.addSubview(backgroundView)
+        backgroundView.snp.makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
         
         //
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: GlobalConstants.navigationBarHeight, width: GlobalConstants.screenWidth, height: 30), text: "登录", textAlignment: .center, textColor: AppConstants.goldColor, font: UIFont.systemFont(ofSize: 20))
+        let titleLabel = UILabel(text: "登录", textAlignment: .center, textColor: AppConstants.goldColor, font: UIFont.systemFont(ofSize: 20))
         view.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { (make) in
+            make.left.right.equalTo(view)
+            make.height.equalTo(30)
+            make.top.equalTo(view).offset(64)
+        }
         
         // 账号
         let accountImageView = UIImageView(frame: CGRect(x: 10, y: 15, width: 17, height: 20))
@@ -85,12 +93,23 @@ class LoginViewController: BaseViewController {
         let accountLeftView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 50))
         accountLeftView.addSubview(accountImageView)
         
-        accountTextField = UITextField(frame: CGRect(x: 30, y: titleLabel.bottom + 30, width: GlobalConstants.screenWidth - 60, height: 50), text: "", textAlignment: .center, textColor: UIColor.white, placeholder: "请输入账号", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 16), leftView: accountLeftView)
+        accountTextField = UITextField(text: nil, textAlignment: .center, textColor: UIColor.white, placeholder: "请输入账号", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 16), leftView: accountLeftView, leftViewMode: .always)
         view.addSubview(accountTextField!)
+        accountTextField!.snp.makeConstraints { (make) in
+            make.left.equalTo(30)
+            make.right.equalTo(-30)
+            make.height.equalTo(50)
+            make.top.equalTo(titleLabel.snp.bottom).offset(30)
+        }
         
-        let accountSeparateLine = UILabel(frame: CGRect(x: (accountTextField?.left)!, y: (accountTextField?.bottom)!, width: (accountTextField?.width)!, height: 0.5))
+        let accountSeparateLine = UILabel()
         accountSeparateLine.backgroundColor = UIColor.white
         view.addSubview(accountSeparateLine)
+        accountSeparateLine.snp.makeConstraints { (make) in
+            make.left.right.equalTo(accountTextField!)
+            make.top.equalTo(accountTextField!.snp.bottom)
+            make.height.equalTo(0.5)
+        }
         
         // 密码
         let pwdImageView = UIImageView(frame: CGRect(x: 10, y: 15, width: 17, height: 20))
@@ -98,25 +117,51 @@ class LoginViewController: BaseViewController {
         let pwdLeftView = UIView(frame: CGRect(x: 0, y: 15, width: 40, height: 50))
         pwdLeftView.addSubview(pwdImageView)
         
-        pwdTextField = UITextField(frame: CGRect(x: (accountTextField?.left)!, y: accountSeparateLine.bottom + 30, width: (accountTextField?.width)!, height: (accountTextField?.height)!), text: "", textAlignment: .center, textColor: UIColor.white, placeholder: "请输入密码", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 16), leftView: pwdLeftView)
+        pwdTextField = UITextField(text: nil, textAlignment: .center, textColor: UIColor.white, placeholder: "请输入密码", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 16), leftView: pwdLeftView, leftViewMode: .always)
         pwdTextField?.isSecureTextEntry = true
         view.addSubview(pwdTextField!)
+        pwdTextField!.snp.makeConstraints { (make) in
+            make.left.right.height.equalTo(accountTextField!)
+            make.top.equalTo(accountTextField!.snp.bottom).offset(30)
+        }
         
         let pwdSeparateLine = UILabel(frame: CGRect(x: (pwdTextField?.left)!, y: (pwdTextField?.bottom)!, width: (accountTextField?.width)!, height: 0.5))
         pwdSeparateLine.backgroundColor = UIColor.white
         view.addSubview(pwdSeparateLine)
+        pwdSeparateLine.snp.makeConstraints { (make) in
+            make.left.right.height.equalTo(accountSeparateLine)
+            make.top.equalTo(pwdTextField!.snp.bottom)
+        }
         
         // 找回密码
-        let findPwdBtn = UIButton(frame: CGRect(x: (pwdTextField?.right)! - 60, y: pwdSeparateLine.bottom + 10, width: 60, height: 20), title: "找回密码", titleColor: UIColor.white, font: UIFont.systemFont(ofSize: 12), target: self, selector:#selector(findPwdBtnClick))
+        let findPwdBtn = UIButton(title: "找回密码", titleColor: UIColor.white, highlightedTitleColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 12), target: self, selector: #selector(findPwdBtnClick))
         view.addSubview(findPwdBtn)
+        findPwdBtn.snp.makeConstraints { (make) in
+            make.width.equalTo(60)
+            make.height.equalTo(20)
+            make.right.equalTo(pwdTextField!)
+            make.top.equalTo(pwdSeparateLine.snp.bottom).offset(10)
+        }
         
         // 登录
-        let loginBtn = UIButton(frame: CGRect(x: 30, y: findPwdBtn.bottom + 40, width: GlobalConstants.screenWidth - 60, height: 44), title: "登录", titleColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 18), backgroundImage: UIImage.createImage(color: AppConstants.goldColor)!, highlightedBackgroundImage: UIImage.createImage(color: UIColor.brown)!, cornerRadius: 5, target: self, selector: #selector(loginBtnClick))
+        let loginBtn = UIButton(title: "登录", titleColor: AppConstants.greyTextColor, highlightedTitleColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 18), backgroundImage: UIImage.createImage(color: AppConstants.goldColor), highlightedBackgroundImage: UIImage.createImage(color: UIColor.brown), borderWidth: 0, borderColor: nil, cornerRadius: 5, target: self, selector: #selector(loginBtnClick))
         view.addSubview(loginBtn)
-        
+        loginBtn.snp.makeConstraints { (make) in
+            make.left.equalTo(30)
+            make.right.equalTo(-30)
+            make.top.equalTo(findPwdBtn.snp.bottom).offset(40)
+            make.height.equalTo(44)
+        }
+
         // 注册
-        let registerBtn = UIButton(frame: CGRect(x: (GlobalConstants.screenWidth - 120) / 2, y: loginBtn.bottom + 40, width: 120, height: 30), title: "没有账号立即注册", titleColor: UIColor.white, font: UIFont.systemFont(ofSize: 14), target: self, selector: #selector(registerBtnClick))
+        let registerBtn = UIButton(title: "立即注册", titleColor: UIColor.white, highlightedTitleColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 12), target: self, selector: #selector(registerBtnClick))
         view.addSubview(registerBtn)
+        registerBtn.snp.makeConstraints { (make) in
+            make.width.equalTo(120)
+            make.height.equalTo(30)
+            make.centerX.equalTo(loginBtn)
+            make.top.equalTo(loginBtn.snp.bottom).offset(40)
+        }
         
         // DEMO ACCOUNT
         accountTextField?.text = "13528768996"
