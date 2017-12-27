@@ -71,8 +71,7 @@ class LoginViewController: BaseViewController {
     // 设置子View
     override func setupSubViews() {
         //
-        let backgroundView = UIImageView()
-        backgroundView.image = UIImage(named: "background")
+        let backgroundView = UIImageView(image: UIImage(named: "background"))
         view.addSubview(backgroundView)
         backgroundView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
@@ -98,12 +97,11 @@ class LoginViewController: BaseViewController {
         accountTextField!.snp.makeConstraints { (make) in
             make.left.equalTo(30)
             make.right.equalTo(-30)
-            make.height.equalTo(50)
+            make.height.equalTo(60)
             make.top.equalTo(titleLabel.snp.bottom).offset(30)
         }
         
-        let accountSeparateLine = UILabel()
-        accountSeparateLine.backgroundColor = UIColor.white
+        let accountSeparateLine = UILabel(backgroundColor: AppConstants.gapColor)
         view.addSubview(accountSeparateLine)
         accountSeparateLine.snp.makeConstraints { (make) in
             make.left.right.equalTo(accountTextField!)
@@ -122,11 +120,10 @@ class LoginViewController: BaseViewController {
         view.addSubview(pwdTextField!)
         pwdTextField!.snp.makeConstraints { (make) in
             make.left.right.height.equalTo(accountTextField!)
-            make.top.equalTo(accountTextField!.snp.bottom).offset(30)
+            make.top.equalTo(accountSeparateLine.snp.bottom)
         }
         
-        let pwdSeparateLine = UILabel(frame: CGRect(x: (pwdTextField?.left)!, y: (pwdTextField?.bottom)!, width: (accountTextField?.width)!, height: 0.5))
-        pwdSeparateLine.backgroundColor = UIColor.white
+        let pwdSeparateLine = UILabel(backgroundColor: AppConstants.gapColor)
         view.addSubview(pwdSeparateLine)
         pwdSeparateLine.snp.makeConstraints { (make) in
             make.left.right.height.equalTo(accountSeparateLine)
@@ -144,7 +141,7 @@ class LoginViewController: BaseViewController {
         }
         
         // 登录
-        let loginBtn = UIButton(title: "登录", titleColor: AppConstants.greyTextColor, highlightedTitleColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 18), backgroundImage: UIImage.createImage(color: AppConstants.goldColor), highlightedBackgroundImage: UIImage.createImage(color: UIColor.brown), borderWidth: 0, borderColor: nil, cornerRadius: 5, target: self, selector: #selector(loginBtnClick))
+        let loginBtn = CommonButton(title: "登录", font: UIFont.systemFont(ofSize: 18), target: self, selector: #selector(loginBtnClick))
         view.addSubview(loginBtn)
         loginBtn.snp.makeConstraints { (make) in
             make.left.equalTo(30)
@@ -162,7 +159,7 @@ class LoginViewController: BaseViewController {
             make.centerX.equalTo(loginBtn)
             make.top.equalTo(loginBtn.snp.bottom).offset(40)
         }
-        
+
         // DEMO ACCOUNT
         accountTextField?.text = "13528768996"
         pwdTextField?.text = "ylj123456"

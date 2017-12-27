@@ -129,7 +129,7 @@ class BuyInViewController: BaseViewController, StepperViewDelegate {
         buyInBtn.snp.makeConstraints { (make) in
             make.left.equalTo(30)
             make.right.equalTo(-30)
-            make.top.equalTo(tableView.snp.bottom).offset(30)
+            make.top.equalTo(tableView.snp.bottom).offset(20)
             make.height.equalTo(44)
         }
 

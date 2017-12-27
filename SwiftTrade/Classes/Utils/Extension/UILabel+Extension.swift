@@ -40,4 +40,10 @@ extension UILabel {
         self.init(frame: frame, text: text, textColor: textColor, font: font)
         self.textAlignment = textAlignment
     }
+
+    /// 创建一条线
+    convenience init(backgroundColor: UIColor?) {
+        self.init()
+        self.backgroundColor = backgroundColor
+    }
 }
