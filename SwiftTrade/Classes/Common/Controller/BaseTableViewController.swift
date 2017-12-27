@@ -4,7 +4,7 @@
 //
 //  Created by yaoliangjun on 2017/11/27.
 //  Copyright © 2017年 Jerry Yao. All rights reserved.
-//
+//  UITableView基类
 
 import UIKit
 import MJRefresh
@@ -19,14 +19,26 @@ class BaseTableViewController: BaseViewController {
         super.viewDidLoad()
     }
 
+    // 创建UITableView
     func createTableView(style: UITableViewStyle) -> UITableView {
-        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: GlobalConstants.tableViewHeight), style: style)
-        tableView.rowHeight = 50
+        let tableView = createTableView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: GlobalConstants.tableViewHeight), style: style)
+        return tableView
+    }
+
+    func createTableView(frame: CGRect, style: UITableViewStyle) -> UITableView {
+        let tableView = UITableView(frame: frame, style: style)
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         tableView.backgroundColor = AppConstants.gapColor
         return tableView
     }
+
+    func createTableView(frame: CGRect, delegate: AnyObject?, style: UITableViewStyle) -> UITableView {
+        let tableView = self.createTableView(delegate: delegate, style: style)
+        tableView.frame = frame
+        return tableView
+    }
+
 
     func createTableView(style: UITableViewStyle, needRefresh: Bool) -> UITableView {
         let tableView = self.createTableView(style: style)
@@ -36,8 +48,23 @@ class BaseTableViewController: BaseViewController {
         return tableView
     }
 
+    func createTableView(delegate: AnyObject?, style: UITableViewStyle) -> UITableView {
+        let tableView = self.createTableView(delegate: delegate, style: style, needRefresh: false)
+        return tableView
+    }
+
+    func createTableView(delegate: AnyObject?, style: UITableViewStyle, needRefresh: Bool) -> UITableView {
+        let tableView = self.createTableView(style: style)
+        tableView.delegate = delegate as? UITableViewDelegate
+        tableView.dataSource = delegate as? UITableViewDataSource
+        if needRefresh {
+            addRefreshComponentsWithTableView(tableView: tableView)
+        }
+        return tableView
+    }
+
+    // 添加刷新功能
     func addRefreshComponentsWithTableView(tableView: UITableView) -> () {
-        // 设置头部
         let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(pullDownToRefresh))
         header?.lastUpdatedTimeLabel.isHidden = true;
         header?.setTitle("下拉刷新", for: .idle)
@@ -46,7 +73,6 @@ class BaseTableViewController: BaseViewController {
         header?.stateLabel.textColor = AppConstants.greyTextColor
         tableView.mj_header = header
 
-        // 设置底部
         let footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(pullUpToRefresh))
         footer?.setTitle("下拉刷新", for: .idle)
         footer?.setTitle("松开刷新", for: .pulling)
@@ -86,5 +112,49 @@ class BaseTableViewController: BaseViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.tableView?.mj_footer.endRefreshing()
         }
+    }
+}
+
+extension BaseTableViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return nil
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.00001
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.00001
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        tableView.separatorInset = UIEdgeInsets.zero
+        tableView.layoutMargins = UIEdgeInsets.zero
     }
 }

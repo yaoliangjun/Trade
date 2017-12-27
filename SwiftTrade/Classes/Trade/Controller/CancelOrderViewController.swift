@@ -56,64 +56,56 @@ class CancelOrderViewController: BaseTableViewController, CancelOrderCellDelegat
     // MARK: CancelOrderCellDelegate
     func cancelOrderCell(cell: CancelOrderCell, cancelOrderModel: CancelOrderModel) {
 
-        let alertController = UIAlertController(title: "提示", message: "确定要撤单吗?", preferredStyle: .alert)
-        let confirmAction = UIAlertAction(title: "确定", style: .default) { (action) in
-        self.cancelOrder(cancelOrderModel: cancelOrderModel)
-        }
+        let alertController = UIAlertController(title: "提示", message: "确定要撤单吗?", preferredStyle: .alert, positiveActionTitle: "确定", positiveCompletionHandle: { (alert) in
+            self.cancelOrder(cancelOrderModel: cancelOrderModel)
 
-        let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (action) in
+        }, negativeActionTitle: "取消") { (alert) in
 
         }
-        alertController.addAction(confirmAction)
-        alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)
     }
 
     // MARK: - Getter / Setter
     override func setupSubViews() {
-        tableView = createTableView(style: .plain, needRefresh: true)
+        tableView = createTableView(delegate: self, style: .plain, needRefresh: true)
         tableView?.frame = CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: GlobalConstants.tableViewHeight - 44)
-        tableView?.delegate = self
-        tableView?.dataSource = self
-        tableView?.rowHeight = 150
         tableView?.allowsSelection = false
         view.addSubview(tableView!)
     }
 }
 
-extension CancelOrderViewController: UITableViewDelegate, UITableViewDataSource {
+extension CancelOrderViewController {
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return cancelOrderArray.count
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CancelOrderCell.cellWithTableView(tableView: tableView) as! CancelOrderCell
         cell.delegate = self
         cell.setupModel(cancelOrderModel: cancelOrderArray[indexPath.section])
         return cell
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeader: UIView = UIView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: 15))
         sectionHeader.backgroundColor = AppConstants.gapColor;
         return sectionHeader;
     }
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 15
     }
 
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        tableView.separatorInset = UIEdgeInsets.zero
-        tableView.layoutMargins = UIEdgeInsets.zero
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
 }

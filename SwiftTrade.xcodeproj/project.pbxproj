@@ -28,6 +28,9 @@
 		E98AFECB1FD5389B007A8029 /* MyAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98AFECA1FD5389B007A8029 /* MyAssetModel.swift */; };
 		E98AFECD1FD55736007A8029 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98AFECC1FD55736007A8029 /* ForgetPasswordViewController.swift */; };
 		E9B4ECAA1FF379A800CA613C /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4ECA91FF379A800CA613C /* CommonButton.swift */; };
+		E9B4ECAC1FF3853000CA613C /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4ECAB1FF3853000CA613C /* UIAlertController+Extension.swift */; };
+		E9B4ECAE1FF396BC00CA613C /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4ECAD1FF396BC00CA613C /* MessageViewController.swift */; };
+		E9B4ECB01FF397DF00CA613C /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4ECAF1FF397DF00CA613C /* MessageCell.swift */; };
 		E9C3D7A71FCBEEE70047222F /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D7A61FCBEEE70047222F /* BaseTableViewController.swift */; };
 		E9C3D7AB1FCCFF880047222F /* AccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D7AA1FCCFF880047222F /* AccountInfoCell.swift */; };
 		E9C3D7D21FCD144D0047222F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D7D11FCD144D0047222F /* SettingViewController.swift */; };
@@ -100,6 +103,9 @@
 		E98AFECA1FD5389B007A8029 /* MyAssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAssetModel.swift; sourceTree = "<group>"; };
 		E98AFECC1FD55736007A8029 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		E9B4ECA91FF379A800CA613C /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
+		E9B4ECAB1FF3853000CA613C /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
+		E9B4ECAD1FF396BC00CA613C /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		E9B4ECAF1FF397DF00CA613C /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		E9C3D7A61FCBEEE70047222F /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		E9C3D7AA1FCCFF880047222F /* AccountInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCell.swift; sourceTree = "<group>"; };
 		E9C3D7D11FCD144D0047222F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -257,11 +263,11 @@
 		E91EDC1A1F8F422A00DA6716 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				E9C9EBF31FD68C7700B8A5F6 /* Utils */,
 				E91EDC1B1F8F422A00DA6716 /* Controller */,
 				E9C3D7E21FCEA01B0047222F /* View */,
 				E91EDC1C1F8F422A00DA6716 /* Model */,
 				F23EB85C1FA5837C00F7CCC5 /* Services */,
+				E9C9EBF31FD68C7700B8A5F6 /* Utils */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -300,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				F2BC641D1F91BBD600E06B16 /* HomeViewController.swift */,
+				E9B4ECAD1FF396BC00CA613C /* MessageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -316,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				F23EB8641FA76BE400F7CCC5 /* HomeCell.swift */,
+				E9B4ECAF1FF397DF00CA613C /* MessageCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -450,6 +458,7 @@
 				E9C5925C1F95FB9700D3835A /* String+Extension.swift */,
 				E9C3D7D31FCD16D10047222F /* UIBarButtonItem+Extension.swift */,
 				E9C3D7DE1FCE4EA50047222F /* NSDate+Extension.swift */,
+				E9B4ECAB1FF3853000CA613C /* UIAlertController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -798,6 +807,7 @@
 				E9D694D11F9F31C1003D28DE /* HomeServices.swift in Sources */,
 				E91EDC401F8F48A900DA6716 /* LoginViewController.swift in Sources */,
 				E9C3D7E11FCE8F010047222F /* InformationDetailViewController.swift in Sources */,
+				E9B4ECAC1FF3853000CA613C /* UIAlertController+Extension.swift in Sources */,
 				E98AFECB1FD5389B007A8029 /* MyAssetModel.swift in Sources */,
 				F2BC64201F91BBE500E06B16 /* TradeViewController.swift in Sources */,
 				F23EB85E1FA5839A00F7CCC5 /* BaseServices.swift in Sources */,
@@ -816,6 +826,8 @@
 				E91EDC3C1F8F481E00DA6716 /* BaseNavigationController.swift in Sources */,
 				E9C3D7E61FCEA1250047222F /* CommonTableViewCell.swift in Sources */,
 				E9E694AC1FD9228700606D6C /* CancelOrderViewController.swift in Sources */,
+				E9B4ECAE1FF396BC00CA613C /* MessageViewController.swift in Sources */,
+				E9B4ECB01FF397DF00CA613C /* MessageCell.swift in Sources */,
 				E9C3D7D21FCD144D0047222F /* SettingViewController.swift in Sources */,
 				E9D694D31F9F382F003D28DE /* MarketSummaryModel.swift in Sources */,
 				E9C9EBF51FD68C8C00B8A5F6 /* CommonUtils.swift in Sources */,

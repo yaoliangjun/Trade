@@ -31,15 +31,20 @@ class HomeViewController: BaseTableViewController {
     override func pullDownHandle() {
         fetchMarketSummary()
     }
-    
+
+    // 消息
+    func messageBtnClick() {
+        let messageVC = MessageViewController()
+        navigationController?.pushViewController(messageVC, animated: true)
+    }
+
     // MARK: - Getter / Setter
     override func setupSubViews() {
-        tableView = createTableView(style: .plain, needRefresh: true)
-        tableView?.delegate = self
-        tableView?.dataSource = self
-        tableView?.rowHeight = 70
+        tableView = createTableView(delegate: self, style: .plain, needRefresh: true)
         tableView?.tableHeaderView = tableHeaderView
         view.addSubview(tableView!)
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "home_news"), style: .plain, target: self, action: #selector(messageBtnClick))
     }
 
     lazy var markets: [MarketSummaryModel] = {
@@ -56,33 +61,37 @@ class HomeViewController: BaseTableViewController {
     }()
 }
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension HomeViewController {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return markets.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = HomeCell.cellWithTableView(tableView: tableView) as! HomeCell
         cell.marketSummaryModel = markets[indexPath.section]
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeader: UIView = UIView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: 10))
         sectionHeader.backgroundColor = AppConstants.gapColor;
         return sectionHeader;
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
 }

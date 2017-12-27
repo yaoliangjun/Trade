@@ -16,6 +16,11 @@ class InformationDetailViewController: BaseViewController, UIWebViewDelegate {
         super.viewDidLoad()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        MBProgressHUD.dismiss()
+    }
+
     // MARK: - UIWebViewDelegate
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         MBProgressHUD.showLoading()
@@ -53,6 +58,6 @@ class InformationDetailViewController: BaseViewController, UIWebViewDelegate {
         guard let content = htmlContennt else {
             return
         }
-        webView.loadHTMLString(content, baseURL: nil)
+        webView.loadHTMLString(content.processHTMLString(), baseURL: nil)
     }
 }

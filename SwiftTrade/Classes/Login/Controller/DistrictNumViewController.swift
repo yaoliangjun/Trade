@@ -34,11 +34,8 @@ class DistrictNumViewController: BaseTableViewController {
         self.automaticallyAdjustsScrollViewInsets = false
         self.definesPresentationContext = true
 
-        tableView = createTableView(style: .grouped)
-        tableView?.frame = CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: GlobalConstants.tableViewHeight + GlobalConstants.tabBarHeight)
-        tableView?.delegate = self
-        tableView?.dataSource = self
-        tableView?.rowHeight = 60
+        tableView = createTableView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: GlobalConstants.tableViewHeight + GlobalConstants.tabBarHeight), delegate: self, style: .grouped)
+//        tableView?.frame = CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: GlobalConstants.tableViewHeight + GlobalConstants.tabBarHeight)
         view.addSubview(tableView!)
 
         searchController = UISearchController(searchResultsController: nil)
@@ -51,9 +48,9 @@ class DistrictNumViewController: BaseTableViewController {
     }
 }
 
-extension DistrictNumViewController: UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+extension DistrictNumViewController: UISearchResultsUpdating {
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         if (searchController?.isActive)! {
             return (resultArray?.count)!
         }
@@ -61,11 +58,11 @@ extension DistrictNumViewController: UITableViewDelegate, UITableViewDataSource,
         return (districtArray?.count)!
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = DistrictNumCell.cellWithTableView(tableView: tableView) as! DistrictNumCell
         var model: DistrictModel? = nil
         if (searchController?.isActive)! {
@@ -78,7 +75,7 @@ extension DistrictNumViewController: UITableViewDelegate, UITableViewDataSource,
         return cell
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
         var model: DistrictModel? = nil
@@ -94,29 +91,27 @@ extension DistrictNumViewController: UITableViewDelegate, UITableViewDataSource,
         navigationController?.popViewController(animated: true)
     }
 
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeader: UIView = UIView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: 15))
         sectionHeader.backgroundColor = AppConstants.gapColor;
         return sectionHeader;
     }
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 15
     }
 
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        tableView.separatorInset = UIEdgeInsets.zero
-        tableView.layoutMargins = UIEdgeInsets.zero
-    }
-
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil
     }
 
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.00001
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
     // MARK: - UISearchResultsUpdating
     func updateSearchResults(for searchController: UISearchController) {
         let filterString = searchController.searchBar.text

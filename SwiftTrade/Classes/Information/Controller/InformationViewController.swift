@@ -34,10 +34,7 @@ class InformationViewController: BaseTableViewController {
 
     // MARK: - Getter / Setter
     override func setupSubViews() {
-        tableView = createTableView(style: .plain, needRefresh: true)
-        tableView?.delegate = self
-        tableView?.dataSource = self
-        tableView?.rowHeight = 70
+        tableView = createTableView(delegate: self, style: .plain, needRefresh: true)
         tableView?.tableHeaderView = tableHeaderView
         tableView?.backgroundColor = AppConstants.gapColor
         view.addSubview(tableView!)
@@ -57,24 +54,24 @@ class InformationViewController: BaseTableViewController {
     }()
 }
 
-extension InformationViewController: UITableViewDelegate, UITableViewDataSource {
+extension InformationViewController {
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return (infoArray?.count) ?? 0
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = InfoCell.cellWithTableView(tableView: tableView) as! InfoCell
         cell.setupInfoModel(infoModel: infoArray![indexPath.section])
         
         return cell
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
         let infoDetailVC = InformationDetailViewController()
@@ -82,13 +79,17 @@ extension InformationViewController: UITableViewDelegate, UITableViewDataSource 
         navigationController?.pushViewController(infoDetailVC, animated: true)
     }
 
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeader: UIView = UIView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: 10))
         sectionHeader.backgroundColor = AppConstants.gapColor;
         return sectionHeader;
     }
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
 }

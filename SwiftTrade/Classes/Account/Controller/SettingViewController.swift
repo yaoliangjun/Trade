@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingViewController: BaseTableViewController, UIAlertViewDelegate {
+class SettingViewController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,24 +16,19 @@ class SettingViewController: BaseTableViewController, UIAlertViewDelegate {
 
     // MARK: - Private Method
     func logoutBtnClick() {
-
-        let alertView = UIAlertView(title: "提示", message: "确定要退出登录吗?", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "确定")
-        alertView.show()
-    }
-
-    // MARK: - UIAlertViewDelegate
-    func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
-        if buttonIndex != alertView.cancelButtonIndex {
+        let alertController = UIAlertController(title: "提示", message: "确定要退出登录吗?", preferredStyle: .alert, positiveActionTitle: "确定", positiveCompletionHandle: { (alert) in
             (UIApplication.shared.delegate as! AppDelegate).logout()
+
+        }, negativeActionTitle: "取消") { (alert) in
+
         }
+        self.present(alertController, animated: true, completion: nil)
     }
 
     // MARK: - Getter / Setter
     override func setupSubViews() {
         title = "设置"
-        tableView = createTableView(style: .plain)
-        tableView?.delegate = self
-        tableView?.dataSource = self
+        tableView = createTableView(delegate: self, style: .plain)
         tableView?.separatorColor = AppConstants.grayColor
         tableView?.separatorStyle = .singleLine
         tableView?.tableFooterView = tableFooterView
@@ -47,7 +42,7 @@ class SettingViewController: BaseTableViewController, UIAlertViewDelegate {
             tableFooterView.addSubview(logoutBtn)
             logoutBtn.snp.makeConstraints { (make) in
                 make.left.right.equalTo(tableFooterView)
-                make.top.equalTo(tableFooterView).offset(30)
+                make.top.equalTo(tableFooterView).offset(15)
                 make.height.equalTo(50)
             }
 
@@ -71,13 +66,13 @@ class SettingViewController: BaseTableViewController, UIAlertViewDelegate {
     }()
 }
 
-extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
+extension SettingViewController {
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
         } else {
@@ -85,7 +80,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellReuseId = "settingCellReuseId"
         var cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId)
         if cell == nil {
@@ -113,22 +108,17 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         return cell!
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeader: UIView = UIView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: 15))
         sectionHeader.backgroundColor = AppConstants.gapColor;
         return sectionHeader;
     }
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 15
-    }
-
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        tableView.separatorInset = UIEdgeInsets.zero
-        tableView.layoutMargins = UIEdgeInsets.zero
     }
 }
