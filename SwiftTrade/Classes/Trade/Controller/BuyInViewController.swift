@@ -16,6 +16,8 @@ class BuyInViewController: BaseViewController, StepperViewDelegate {
     private var limitedPriceBtn: UIButton?
     private var marketPriceBtn: UIButton?
     private var stepperView: StepperView?
+    private var selectedCoinSymbol: String?
+    private var alertController: UIAlertController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,60 @@ class BuyInViewController: BaseViewController, StepperViewDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        fetchMarketSummary()
+    }
+
+    // MARK: - HTTP
+    // 获取市场
+    func fetchMarketSummary() {
+        HomeServices.fetchMarketSummary(params: [:], showHUD: true, success: { (response) in
+            self.marketArray = response
+            if response.count <= 0 {
+                return
+            }
+
+            self.alertController = UIAlertController(title: "请选择币种", message: nil, preferredStyle: .actionSheet)
+            for index in 0..<self.marketArray.count {
+                let model = self.marketArray[index]
+                let title = String(format: "%@(%@)", model.coinName ?? "", model.coinSymbol?.uppercased() ?? "")
+                let action = UIAlertAction(title: title, style: .default, handler: { (action) in
+                    self.chooseCoinTextField.text = action.title
+
+                    var sameModel: MarketSummaryModel?
+                    let isContainSybmol = self.marketArray.contains(where: { (model) -> Bool in
+                        let title = String(format: "%@(%@)", model.coinName ?? "", model.coinSymbol?.uppercased() ?? "")
+                        if title == action.title {
+                            sameModel = model
+                            return true
+                        }
+                        return false
+                    })
+
+                    if isContainSybmol {
+                        self.selectedCoinSymbol = sameModel?.name
+                        // TODO: 获取余额和买卖数据
+                    }
+                })
+                self.alertController!.addAction(action)
+            }
+
+            let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            self.alertController!.addAction(cancelAction)
+
+            guard self.chooseCoinTextField.text != nil else {
+                return
+            }
+
+            // 设置默认选中的币种
+            let firstModel = self.marketArray.first
+            self.selectedCoinSymbol = firstModel?.name
+            self.chooseCoinTextField.text = String(format: "%@(%@)", firstModel!.coinName ?? "", firstModel!.coinSymbol?.uppercased() ?? "")
+
+            // TODO: 获取余额和买卖数据
+
+        }) { (error) in
+
+        }
     }
 
     // MARK: - StepperViewDelegate
@@ -60,7 +116,7 @@ class BuyInViewController: BaseViewController, StepperViewDelegate {
     }
 
     func chooseCoinBtnClick() {
-        print(#function)
+        self.present(alertController!, animated: true, completion: nil)
     }
 
     func positionBtnClick(btn: UIButton) {
@@ -337,6 +393,10 @@ class BuyInViewController: BaseViewController, StepperViewDelegate {
         })
 
         return positionView
+    }()
+
+    fileprivate lazy var marketArray: [MarketSummaryModel] = {
+        return Array<MarketSummaryModel>()
     }()
 }
 

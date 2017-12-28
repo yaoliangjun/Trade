@@ -25,7 +25,6 @@ class HomeViewController: BaseTableViewController {
             
         }
     }
-    
 
     // MARK: - Private Method
     override func pullDownHandle() {
@@ -93,5 +92,39 @@ extension HomeViewController {
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+
+        let remindAction = UITableViewRowAction(style: .default, title: "提醒") { (action, indexPath) in
+
+        }
+        remindAction.backgroundColor = AppConstants.grayColor
+
+        let buyInAction = UITableViewRowAction(style: .default, title: "买入") { (action, indexPath) in
+
+        }
+        buyInAction.backgroundColor = UIColor.orange
+
+        let sellOutAction = UITableViewRowAction(style: .default, title: "卖出") { (action, indexPath) in
+
+        }
+        sellOutAction.backgroundColor = UIColor.red
+
+        return [sellOutAction, buyInAction, remindAction]
+    }
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+
+    }
+
+
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
     }
 }

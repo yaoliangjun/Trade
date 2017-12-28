@@ -38,12 +38,14 @@ class ServerUrl: NSObject {
 
     /** 首页 */
     static let marketSummary = "/market/summary" // 获取当前各币种行情
+    static let messageList = "/amount/notice" // 获取消息列表
 
 
     /** 交易 */
     static let cancelOrderList = "/trade" // 撤单列表
     static let cancelOrder = "/trade/cancel/%@" // 撤单
 
+    
     /** 资讯 */
     static let infoList = "/info/list" // 获取资讯
 

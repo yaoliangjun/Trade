@@ -19,4 +19,14 @@ class HomeServices: BaseServices {
             failture(error)
         }
     }
+
+    static func fetchMessages(params : [String : Any]?, showHUD: Bool, success : @escaping (_ response : [MessageModel]) -> (), failture : @escaping (_ error : Error) -> ()) {
+        HttpManager.sharedManager.post(url: ServerUrl.messageList, params: params, showHUD: showHUD, success: { (response) in
+            let array = MessageModel.mj_objectArray(withKeyValuesArray: response?.content) as! [MessageModel]
+            success(array)
+
+        }) { (error) in
+            failture(error)
+        }
+    }
 }

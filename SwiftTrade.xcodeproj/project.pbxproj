@@ -31,6 +31,7 @@
 		E9B4ECAC1FF3853000CA613C /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4ECAB1FF3853000CA613C /* UIAlertController+Extension.swift */; };
 		E9B4ECAE1FF396BC00CA613C /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4ECAD1FF396BC00CA613C /* MessageViewController.swift */; };
 		E9B4ECB01FF397DF00CA613C /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4ECAF1FF397DF00CA613C /* MessageCell.swift */; };
+		E9B4ECB51FF4CDF200CA613C /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4ECB41FF4CDF200CA613C /* MessageModel.swift */; };
 		E9C3D7A71FCBEEE70047222F /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D7A61FCBEEE70047222F /* BaseTableViewController.swift */; };
 		E9C3D7AB1FCCFF880047222F /* AccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D7AA1FCCFF880047222F /* AccountInfoCell.swift */; };
 		E9C3D7D21FCD144D0047222F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3D7D11FCD144D0047222F /* SettingViewController.swift */; };
@@ -106,6 +107,7 @@
 		E9B4ECAB1FF3853000CA613C /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		E9B4ECAD1FF396BC00CA613C /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		E9B4ECAF1FF397DF00CA613C /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		E9B4ECB41FF4CDF200CA613C /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		E9C3D7A61FCBEEE70047222F /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		E9C3D7AA1FCCFF880047222F /* AccountInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCell.swift; sourceTree = "<group>"; };
 		E9C3D7D11FCD144D0047222F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				E9D694D21F9F382F003D28DE /* MarketSummaryModel.swift */,
+				E9B4ECB41FF4CDF200CA613C /* MessageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -813,6 +816,7 @@
 				F23EB85E1FA5839A00F7CCC5 /* BaseServices.swift in Sources */,
 				E9C3D7A71FCBEEE70047222F /* BaseTableViewController.swift in Sources */,
 				E9E9D2981FE36431002138F7 /* MenuItem.swift in Sources */,
+				E9B4ECB51FF4CDF200CA613C /* MessageModel.swift in Sources */,
 				E9E9D2991FE36431002138F7 /* MenuView.swift in Sources */,
 				E95D90531FD636CA00DF115E /* DistrictModel.swift in Sources */,
 				E91EDC491F90694700DA6716 /* UIColor+Extension.swift in Sources */,

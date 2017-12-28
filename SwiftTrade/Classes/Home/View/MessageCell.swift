@@ -15,6 +15,12 @@ class MessageCell: CommonTableViewCell {
     var messageContent: UILabel?
     var dateLabel: UILabel?
 
+    func setupModel(messageModel: MessageModel) {
+        messageTitleLabel?.text = messageModel.name
+        messageContent?.text = messageModel.noticeContent
+        dateLabel?.text = NSDate.dateString(millisecond: messageModel.createTime, formatter: "yyyy-MM-dd HH:mm:ss")
+    }
+    
     override func setupSubViews() {
         // 消息图片
         messageImageView = UIImageView(image: UIImage(named: "home_system-message"))
@@ -26,7 +32,7 @@ class MessageCell: CommonTableViewCell {
         }
 
         // 消息名称
-        messageTitleLabel = UILabel(text: "系统消息", textColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 13))
+        messageTitleLabel = UILabel(text: nil, textColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 13))
         contentView.addSubview(messageTitleLabel!)
         messageTitleLabel!.snp.makeConstraints { (make) in
             make.left.equalTo(messageImageView!.snp.right).offset(10)
@@ -36,7 +42,7 @@ class MessageCell: CommonTableViewCell {
         }
 
         // 时间
-        dateLabel = UILabel(text: "2017-12-27 09:55:30", textAlignment: .right, textColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 10))
+        dateLabel = UILabel(text: nil, textAlignment: .right, textColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 10))
         contentView.addSubview(dateLabel!)
         dateLabel!.snp.makeConstraints { (make) in
             make.left.equalTo(messageTitleLabel!.snp.right);
@@ -46,7 +52,7 @@ class MessageCell: CommonTableViewCell {
         }
 
         // 消息内容
-        messageContent = UILabel(text: "在过一年内，比特币价格已经上涨近2000%，最近它又急剧下挫，这一切都促使监管部门发出了特别警告。", textColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 12))
+        messageContent = UILabel(text: nil, textColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 12))
         messageContent?.numberOfLines = 0
         contentView.addSubview(messageContent!)
         messageContent!.snp.makeConstraints { (make) in
