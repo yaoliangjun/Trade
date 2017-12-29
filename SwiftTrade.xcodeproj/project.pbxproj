@@ -67,6 +67,9 @@
 		E9E9D2991FE36431002138F7 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9D2941FE36431002138F7 /* MenuView.swift */; };
 		E9E9D29A1FE36431002138F7 /* PageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9D2951FE36431002138F7 /* PageController.swift */; };
 		E9E9D29B1FE36431002138F7 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9D2961FE36431002138F7 /* ProgressView.swift */; };
+		E9F88BC71FF5D50200CFDDFF /* BalanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F88BC61FF5D50200CFDDFF /* BalanceModel.swift */; };
+		E9F88BC91FF6199B00CFDDFF /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F88BC81FF6199B00CFDDFF /* QuoteModel.swift */; };
+		E9F88BCB1FF6303200CFDDFF /* QuoteDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F88BCA1FF6303200CFDDFF /* QuoteDetailModel.swift */; };
 		F23EB85E1FA5839A00F7CCC5 /* BaseServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EB85D1FA5839A00F7CCC5 /* BaseServices.swift */; };
 		F23EB8611FA58A8900F7CCC5 /* LoginServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EB8601FA58A8900F7CCC5 /* LoginServices.swift */; };
 		F23EB8651FA76BE400F7CCC5 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EB8641FA76BE400F7CCC5 /* HomeCell.swift */; };
@@ -143,6 +146,9 @@
 		E9E9D2941FE36431002138F7 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		E9E9D2951FE36431002138F7 /* PageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageController.swift; sourceTree = "<group>"; };
 		E9E9D2961FE36431002138F7 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		E9F88BC61FF5D50200CFDDFF /* BalanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceModel.swift; sourceTree = "<group>"; };
+		E9F88BC81FF6199B00CFDDFF /* QuoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
+		E9F88BCA1FF6303200CFDDFF /* QuoteDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailModel.swift; sourceTree = "<group>"; };
 		F23EB85D1FA5839A00F7CCC5 /* BaseServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseServices.swift; sourceTree = "<group>"; };
 		F23EB8601FA58A8900F7CCC5 /* LoginServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginServices.swift; sourceTree = "<group>"; };
 		F23EB8641FA76BE400F7CCC5 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
@@ -480,6 +486,9 @@
 			isa = PBXGroup;
 			children = (
 				E93142FF1FDA708600B3A155 /* CancelOrderModel.swift */,
+				E9F88BC61FF5D50200CFDDFF /* BalanceModel.swift */,
+				E9F88BC81FF6199B00CFDDFF /* QuoteModel.swift */,
+				E9F88BCA1FF6303200CFDDFF /* QuoteDetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -802,12 +811,14 @@
 				E9C9EBF21FD6876B00B8A5F6 /* DistrictNumCell.swift in Sources */,
 				E9C3D7DD1FCE469E0047222F /* InfoCell.swift in Sources */,
 				E91EDC421F8F59EE00DA6716 /* GlobalConstants.swift in Sources */,
+				E9F88BC71FF5D50200CFDDFF /* BalanceModel.swift in Sources */,
 				E91EDC451F8F5FB600DA6716 /* UIView+Extension.swift in Sources */,
 				E9D694CE1F9F30C3003D28DE /* BaseResponseModel.swift in Sources */,
 				E96E993B1FD51F8D00A861DA /* AccountServices.swift in Sources */,
 				E93143001FDA708600B3A155 /* CancelOrderModel.swift in Sources */,
 				E9C5925B1F95EC8100D3835A /* ServerUrl.swift in Sources */,
 				E9D694D11F9F31C1003D28DE /* HomeServices.swift in Sources */,
+				E9F88BC91FF6199B00CFDDFF /* QuoteModel.swift in Sources */,
 				E91EDC401F8F48A900DA6716 /* LoginViewController.swift in Sources */,
 				E9C3D7E11FCE8F010047222F /* InformationDetailViewController.swift in Sources */,
 				E9B4ECAC1FF3853000CA613C /* UIAlertController+Extension.swift in Sources */,
@@ -854,6 +865,7 @@
 				E9C592021F90A28A00D3835A /* UITextField+Extension.swift in Sources */,
 				E91EDC3A1F8F480000DA6716 /* BaseViewController.swift in Sources */,
 				E9C3D7E41FCEA03D0047222F /* BaseTableViewCell.swift in Sources */,
+				E9F88BCB1FF6303200CFDDFF /* QuoteDetailModel.swift in Sources */,
 				F2BC64221F91BBF900E06B16 /* InformationViewController.swift in Sources */,
 				E9E9D2971FE36431002138F7 /* FloodView.swift in Sources */,
 				E9E694AA1FD9227A00606D6C /* SellOutViewController.swift in Sources */,

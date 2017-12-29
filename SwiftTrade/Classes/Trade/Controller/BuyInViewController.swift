@@ -16,9 +16,11 @@ class BuyInViewController: BaseViewController, StepperViewDelegate {
     private var limitedPriceBtn: UIButton?
     private var marketPriceBtn: UIButton?
     private var stepperView: StepperView?
-    private var selectedCoinSymbol: String?
+    private var balances: String?
     private var alertController: UIAlertController?
+    fileprivate var quoteModel: QuoteModel?
 
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -56,7 +58,8 @@ class BuyInViewController: BaseViewController, StepperViewDelegate {
 
                     if isContainSybmol {
                         self.selectedCoinSymbol = sameModel?.name
-                        // TODO: 获取余额和买卖数据
+                        self.fetchBalances()
+                        self.fetchMarketQuote()
                     }
                 })
                 self.alertController!.addAction(action)
@@ -74,7 +77,34 @@ class BuyInViewController: BaseViewController, StepperViewDelegate {
             self.selectedCoinSymbol = firstModel?.name
             self.chooseCoinTextField.text = String(format: "%@(%@)", firstModel!.coinName ?? "", firstModel!.coinSymbol?.uppercased() ?? "")
 
-            // TODO: 获取余额和买卖数据
+            self.fetchBalances()
+            self.fetchMarketQuote()
+
+        }) { (error) in
+
+        }
+    }
+
+    // 获取余额
+    func fetchBalances() {
+        let params = ["marketName": selectedCoinSymbol ?? ""]
+        TradeServices.balances(params: params, showHUD: false, success: { (response) in
+            self.balances = response.balance
+
+            if let balance = self.balances {
+                self.availableAssetLabel?.text = String(format: "%.2f", Float(balance)!)
+            }
+
+        }) { (error) in
+
+        }
+    }
+
+    // 获取买卖数据
+    func fetchMarketQuote() {
+        TradeServices.marketQuote(coinSymbol: selectedCoinSymbol ?? "", showHUD: false, success: { (response) in
+            self.quoteModel = response
+            self.tableView.reloadData()
 
         }) { (error) in
 
@@ -102,16 +132,26 @@ class BuyInViewController: BaseViewController, StepperViewDelegate {
     func singleChoiceBtnClick(btn: UIButton) {
 
         if btn.tag == 100 {
-            print("限价")
             limitedPriceBtn?.backgroundColor = AppConstants.goldColor
             marketPriceBtn?.backgroundColor = UIColor.white
             priceType = .limited
 
+            stepperView?.isHidden = false
+            maxTextField.snp.remakeConstraints({ (make) in
+                make.left.width.height.equalTo(chooseCoinTextField)
+                make.top.equalTo(stepperView!.snp.bottom).offset(30);
+            })
+
         } else {
-            print("市价")
             marketPriceBtn?.backgroundColor = AppConstants.goldColor
             limitedPriceBtn?.backgroundColor = UIColor.white
             priceType = .market
+
+            stepperView?.isHidden = true
+            maxTextField.snp.remakeConstraints({ (make) in
+                make.left.width.height.equalTo(chooseCoinTextField)
+                make.top.equalTo(chooseCoinTextField.snp.bottom).offset(30);
+            })
         }
     }
 
@@ -398,6 +438,11 @@ class BuyInViewController: BaseViewController, StepperViewDelegate {
     fileprivate lazy var marketArray: [MarketSummaryModel] = {
         return Array<MarketSummaryModel>()
     }()
+
+    fileprivate lazy var selectedCoinSymbol: String? = {
+        var selectedCoinSymbol = String()
+        return selectedCoinSymbol
+    }()
 }
 
 extension BuyInViewController: UITableViewDelegate, UITableViewDataSource {
@@ -411,7 +456,28 @@ extension BuyInViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = MarketPriceCell.cellWithTableView(tableView: tableView)
+        let cell = MarketPriceCell.cellWithTableView(tableView: tableView) as! MarketPriceCell
+        let section = indexPath.section
+        let row = indexPath.row
+        if section == 0 {
+            let title = String(format: "卖%d", row + 1)
+            if let sellCount = quoteModel?.sellQuoteList?.count, sellCount > row {
+                cell.setupData(title: title, quoteDetailModel: quoteModel?.sellQuoteList?[row])
+
+            } else {
+                cell.setupData(title: title, quoteDetailModel: nil)
+            }
+
+        } else {
+            let title = String(format: "买%d", row + 1)
+            if let buyCount = quoteModel?.buyQuoteList?.count, buyCount > row {
+                cell.setupData(title: title, quoteDetailModel: quoteModel?.buyQuoteList?[row])
+
+            } else {
+                cell.setupData(title: title, quoteDetailModel: nil)
+            }
+        }
+
         return cell
     }
 
@@ -427,7 +493,9 @@ extension BuyInViewController: UITableViewDelegate, UITableViewDataSource {
         let sectionHeader: UIView = UIView(frame: CGRect(x: 0, y: 0, width: GlobalConstants.screenWidth, height: 15))
         sectionHeader.backgroundColor = UIColor.white
 
-        let currentPriceBtn = ImageButton(title: "520000.00", titleColor: AppConstants.blueTextColor, textAlignment: nil, font: UIFont.systemFont(ofSize: 14), image: UIImage(named: "trading_down-arrow"), target: nil, selector: nil)
+        let lastPrice = quoteModel?.lastPrice
+        let currentPriceBtn = ImageButton(title: lastPrice ?? "0.00", titleColor: AppConstants.blueTextColor, textAlignment: nil, font: UIFont.systemFont(ofSize: 14), image: UIImage(named: "trading_down-arrow"), target: nil, selector: nil)
+        currentPriceBtn.isUserInteractionEnabled = false
         sectionHeader.addSubview(currentPriceBtn)
         currentPriceBtn.snp.makeConstraints { (make) in
             make.edges.equalTo(sectionHeader)

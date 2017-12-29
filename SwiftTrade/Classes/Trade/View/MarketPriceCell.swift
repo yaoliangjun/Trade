@@ -12,7 +12,21 @@ class MarketPriceCell: CommonTableViewCell {
 
     private var titleLabel: UILabel?
     private var priceLabel: UILabel?
-    private var countLabel: UILabel?
+    private var volumeLabel: UILabel?
+
+    func setupData(title: String, quoteDetailModel: QuoteDetailModel?) {
+
+        titleLabel?.text = title
+
+        if let quoteDetailModel = quoteDetailModel {
+            priceLabel?.text = String(format: "%.5f", Float((quoteDetailModel.price)!)!)
+            volumeLabel?.text = String(format: "%.2f", Float((quoteDetailModel.volume)!)!)
+
+        } else {
+            priceLabel?.text = "--"
+            volumeLabel?.text = "--"
+        }
+    }
 
     override func setupSubViews() {
 
@@ -31,9 +45,9 @@ class MarketPriceCell: CommonTableViewCell {
             make.top.bottom.equalTo(self)
         }
 
-        countLabel = UILabel(text: "1.0002", textAlignment: .right, textColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 11))
-        self.addSubview(countLabel!)
-        countLabel!.snp.makeConstraints { (make) in
+        volumeLabel = UILabel(text: "1.0002", textAlignment: .right, textColor: AppConstants.greyTextColor, font: UIFont.systemFont(ofSize: 11))
+        self.addSubview(volumeLabel!)
+        volumeLabel!.snp.makeConstraints { (make) in
             make.top.bottom.equalTo(self)
             make.left.equalTo(priceLabel!.snp.right)
             make.right.equalTo(self).offset(-5)

@@ -44,6 +44,8 @@ class ServerUrl: NSObject {
     /** 交易 */
     static let cancelOrderList = "/trade" // 撤单列表
     static let cancelOrder = "/trade/cancel/%@" // 撤单
+    static let balances = "/finance/coin/getBalances" // 获取买入对应市场的可用余额
+    static let marketQuote = "/market/quote/symbol/%@?tradeType=ALL" // 获取某个币种最新的买单和卖单
 
     
     /** 资讯 */
