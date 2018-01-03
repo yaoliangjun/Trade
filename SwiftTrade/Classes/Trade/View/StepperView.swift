@@ -46,8 +46,41 @@ class StepperView: UIView, UITextFieldDelegate {
 
     // MARK: - Private Method
     func stepperBtnClick(btn: UIButton) {
+        var mValue = 0.00
+        var value = stepperTextField?.text
+        if btn.tag == 10 {
+            // 减
+            if (value?.isEmpty)! || Double(value!)! <= 1  {
+                stepperTextField?.text = nil
+
+            } else {
+                mValue = Double(value!)! - 1
+                stepperTextField?.text = String(format: "%.2f", mValue)
+            }
+
+        } else {
+            // 加
+            if (value?.isEmpty)! || Double(value!)! <= 0  {
+                value = "0.00"
+            }
+            mValue = Double(value!)! + 1
+            stepperTextField?.text = String(format: "%.2f", mValue)
+        }
+
+        delegate?.stepperView(stepperView: self, btnTag: btn.tag, value: String(mValue))
+    }
+
+    func stepperValue() -> Double {
         let value = stepperTextField?.text
-        delegate?.stepperView(stepperView: self, btnTag: btn.tag, value: value)
+        if !(value?.isEmpty)! {
+            return Double(value!)!
+        }
+        
+        return 0
+    }
+
+    func setStepperValue(value: String?) {
+        stepperTextField?.text = value
     }
     
     // 设置子View

@@ -16,6 +16,7 @@ class TradeViewController: PageController {
         return viewControllers
     }()
 
+    // MARK: - Life cycle
     init() {
         super.init(nibName: nil, bundle: nil)
         //Do whatever you want here
@@ -34,7 +35,6 @@ class TradeViewController: PageController {
         super.init(coder: aDecoder)
     }
 
-    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }

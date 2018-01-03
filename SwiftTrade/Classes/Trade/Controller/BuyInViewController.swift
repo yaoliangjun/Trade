@@ -19,6 +19,8 @@ class BuyInViewController: BaseViewController, StepperViewDelegate {
     private var balances: String?
     private var alertController: UIAlertController?
     fileprivate var quoteModel: QuoteModel?
+    fileprivate var buyPrice: Double = 0.0
+    fileprivate var buyNumber: Float = 0
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -68,14 +70,12 @@ class BuyInViewController: BaseViewController, StepperViewDelegate {
             let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
             self.alertController!.addAction(cancelAction)
 
-            guard self.chooseCoinTextField.text != nil else {
-                return
-            }
-
             // 设置默认选中的币种
-            let firstModel = self.marketArray.first
-            self.selectedCoinSymbol = firstModel?.name
-            self.chooseCoinTextField.text = String(format: "%@(%@)", firstModel!.coinName ?? "", firstModel!.coinSymbol?.uppercased() ?? "")
+            if (self.chooseCoinTextField.text?.isEmpty)! {
+                let firstModel = self.marketArray.first
+                self.selectedCoinSymbol = firstModel?.name
+                self.chooseCoinTextField.text = String(format: "%@(%@)", firstModel!.coinName ?? "", firstModel!.coinSymbol?.uppercased() ?? "")
+            }
 
             self.fetchBalances()
             self.fetchMarketQuote()
@@ -84,6 +84,7 @@ class BuyInViewController: BaseViewController, StepperViewDelegate {
 
         }
     }
+
 
     // 获取余额
     func fetchBalances() {
@@ -113,20 +114,70 @@ class BuyInViewController: BaseViewController, StepperViewDelegate {
 
     // MARK: - StepperViewDelegate
     func stepperView(stepperView: StepperView, textFieldValue: String?) {
-        // print("textFieldValue: \(textFieldValue)")
+         print("textFieldValue: \(textFieldValue)")
     }
 
     func stepperView(stepperView: StepperView, btnTag: Int, value: String?) {
-        // print("btnTag: \(btnTag), value: \(value)")
+         print("btnTag: \(btnTag), value: \(value)")
     }
 
     // MARK: - Private Method
     func buyInBtnClick() {
 
+        guard let _ = selectedCoinSymbol else {
+            MBProgressHUD.show(withStatus: NSLocalizedString("请选择币种", comment: ""))
+            return
+        }
+
+        // 限价时才校验价格
+        buyPrice = stepperView!.stepperValue()
+        if priceType == .limited && buyPrice <= 0.0 {
+            MBProgressHUD.show(withStatus: NSLocalizedString("买入价必须大于0", comment: ""))
+            return
+        }
+
+        let maxBuy = maxTextField.text
+        if (maxBuy?.isEmpty)! {
+            MBProgressHUD.show(withStatus: NSLocalizedString("买入数量必须大于0", comment: ""))
+            return
+        }
+        buyNumber = Float(maxBuy!)!
+
+        let alertController = UIAlertController(title: "买入", message: "您确定要买入吗?", preferredStyle: .alert, positiveActionTitle: "确定", positiveCompletionHandle: { (alert) in
+            self.buyIn()
+
+        }, negativeActionTitle: "取消") { (alert) in
+            
+        }
+        self.present(alertController, animated: true, completion: nil)
+    }
+
+    func buyIn() {
+        var priceTypeStr = "LIMITED"
+        if priceType == .market {
+            priceTypeStr = "MARKET"
+        }
+
+        let params: [String : Any] = ["type": "BUY", "marketName": selectedCoinSymbol ?? "", "price": buyPrice, "volume": buyNumber, "priceType": priceTypeStr]
+
+        TradeServices.trade(params: params, showHUD: true, success: { (response) in
+            MBProgressHUD.show(withStatus: "买入成功", completionHandle: {
+                self.maxTextField.text = nil
+                self.stepperView?.setStepperValue(value: nil)
+                self.pullDownHandle()
+            })
+
+        }) { (error) in
+
+        }
     }
 
     func rechargeBtnClick() {
 
+    }
+
+    func pullDownHandle() {
+        fetchMarketSummary()
     }
 
     func singleChoiceBtnClick(btn: UIButton) {
@@ -391,7 +442,7 @@ class BuyInViewController: BaseViewController, StepperViewDelegate {
         let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 70, height: 40))
         leftView.addSubview(maxLabel)
 
-        var maxTextField = UITextField(text: nil, textAlignment: nil, textColor: AppConstants.goldColor, placeholder: "0.00", placeholderColor: AppConstants.goldColor, font: UIFont.systemFont(ofSize: 13), borderWidth: 0.3, borderColor: AppConstants.greyTextColor, cornerRadius: 0, leftView: leftView, leftViewMode: .always)
+        var maxTextField = UITextField(text: nil, textAlignment: nil, textColor: UIColor.orange, placeholder: "0.00", placeholderColor: UIColor.orange, font: UIFont.systemFont(ofSize: 13), borderWidth: 0.3, borderColor: AppConstants.greyTextColor, cornerRadius: 0, leftView: leftView, leftViewMode: .always)
         maxTextField.keyboardType = .decimalPad
 
         return maxTextField
@@ -471,7 +522,8 @@ extension BuyInViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             let title = String(format: "买%d", row + 1)
             if let buyCount = quoteModel?.buyQuoteList?.count, buyCount > row {
-                cell.setupData(title: title, quoteDetailModel: quoteModel?.buyQuoteList?[row])
+                let tempBuyQuoteArray: [QuoteDetailModel]? = (quoteModel?.buyQuoteList?.reversed())!
+                cell.setupData(title: title, quoteDetailModel: tempBuyQuoteArray?[row])
 
             } else {
                 cell.setupData(title: title, quoteDetailModel: nil)

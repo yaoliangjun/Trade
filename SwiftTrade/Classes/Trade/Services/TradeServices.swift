@@ -45,6 +45,7 @@ class TradeServices: BaseServices {
             failure(error)
         }
     }
+
     /** 获取某个币种最新的买单和卖单 */
     static func marketQuote(coinSymbol: String, showHUD: Bool, success: @escaping (_ response: QuoteModel) -> (), failure: @escaping (_ error: Error) -> ()) -> Void {
 
@@ -52,6 +53,17 @@ class TradeServices: BaseServices {
         HttpManager.sharedManager.get(url: url, params: [:], showHUD: showHUD, success: { (response) in
             let model = QuoteModel.mj_object(withKeyValues: response?.content) as QuoteModel
             success(model)
+
+        }) { (error) in
+            failure(error)
+        }
+    }
+
+    /** 买入、卖出 */
+    static func trade(params: [String: Any]?, showHUD: Bool, success: @escaping (_ response: BaseResponseModel?) -> (), failure: @escaping (_ error: Error) -> ()) -> Void {
+
+        HttpManager.sharedManager.post(url: ServerUrl.trade, params: params, showHUD: showHUD, success: { (response) in
+            success(response)
 
         }) { (error) in
             failure(error)

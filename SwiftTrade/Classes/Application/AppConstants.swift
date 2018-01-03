@@ -35,7 +35,7 @@ class AppConstants: NSObject {
 
     // 仓位
     public enum Postion: Int {
-        case full = 100
+        case full
         case oneHalf
         case oneThird
         case oneFourth

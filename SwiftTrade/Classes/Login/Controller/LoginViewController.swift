@@ -91,8 +91,8 @@ class LoginViewController: BaseViewController {
         accountImageView.image = UIImage(named: "login_account")
         let accountLeftView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 50))
         accountLeftView.addSubview(accountImageView)
-        
-        accountTextField = UITextField(text: nil, textAlignment: .center, textColor: UIColor.white, placeholder: "请输入账号", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 16), leftView: accountLeftView, leftViewMode: .always)
+
+        accountTextField = UITextField(text: nil, textAlignment: .center, textColor: UIColor.white, placeholder: "请输入账号", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 16), leftView: accountLeftView, leftViewMode: .always, rightView: UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 50)), rightViewMode: .always)
         view.addSubview(accountTextField!)
         accountTextField!.snp.makeConstraints { (make) in
             make.left.equalTo(30)
@@ -115,7 +115,7 @@ class LoginViewController: BaseViewController {
         let pwdLeftView = UIView(frame: CGRect(x: 0, y: 15, width: 40, height: 50))
         pwdLeftView.addSubview(pwdImageView)
         
-        pwdTextField = UITextField(text: nil, textAlignment: .center, textColor: UIColor.white, placeholder: "请输入密码", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 16), leftView: pwdLeftView, leftViewMode: .always)
+        pwdTextField = UITextField(text: nil, textAlignment: .center, textColor: UIColor.white, placeholder: "请输入密码", placeholderColor: UIColor.white, font: UIFont.systemFont(ofSize: 16), leftView: pwdLeftView, leftViewMode: .always, rightView: UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 50)), rightViewMode: .always)
         pwdTextField?.isSecureTextEntry = true
         view.addSubview(pwdTextField!)
         pwdTextField!.snp.makeConstraints { (make) in
