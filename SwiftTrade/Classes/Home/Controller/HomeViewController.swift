@@ -43,7 +43,7 @@ class HomeViewController: BaseTableViewController {
         tableView?.tableHeaderView = tableHeaderView
         view.addSubview(tableView!)
 
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "home_news"), style: .plain, target: self, action: #selector(messageBtnClick))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "home_news", target: self, selector: #selector(messageBtnClick))
     }
 
     lazy var markets: [MarketSummaryModel] = {
@@ -97,12 +97,12 @@ extension HomeViewController {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
         let remindAction = UITableViewRowAction(style: .default, title: "提醒") { (action, indexPath) in
-
+            self.navigationController?.pushViewController(RemindSettingViewController(), animated: true)
         }
         remindAction.backgroundColor = AppConstants.grayColor
 
         let buyInAction = UITableViewRowAction(style: .default, title: "买入") { (action, indexPath) in
-
+            self.navigationController?.pushViewController(BuyInViewController(), animated: true)
         }
         buyInAction.backgroundColor = UIColor.orange
 

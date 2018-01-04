@@ -19,7 +19,7 @@ class SellOutViewController: BaseViewController {
     }
     
     override func setupSubViews() {
-
+        self.title = "卖出"
     }
 
 }

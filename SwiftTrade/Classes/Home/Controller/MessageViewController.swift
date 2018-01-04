@@ -49,8 +49,7 @@ class MessageViewController: BaseTableViewController {
         tableView = createTableView(delegate: self, style: .plain, needRefresh: true)
         view.addSubview(tableView!)
 
-        let rightBarBtn = UIButton(title: "清空", titleColor: AppConstants.goldColor, highlightedTitleColor: AppConstants.goldColor, font: UIFont.systemFont(ofSize: 16), target: self, selector: #selector(clearAllMessage))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBarBtn)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "清空", titleColor: AppConstants.goldColor, font: UIFont.systemFont(ofSize: 16), target: self, selector: #selector(clearAllMessage))
     }
 
     fileprivate lazy var messageArray: [MessageModel] = {

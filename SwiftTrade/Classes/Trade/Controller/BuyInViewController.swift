@@ -232,6 +232,7 @@ class BuyInViewController: BaseViewController, StepperViewDelegate {
 
     // MARK: - Getter / Setter
     override func setupSubViews() {
+        self.title = "买入"
         priceType = .limited
 
         view.addSubview(scrollView)

@@ -70,6 +70,7 @@
 		E9F88BC71FF5D50200CFDDFF /* BalanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F88BC61FF5D50200CFDDFF /* BalanceModel.swift */; };
 		E9F88BC91FF6199B00CFDDFF /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F88BC81FF6199B00CFDDFF /* QuoteModel.swift */; };
 		E9F88BCB1FF6303200CFDDFF /* QuoteDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F88BCA1FF6303200CFDDFF /* QuoteDetailModel.swift */; };
+		E9F88BCD1FFDC1FF00CFDDFF /* RemindSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F88BCC1FFDC1FF00CFDDFF /* RemindSettingViewController.swift */; };
 		F23EB85E1FA5839A00F7CCC5 /* BaseServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EB85D1FA5839A00F7CCC5 /* BaseServices.swift */; };
 		F23EB8611FA58A8900F7CCC5 /* LoginServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EB8601FA58A8900F7CCC5 /* LoginServices.swift */; };
 		F23EB8651FA76BE400F7CCC5 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EB8641FA76BE400F7CCC5 /* HomeCell.swift */; };
@@ -149,6 +150,7 @@
 		E9F88BC61FF5D50200CFDDFF /* BalanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceModel.swift; sourceTree = "<group>"; };
 		E9F88BC81FF6199B00CFDDFF /* QuoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
 		E9F88BCA1FF6303200CFDDFF /* QuoteDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailModel.swift; sourceTree = "<group>"; };
+		E9F88BCC1FFDC1FF00CFDDFF /* RemindSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindSettingViewController.swift; sourceTree = "<group>"; };
 		F23EB85D1FA5839A00F7CCC5 /* BaseServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseServices.swift; sourceTree = "<group>"; };
 		F23EB8601FA58A8900F7CCC5 /* LoginServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginServices.swift; sourceTree = "<group>"; };
 		F23EB8641FA76BE400F7CCC5 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 			children = (
 				F2BC641D1F91BBD600E06B16 /* HomeViewController.swift */,
 				E9B4ECAD1FF396BC00CA613C /* MessageViewController.swift */,
+				E9F88BCC1FFDC1FF00CFDDFF /* RemindSettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -830,6 +833,7 @@
 				E9B4ECB51FF4CDF200CA613C /* MessageModel.swift in Sources */,
 				E9E9D2991FE36431002138F7 /* MenuView.swift in Sources */,
 				E95D90531FD636CA00DF115E /* DistrictModel.swift in Sources */,
+				E9F88BCD1FFDC1FF00CFDDFF /* RemindSettingViewController.swift in Sources */,
 				E91EDC491F90694700DA6716 /* UIColor+Extension.swift in Sources */,
 				E9C3D7AB1FCCFF880047222F /* AccountInfoCell.swift in Sources */,
 				E9C3D7DF1FCE4EA50047222F /* NSDate+Extension.swift in Sources */,
