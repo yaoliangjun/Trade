@@ -144,4 +144,10 @@ extension UIView {
             self.height = newValue.height
         }
     }
+
+    // 创建一个UIView(有背景颜色)
+    convenience init(backgroundColor: UIColor?) {
+        self.init()
+        self.backgroundColor = backgroundColor
+    }
 }

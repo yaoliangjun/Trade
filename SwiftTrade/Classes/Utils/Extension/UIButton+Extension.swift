@@ -26,11 +26,27 @@ extension UIButton {
         self.titleLabel?.font = font
     }
 
-    /// 创建一个文字按钮(有背景图片、按下效果)
+    /// 创建一个通用的文字按钮
+    convenience init(title: String, titleColor: UIColor, selectedTitleColor: UIColor?, font: UIFont, target: Any?, selector: Selector?) {
+        self.init(frame: CGRect.zero, target: target, selector: selector)
+        self.setTitle(title, for: .normal)
+        self.setTitleColor(titleColor, for: .normal)
+        self.setTitleColor(selectedTitleColor, for: .selected)
+        self.titleLabel?.font = font
+    }
+
+    /// 创建一个文字按钮(有背景图片、按下高亮效果)
     convenience init(title: String, titleColor: UIColor, highlightedTitleColor: UIColor, font: UIFont, backgroundImage: UIImage?, highlightedBackgroundImage: UIImage?, target: Any, selector: Selector) {
         self.init(title: title, titleColor: titleColor, highlightedTitleColor: highlightedTitleColor, font: font, target: target, selector: selector)
         self.setBackgroundImage(backgroundImage, for: .normal)
         self.setBackgroundImage(highlightedBackgroundImage, for: .highlighted)
+    }
+
+    /// 创建一个文字按钮(有背景图片、按下选中效果)
+    convenience init(title: String, titleColor: UIColor, selectedTitleColor: UIColor, font: UIFont, backgroundImage: UIImage?, selectedBackgroundImage: UIImage?, target: Any, selector: Selector) {
+        self.init(title: title, titleColor: titleColor, selectedTitleColor: selectedTitleColor, font: font, target: target, selector: selector)
+        self.setBackgroundImage(backgroundImage, for: .normal)
+        self.setBackgroundImage(selectedBackgroundImage, for: .selected)
     }
 
     /// 创建一个文字按钮(有背景图片、按下效果、圆角、边框、边框颜色)

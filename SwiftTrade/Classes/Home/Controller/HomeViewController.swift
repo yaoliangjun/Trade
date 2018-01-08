@@ -78,6 +78,10 @@ extension HomeViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        let marketDetailVC = MarketDetailViewController()
+        marketDetailVC.marketSummaryModel = markets[indexPath.section]
+        navigationController?.pushViewController(marketDetailVC, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
