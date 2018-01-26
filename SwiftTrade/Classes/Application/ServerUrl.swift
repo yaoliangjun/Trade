@@ -20,10 +20,10 @@ class ServerUrl: NSObject {
 
     static func baseUrl() -> String {
         if environment == .develop {
-            return "http://47.52.72.135/newton/dev/api"
+            return ""
 
         } else {
-            return "http://47.52.142.113:9070"
+            return ""
         }
     }
     

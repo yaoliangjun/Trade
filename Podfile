@@ -11,8 +11,8 @@ pod 'SnapKit', '~> 3.0.0'     #自动布局
 pod 'Alamofire', '~> 4.5'     #网络请求
 pod 'Kingfisher', '3.13.1'    #图片下载
 pod 'IQKeyboardManagerSwift'
-pod 'MBProgressHUD'
 pod 'SwiftyJSON'
+pod 'MBProgressHUD'
 pod 'MJExtension'
 pod 'MJRefresh'
 
